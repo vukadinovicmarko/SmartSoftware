@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="SmartSoftware.Model.OblastiOpreme">
+    <Position X="13" Y="8.5" Width="3.5" />
+    <TypeIdentifier>
+      <HashCode>AgkACAAEAAAFCAIACZgQICGAAAAEGAAAAQQAAAQAASA=</HashCode>
+      <FileName>Model\OblastiOpreme.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SmartSoftware.Model.Oprema" BaseTypeListCollapsed="true">
+    <Position X="16.75" Y="0.5" Width="4" />
+    <TypeIdentifier>
+      <HashCode>w9EMAgBEAAxAV5ICRdEogi+AaRBqAMUVQW3CjgYNQjE=</HashCode>
+      <FileName>Model\Oprema.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Field Name="listaParametara" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="SmartSoftware.Model.Parametri" BaseTypeListCollapsed="true">
+    <Position X="9" Y="8.5" Width="3.75" />
+    <TypeIdentifier>
+      <HashCode>AAECQAEMBMRCiAwAGwBIABkAQABAwFQQgQRQlAQgCAA=</HashCode>
+      <FileName>Model\Parametri.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SmartSoftware.Model.SmartSoftwareDocument" BaseTypeListCollapsed="true">
+    <Position X="11.5" Y="0.5" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAgAAAAAKAAAAAgAAAAgAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\SmartSoftwareDocument.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="SmartSoftware.Model.SmartSoftwareGlavnaOblast">
+    <Position X="11" Y="3.5" Width="3.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAgAIAAAIBAAAAAQAQAgAAEAAAAAAgAAAAIAAA=</HashCode>
+      <FileName>Model\SmartSoftwareGlavnaOblast.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="SmartSoftware.Model.TipoviOpreme">
+    <Position X="5" Y="0.5" Width="3.75" />
+    <TypeIdentifier>
+      <HashCode>AFsSAABOUABgGBAIAZAQACHAAQgwWEIQgQRQRAQAAEA=</HashCode>
+      <FileName>Model\TipoviOpreme.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

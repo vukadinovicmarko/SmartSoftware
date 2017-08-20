@@ -1,0 +1,567 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="SmartSoftwareBazaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="grupe_ogranicenja">
+    <Key>
+      <PropertyRef Name="Id_grupe_ogranicenja" />
+    </Key>
+    <Property Name="Id_grupe_ogranicenja" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_tip_opreme1" Type="int" Nullable="false" />
+    <Property Name="id_parametra1" Type="int" Nullable="false" />
+    <Property Name="id_tip_opreme2" Type="int" />
+    <Property Name="id_parametra2" Type="int" />
+    <Property Name="tipProvere" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="id_tip_opreme_kolekcije" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="istorija_kupovine">
+    <Key>
+      <PropertyRef Name="id_istorija_kupovine" />
+    </Key>
+    <Property Name="id_istorija_kupovine" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="datum_prodaje" Type="datetime" Nullable="false" />
+    <Property Name="id_prodavca" Type="int" Nullable="false" />
+    <Property Name="id_kupca" Type="int" />
+    <Property Name="ukupna_cena_kupovine" Type="float" Nullable="false" />
+    <Property Name="broj_iskoriscenih_popust_poena" Type="float" />
+  </EntityType>
+  <EntityType Name="istorija_kupovine_oprema">
+    <Key>
+      <PropertyRef Name="id_oprema" />
+      <PropertyRef Name="id_istorija_kupovine" />
+    </Key>
+    <Property Name="id_oprema" Type="int" Nullable="false" />
+    <Property Name="kolicina" Type="int" />
+    <Property Name="cena_opreme_kad_je_prodata" Type="float" />
+    <Property Name="popust_na_cenu" Type="float" />
+    <Property Name="ukupna_cena_artikla" Type="int" />
+    <Property Name="id_istorija_kupovine" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="kolekcija_opreme">
+    <Key>
+      <PropertyRef Name="id_opreme" />
+      <PropertyRef Name="id_deo" />
+    </Key>
+    <Property Name="id_opreme" Type="int" Nullable="false" />
+    <Property Name="id_deo" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="konfiguracija_kolekcije">
+    <Key>
+      <PropertyRef Name="Id_tip_opreme_kolekcije" />
+      <PropertyRef Name="id_tip_opreme_deo_kolekcije" />
+    </Key>
+    <Property Name="Id_tip_opreme_kolekcije" Type="int" Nullable="false" />
+    <Property Name="id_tip_opreme_deo_kolekcije" Type="int" Nullable="false" />
+    <Property Name="redosled_prikazivanja" Type="int" Nullable="false" />
+    <Property Name="moguca_kolicina_unosa" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="korisnici">
+    <Key>
+      <PropertyRef Name="id_korisnici" />
+    </Key>
+    <Property Name="id_korisnici" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ime" Type="varchar" MaxLength="150" />
+    <Property Name="prezime" Type="varchar" MaxLength="150" />
+    <Property Name="mejl" Type="varchar" MaxLength="150" />
+    <Property Name="broj_telefona" Type="varchar" MaxLength="150" />
+    <Property Name="username" Type="varchar" MaxLength="150" />
+    <Property Name="lozinka" Type="varchar" MaxLength="150" />
+    <Property Name="broj_ostvareni_poena" Type="int" Nullable="false" />
+    <Property Name="id_uloge" Type="int" Nullable="false" />
+    <Property Name="deletedField" Type="bit" Nullable="false" />
+    <Property Name="slika_korisnika" Type="text" />
+    <Property Name="pol_korisnika" Type="bit" />
+    <Property Name="datum_kreiranja" Type="datetime" />
+    <Property Name="datum_azuriranja" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Korpa">
+    <Key>
+      <PropertyRef Name="IdKorpa" />
+    </Key>
+    <Property Name="IdKorpa" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="idOprema" Type="int" Nullable="false" />
+    <Property Name="kolicina" Type="int" Nullable="false" />
+    <Property Name="idProdavca" Type="int" />
+  </EntityType>
+  <EntityType Name="narudzbine">
+    <Key>
+      <PropertyRef Name="id_narudzbine" />
+    </Key>
+    <Property Name="id_narudzbine" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="kolicina" Type="int" Nullable="false" />
+    <Property Name="id_oprema" Type="int" Nullable="false" />
+    <Property Name="id_prodavca" Type="int" Nullable="false" />
+    <Property Name="datum_narudzbine" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="oblasti_opreme">
+    <Key>
+      <PropertyRef Name="id_oblasti_opreme" />
+    </Key>
+    <Property Name="id_oblasti_opreme" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="naziv_oblasti_opreme" Type="varchar" MaxLength="250" />
+    <Property Name="picture" Type="varchar" MaxLength="250" />
+    <Property Name="deletedField" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="oprema">
+    <Key>
+      <PropertyRef Name="id_oprema" />
+    </Key>
+    <Property Name="id_oprema" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="proizvodjac" Type="varchar" MaxLength="150" />
+    <Property Name="naslov" Type="varchar" MaxLength="150" />
+    <Property Name="cena" Type="float" Nullable="false" />
+    <Property Name="opis" Type="varchar" MaxLength="150" />
+    <Property Name="model" Type="varchar" MaxLength="150" />
+    <Property Name="id_tip_opreme" Type="int" Nullable="false" />
+    <Property Name="lager" Type="bit" />
+    <Property Name="kolicina_u_rezervi" Type="int" />
+    <Property Name="kolicina_na_lageru" Type="int" />
+    <Property Name="oprema_na_popustu" Type="int" />
+    <Property Name="slika" Type="varchar" MaxLength="150" />
+    <Property Name="deletedField" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="parametarOprema">
+    <Key>
+      <PropertyRef Name="id_parametri" />
+      <PropertyRef Name="id_oprema" />
+    </Key>
+    <Property Name="id_parametri" Type="int" Nullable="false" />
+    <Property Name="id_oprema" Type="int" Nullable="false" />
+    <Property Name="vrednost_parametra" Type="varchar" MaxLength="250" />
+    <Property Name="deletedField" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="parametri">
+    <Key>
+      <PropertyRef Name="id_parametri" />
+    </Key>
+    <Property Name="id_parametri" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="naziv_parametra" Type="varchar" MaxLength="250" />
+    <Property Name="default_vrednost" Type="varchar" MaxLength="250" />
+    <Property Name="id_tip_opreme" Type="int" Nullable="false" />
+    <Property Name="za_filter" Type="bit" Nullable="false" />
+    <Property Name="tipParametra" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="deletedField" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="rezervacije">
+    <Key>
+      <PropertyRef Name="id_rezervacije" />
+    </Key>
+    <Property Name="id_rezervacije" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ime" Type="varchar" MaxLength="150" />
+    <Property Name="datum_rezervacije" Type="datetime" />
+    <Property Name="datum_isteka_rezervacije" Type="datetime" />
+    <Property Name="datum_azuriranja_rezervacije" Type="datetime" />
+    <Property Name="broj_telefona" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="RezervacijeOprema">
+    <Key>
+      <PropertyRef Name="id_oprema" />
+      <PropertyRef Name="id_rezervacije" />
+    </Key>
+    <Property Name="id_oprema" Type="int" Nullable="false" />
+    <Property Name="id_rezervacije" Type="int" Nullable="false" />
+    <Property Name="kolicina_rezervisane_opreme" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tip_opreme">
+    <Key>
+      <PropertyRef Name="id_tip_opreme" />
+    </Key>
+    <Property Name="id_tip_opreme" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="naziv_tipa" Type="varchar" MaxLength="250" />
+    <Property Name="id_oblasti_opreme" Type="int" Nullable="false" />
+    <Property Name="slika_tipa" Type="varchar" MaxLength="150" />
+    <Property Name="deletedField" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="uloge">
+    <Key>
+      <PropertyRef Name="id_uloge" />
+    </Key>
+    <Property Name="id_uloge" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="naziv_uloge" Type="varchar" MaxLength="150" />
+  </EntityType>
+  <Association Name="istorija_kupovine_oprema_oprema_FK">
+    <End Role="oprema" Type="Self.oprema" Multiplicity="1" />
+    <End Role="istorija_kupovine_oprema" Type="Self.istorija_kupovine_oprema" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="oprema">
+        <PropertyRef Name="id_oprema" />
+      </Principal>
+      <Dependent Role="istorija_kupovine_oprema">
+        <PropertyRef Name="id_oprema" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="narudzbine_oprema_FK">
+    <End Role="oprema" Type="Self.oprema" Multiplicity="1" />
+    <End Role="narudzbine" Type="Self.narudzbine" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="oprema">
+        <PropertyRef Name="id_oprema" />
+      </Principal>
+      <Dependent Role="narudzbine">
+        <PropertyRef Name="id_oprema" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="parametarOprema_oprema_FK">
+    <End Role="oprema" Type="Self.oprema" Multiplicity="1" />
+    <End Role="parametarOprema" Type="Self.parametarOprema" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="oprema">
+        <PropertyRef Name="id_oprema" />
+      </Principal>
+      <Dependent Role="parametarOprema">
+        <PropertyRef Name="id_oprema" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="parametarOprema_parametri_FK">
+    <End Role="parametri" Type="Self.parametri" Multiplicity="1" />
+    <End Role="parametarOprema" Type="Self.parametarOprema" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="parametri">
+        <PropertyRef Name="id_parametri" />
+      </Principal>
+      <Dependent Role="parametarOprema">
+        <PropertyRef Name="id_parametri" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="parametri_tip_opreme_FK">
+    <End Role="tip_opreme" Type="Self.tip_opreme" Multiplicity="1" />
+    <End Role="parametri" Type="Self.parametri" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tip_opreme">
+        <PropertyRef Name="id_tip_opreme" />
+      </Principal>
+      <Dependent Role="parametri">
+        <PropertyRef Name="id_tip_opreme" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="AzurirajBrojPoena" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idKorisnika" Type="int" Mode="In" />
+    <Parameter Name="izabranaKolicinaPoena" Type="int" Mode="In" />
+    <Parameter Name="datum_azuriranja" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="AzurirajKorpu" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idOprema" Type="int" Mode="In" />
+    <Parameter Name="kolicina" Type="int" Mode="In" />
+    <Parameter Name="idProdavca" Type="int" Mode="In" />
+  </Function>
+  <Function Name="AzurirajRezervacije" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idOprema" Type="int" Mode="In" />
+    <Parameter Name="kolicina" Type="int" Mode="In" />
+    <Parameter Name="idRezervacije" Type="int" Mode="In" />
+    <Parameter Name="datumIstekaRezervacije" Type="datetime" Mode="In" />
+    <Parameter Name="datumAzuriranjaRezervacije" Type="datetime" Mode="In" />
+    <Parameter Name="broj_telefona" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="DeletePojedinacnoRezervacijeOprema" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idOprema" Type="int" Mode="In" />
+    <Parameter Name="idRezervacije" Type="int" Mode="In" />
+    <Parameter Name="kolicina" Type="int" Mode="In" />
+  </Function>
+  <Function Name="DodajKorisnika" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ime" Type="varchar" Mode="In" />
+    <Parameter Name="prezime" Type="varchar" Mode="In" />
+    <Parameter Name="mejl" Type="varchar" Mode="In" />
+    <Parameter Name="broj_telefona" Type="varchar" Mode="In" />
+    <Parameter Name="idUloge" Type="int" Mode="In" />
+    <Parameter Name="datum_kreiranja" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="DodajRezervacije" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ime" Type="varchar" Mode="In" />
+    <Parameter Name="datum_rezervacije" Type="datetime" Mode="In" />
+    <Parameter Name="datum_isteka_rezervacije" Type="datetime" Mode="In" />
+    <Parameter Name="broj_telefona" Type="varchar" Mode="In" />
+    <Parameter Name="idRezervacije" Type="int" Mode="InOut" />
+  </Function>
+  <Function Name="DodajUIstorijuKupovine" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id_istorija_kupovine" Type="int" Mode="InOut" />
+    <Parameter Name="datum_prodaje" Type="datetime" Mode="In" />
+    <Parameter Name="id_prodavca" Type="int" Mode="In" />
+    <Parameter Name="id_kupca" Type="int" Mode="In" />
+    <Parameter Name="ukupna_cena_kupovine" Type="float" Mode="In" />
+    <Parameter Name="broj_iskoriscenih_popust_poena" Type="float" Mode="In" />
+  </Function>
+  <Function Name="DodajUIstorijuKupovineOprema" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id_oprema" Type="int" Mode="In" />
+    <Parameter Name="kolicina" Type="int" Mode="In" />
+    <Parameter Name="cena_opreme_kad_je_prodata" Type="float" Mode="In" />
+    <Parameter Name="popust_na_cenu" Type="float" Mode="In" />
+    <Parameter Name="ukupna_cena_artikla" Type="int" Mode="In" />
+    <Parameter Name="id_istorija_kupovine" Type="int" Mode="In" />
+  </Function>
+  <Function Name="DodajUKorpu" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idOprema" Type="int" Mode="In" />
+    <Parameter Name="kolicina" Type="int" Mode="In" />
+    <Parameter Name="idProdavca" Type="int" Mode="In" />
+  </Function>
+  <Function Name="DodajUKorpuIzRezervacije" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idOprema" Type="int" Mode="In" />
+    <Parameter Name="kolicina" Type="int" Mode="In" />
+    <Parameter Name="idProdavca" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GrupeOgranicenjaInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idTipOpreme1" Type="int" Mode="In" />
+    <Parameter Name="idTipOpreme2" Type="int" Mode="In" />
+    <Parameter Name="idParametra1" Type="int" Mode="In" />
+    <Parameter Name="idParametra2" Type="int" Mode="In" />
+    <Parameter Name="idTipOpremeKolekcije" Type="int" Mode="In" />
+    <Parameter Name="tipProvere" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="InsertRezervacijeOprema" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idOprema" Type="int" Mode="In" />
+    <Parameter Name="idRezervacije" Type="int" Mode="In" />
+    <Parameter Name="kolicina" Type="int" Mode="In" />
+  </Function>
+  <Function Name="IstorijaKupovineKupciInitPrikaz" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="IstorijaKupovineKupciKojiNajviseKupuju" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ASC" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="IstorijaKupovineNajcesciKupci" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ASC" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="IstorijaKupovineNajprodavanijaOprema" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ASC" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="IstorijaKupovinePotrosnjaKupaca" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ASC" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="IstorijaKupovineUkupnoProdanoOpremeDanas" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="datumDanas" Type="datetime" Mode="In" />
+    <Parameter Name="datumSutra" Type="datetime" Mode="In" />
+    <Parameter Name="brojProdateOpremeDanas" Type="int" Mode="InOut" />
+  </Function>
+  <Function Name="IstorijaKupovineUkupnoZaradjeno" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ukupnoZaradjeno" Type="float" Mode="InOut" />
+  </Function>
+  <Function Name="IstorijaKupovineZaradjenoDanas" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="datumDanas" Type="datetime" Mode="In" />
+    <Parameter Name="datumSutra" Type="datetime" Mode="In" />
+    <Parameter Name="ukupnoZaradjeno" Type="float" Mode="InOut" />
+  </Function>
+  <Function Name="IzbrisiOpremuIzRezervacije" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idRezervacije" Type="int" Mode="In" />
+    <Parameter Name="idOprema" Type="int" Mode="In" />
+  </Function>
+  <Function Name="IzbrisiRezervaciju" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idRezervacije" Type="int" Mode="In" />
+  </Function>
+  <Function Name="IzbrisiRezervacijuZaStavljanjeUkorpu" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idRezervacije" Type="int" Mode="In" />
+  </Function>
+  <Function Name="KolekcijaOpremeInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idOpreme" Type="int" Mode="In" />
+    <Parameter Name="idDeo" Type="int" Mode="In" />
+  </Function>
+  <Function Name="KonfigurcijaKolekcijeInsertUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idTipOpremeKolekcije" Type="int" Mode="In" />
+    <Parameter Name="idTipOpremeDeoKolekcije" Type="int" Mode="In" />
+    <Parameter Name="redosledPrikazivanja" Type="int" Mode="In" />
+    <Parameter Name="izabranZaKonfiguraciju" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="KorisniciDelete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idKorisnika" Type="int" Mode="In" />
+  </Function>
+  <Function Name="NarudzbineDelete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idNarudzbine" Type="int" Mode="In" />
+  </Function>
+  <Function Name="NarudzbineInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idOpreme" Type="int" Mode="In" />
+    <Parameter Name="kolicina" Type="int" Mode="In" />
+    <Parameter Name="idProdavca" Type="int" Mode="In" />
+    <Parameter Name="datumNarudzbine" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="NarudzbinePrihvati" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idNarudzbine" Type="int" Mode="In" />
+    <Parameter Name="idOprema" Type="int" Mode="In" />
+    <Parameter Name="kolicina" Type="int" Mode="In" />
+  </Function>
+  <Function Name="OblastiOpremeInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="nazivOblasti" Type="nvarchar" Mode="In" />
+    <Parameter Name="slika" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="OblastiOpremeUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idOblasti" Type="int" Mode="In" />
+    <Parameter Name="naziv" Type="nvarchar" Mode="In" />
+    <Parameter Name="slika" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="ObrisiCeluKorpu" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idProdavca" Type="int" Mode="In" />
+  </Function>
+  <Function Name="ObrisiOblastOpreme" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id_oblasti_opreme" Type="int" Mode="In" />
+  </Function>
+  <Function Name="ObrisiOpremuIzKorpe" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idOpreme" Type="int" Mode="In" />
+    <Parameter Name="idProdavca" Type="int" Mode="In" />
+  </Function>
+  <Function Name="ObrisiOpremuIzRezervacije" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idRezervacije" Type="int" Mode="In" />
+  </Function>
+  <Function Name="ObrisiSveRezervacije" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="OpremaDelete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idOpreme" Type="int" Mode="In" />
+  </Function>
+  <Function Name="OpremaInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idOpreme" Type="int" Mode="InOut" />
+    <Parameter Name="proizvodjac" Type="varchar" Mode="In" />
+    <Parameter Name="naslov" Type="varchar" Mode="In" />
+    <Parameter Name="cena" Type="float" Mode="In" />
+    <Parameter Name="opis" Type="varchar" Mode="In" />
+    <Parameter Name="model" Type="varchar" Mode="In" />
+    <Parameter Name="lager" Type="bit" Mode="In" />
+    <Parameter Name="kolicina_u_rezervi" Type="int" Mode="In" />
+    <Parameter Name="kolicina_na_lageru" Type="int" Mode="In" />
+    <Parameter Name="oprema_na_popustu" Type="int" Mode="In" />
+    <Parameter Name="slika" Type="varchar" Mode="In" />
+    <Parameter Name="idTipOpreme" Type="int" Mode="In" />
+  </Function>
+  <Function Name="OpremaSkiniSaLagera" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idOpreme" Type="int" Mode="In" />
+  </Function>
+  <Function Name="OpremaUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="proizvodjac" Type="varchar" Mode="In" />
+    <Parameter Name="naslov" Type="varchar" Mode="In" />
+    <Parameter Name="cena" Type="float" Mode="In" />
+    <Parameter Name="opis" Type="varchar" Mode="In" />
+    <Parameter Name="model" Type="varchar" Mode="In" />
+    <Parameter Name="lager" Type="bit" Mode="In" />
+    <Parameter Name="kolicina_u_rezervi" Type="int" Mode="In" />
+    <Parameter Name="kolicina_na_lageru" Type="int" Mode="In" />
+    <Parameter Name="oprema_na_popustu" Type="int" Mode="In" />
+    <Parameter Name="slika" Type="varchar" Mode="In" />
+    <Parameter Name="idOpreme" Type="int" Mode="In" />
+  </Function>
+  <Function Name="ParametriDelete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idParametra" Type="int" Mode="In" />
+  </Function>
+  <Function Name="ParametriInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="nazivParametra" Type="nvarchar" Mode="In" />
+    <Parameter Name="defaultVrednost" Type="nvarchar" Mode="In" />
+    <Parameter Name="idTipOpreme" Type="int" Mode="In" />
+    <Parameter Name="zaFilter" Type="bit" Mode="In" />
+    <Parameter Name="tipParametra" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="ParametriUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idParametra" Type="int" Mode="In" />
+    <Parameter Name="nazivParametra" Type="nvarchar" Mode="In" />
+    <Parameter Name="defaultVrednost" Type="nvarchar" Mode="In" />
+    <Parameter Name="idTipOpreme" Type="int" Mode="In" />
+    <Parameter Name="zaFilter" Type="bit" Mode="In" />
+    <Parameter Name="tipParametra" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="RestoreIzbrisanaOblastOpreme" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idOblastiOpreme" Type="int" Mode="In" />
+  </Function>
+  <Function Name="RestoreIzbrisanaOprema" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idOpreme" Type="int" Mode="In" />
+  </Function>
+  <Function Name="RestoreIzbrisaneOpreme" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="RestoreIzbrisaniParametri" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="RestoreIzbrisaniTipoviOpreme" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idOblastiOpreme" Type="int" Mode="In" />
+  </Function>
+  <Function Name="RestoreIzbrisanKorisnik" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idKorisnik" Type="int" Mode="In" />
+  </Function>
+  <Function Name="RestoreIzbrisanParametar" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idParametar" Type="int" Mode="In" />
+  </Function>
+  <Function Name="RestoreIzbrisanParametarOprema" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idOpreme" Type="int" Mode="In" />
+  </Function>
+  <Function Name="RestoreIzbrisanTipOpreme" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idTipOpreme" Type="int" Mode="In" />
+  </Function>
+  <Function Name="TipoviOpremeDelete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id_tipa" Type="int" Mode="In" />
+  </Function>
+  <Function Name="TipoviOpremeInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="naziv_tipa" Type="varchar" Mode="In" />
+    <Parameter Name="id_oblasti_opreme" Type="int" Mode="In" />
+    <Parameter Name="slika_tipa" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="TipoviOpremeUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id_tip_opreme" Type="int" Mode="In" />
+    <Parameter Name="naziv_tipa" Type="varchar" Mode="In" />
+    <Parameter Name="id_oblasti_opreme" Type="int" Mode="In" />
+    <Parameter Name="slika_tipa" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="UpdateVrednostParametra" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="vrednost_parametra" Type="varchar" Mode="In" />
+    <Parameter Name="idParametra" Type="int" Mode="In" />
+    <Parameter Name="idOpreme" Type="int" Mode="In" />
+  </Function>
+  <Function Name="VrednostiParametra" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idParametra" Type="int" Mode="In" />
+  </Function>
+  <Function Name="VrednostiParametraGlavniProzor" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idParametra" Type="int" Mode="In" />
+  </Function>
+  <Function Name="ZaposleniKorisniciInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ime" Type="varchar" Mode="In" />
+    <Parameter Name="prezime" Type="varchar" Mode="In" />
+    <Parameter Name="mejl" Type="varchar" Mode="In" />
+    <Parameter Name="broj_telefona" Type="varchar" Mode="In" />
+    <Parameter Name="username" Type="varchar" Mode="In" />
+    <Parameter Name="lozinka" Type="varchar" Mode="In" />
+    <Parameter Name="broj_ostvareni_poena" Type="int" Mode="In" />
+    <Parameter Name="pol_korisnika" Type="bit" Mode="In" />
+    <Parameter Name="putanja_do_slike" Type="text" Mode="In" />
+    <Parameter Name="idUloge" Type="int" Mode="In" />
+    <Parameter Name="datum_kreiranja" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="ZaposleniKorisniciUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idKorisnika" Type="int" Mode="In" />
+    <Parameter Name="ime" Type="varchar" Mode="In" />
+    <Parameter Name="prezime" Type="varchar" Mode="In" />
+    <Parameter Name="mejl" Type="varchar" Mode="In" />
+    <Parameter Name="broj_telefona" Type="varchar" Mode="In" />
+    <Parameter Name="username" Type="varchar" Mode="In" />
+    <Parameter Name="lozinka" Type="varchar" Mode="In" />
+    <Parameter Name="broj_ostvareni_poena" Type="int" Mode="In" />
+    <Parameter Name="pol_korisnika" Type="bit" Mode="In" />
+    <Parameter Name="slika_korisnika" Type="text" Mode="In" />
+    <Parameter Name="idUloge" Type="int" Mode="In" />
+    <Parameter Name="datum_azuriranja" Type="datetime" Mode="In" />
+  </Function>
+  <EntityContainer Name="SmartSoftwareBazaModelStoreContainer">
+    <EntitySet Name="grupe_ogranicenja" EntityType="Self.grupe_ogranicenja" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="istorija_kupovine" EntityType="Self.istorija_kupovine" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="istorija_kupovine_oprema" EntityType="Self.istorija_kupovine_oprema" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="kolekcija_opreme" EntityType="Self.kolekcija_opreme" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="konfiguracija_kolekcije" EntityType="Self.konfiguracija_kolekcije" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="korisnici" EntityType="Self.korisnici" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Korpa" EntityType="Self.Korpa" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="narudzbine" EntityType="Self.narudzbine" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="oblasti_opreme" EntityType="Self.oblasti_opreme" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="oprema" EntityType="Self.oprema" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="parametarOprema" EntityType="Self.parametarOprema" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="parametri" EntityType="Self.parametri" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="rezervacije" EntityType="Self.rezervacije" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RezervacijeOprema" EntityType="Self.RezervacijeOprema" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tip_opreme" EntityType="Self.tip_opreme" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="uloge" EntityType="Self.uloge" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="istorija_kupovine_oprema_oprema_FK" Association="Self.istorija_kupovine_oprema_oprema_FK">
+      <End Role="oprema" EntitySet="oprema" />
+      <End Role="istorija_kupovine_oprema" EntitySet="istorija_kupovine_oprema" />
+    </AssociationSet>
+    <AssociationSet Name="narudzbine_oprema_FK" Association="Self.narudzbine_oprema_FK">
+      <End Role="oprema" EntitySet="oprema" />
+      <End Role="narudzbine" EntitySet="narudzbine" />
+    </AssociationSet>
+    <AssociationSet Name="parametarOprema_oprema_FK" Association="Self.parametarOprema_oprema_FK">
+      <End Role="oprema" EntitySet="oprema" />
+      <End Role="parametarOprema" EntitySet="parametarOprema" />
+    </AssociationSet>
+    <AssociationSet Name="parametarOprema_parametri_FK" Association="Self.parametarOprema_parametri_FK">
+      <End Role="parametri" EntitySet="parametri" />
+      <End Role="parametarOprema" EntitySet="parametarOprema" />
+    </AssociationSet>
+    <AssociationSet Name="parametri_tip_opreme_FK" Association="Self.parametri_tip_opreme_FK">
+      <End Role="tip_opreme" EntitySet="tip_opreme" />
+      <End Role="parametri" EntitySet="parametri" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

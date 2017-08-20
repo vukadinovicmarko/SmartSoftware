@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="f8873f78d5274baeaac5d921df9f9444" Name="Diagram1">
+        <EntityTypeShape EntityType="SmartSoftwareBazaModel.parametarOprema" Width="1.5" PointX="10.5" PointY="8.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="SmartSoftwareBazaModel.uloge" Width="1.5" PointX="0.5" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SmartSoftwareBazaModel.parametri" Width="1.5" PointX="5.25" PointY="10.125" />
+        <AssociationConnector Association="SmartSoftwareBazaModel.parametarOprema_parametri_FK" />
+        <EntityTypeShape EntityType="SmartSoftwareBazaModel.Korpa" Width="1.5" PointX="0.75" PointY="3.75" />
+        <EntityTypeShape EntityType="SmartSoftwareBazaModel.rezervacije" Width="1.5" PointX="7.75" PointY="8.75" />
+        <EntityTypeShape EntityType="SmartSoftwareBazaModel.RezervacijeOprema" Width="1.5" PointX="0.75" PointY="10.75" />
+        <EntityTypeShape EntityType="SmartSoftwareBazaModel.tip_opreme" Width="1.5" PointX="3" PointY="7.125" />
+        <AssociationConnector Association="SmartSoftwareBazaModel.parametri_tip_opreme_FK" />
+        <EntityTypeShape EntityType="SmartSoftwareBazaModel.oblasti_opreme" Width="1.5" PointX="0.75" PointY="7.375" />
+        <AssociationConnector Association="SmartSoftwareBazaModel.tip_opreme_oblasti_opreme_FK" />
+        <EntityTypeShape EntityType="SmartSoftwareBazaModel.korisnici" Width="1.5" PointX="10.375" PointY="3.75" />
+        <EntityTypeShape EntityType="SmartSoftwareBazaModel.istorija_kupovine" Width="1.5" PointX="3.375" PointY="0.75" />
+        <EntityTypeShape EntityType="SmartSoftwareBazaModel.istorija_kupovine_oprema" Width="1.5" PointX="7.5" PointY="2.125" />
+        <EntityTypeShape EntityType="SmartSoftwareBazaModel.narudzbine" Width="1.5" PointX="7.5" PointY="5.25" />
+        <EntityTypeShape EntityType="SmartSoftwareBazaModel.kolekcija_opreme" Width="1.5" PointX="10.375" PointY="0.75" />
+        <EntityTypeShape EntityType="SmartSoftwareBazaModel.oprema" Width="1.5" PointX="5.25" PointY="4.125" />
+        <AssociationConnector Association="SmartSoftwareBazaModel.istorija_kupovine_oprema_oprema_FK" />
+        <AssociationConnector Association="SmartSoftwareBazaModel.narudzbine_oprema_FK" />
+        <AssociationConnector Association="SmartSoftwareBazaModel.parametarOprema_oprema_FK" />
+        <EntityTypeShape EntityType="SmartSoftwareBazaModel.grupe_ogranicenja" Width="1.5" PointX="7.375" PointY="11.75" />
+        <EntityTypeShape EntityType="SmartSoftwareBazaModel.konfiguracija_kolekcije" Width="1.5" PointX="9.375" PointY="11.75" />
+        </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

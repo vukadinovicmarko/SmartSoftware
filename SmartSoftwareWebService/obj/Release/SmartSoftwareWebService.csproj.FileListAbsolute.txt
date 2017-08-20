@@ -1,0 +1,6 @@
+F:\Marko\Trenutno\Documents\Visual Studio 2013\Projects\SmartSoftware\SmartSoftwareWebService\bin\SmartSoftwareWebService.dll.config
+F:\Marko\Trenutno\Documents\Visual Studio 2013\Projects\SmartSoftware\SmartSoftwareWebService\bin\SmartSoftwareWebService.dll
+F:\Marko\Trenutno\Documents\Visual Studio 2013\Projects\SmartSoftware\SmartSoftwareWebService\bin\SmartSoftwareWebService.pdb
+F:\Marko\Trenutno\Documents\Visual Studio 2013\Projects\SmartSoftware\SmartSoftwareWebService\obj\Release\SmartSoftwareWebService.dll
+F:\Marko\Trenutno\Documents\Visual Studio 2013\Projects\SmartSoftware\SmartSoftwareWebService\obj\Release\SmartSoftwareWebService.pdb
+F:\Marko\Trenutno\Documents\Visual Studio 2013\Projects\SmartSoftware\SmartSoftwareWebService\obj\Release\SmartSoftwareWebService.csprojResolveAssemblyReference.cache

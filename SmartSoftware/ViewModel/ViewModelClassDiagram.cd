@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="SmartSoftware.ViewModel.ViewModelUtility" Collapsed="true">
+    <Position X="16.75" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModel\ViewModelUtility.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SmartSoftware.ViewModel.TipoviOpremeVM" Collapsed="true">
+    <Position X="12.75" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModel\TipoviOpremeVM.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SmartSoftware.ViewModel.OblastiOpremeVM" Collapsed="true">
+    <Position X="10.75" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAACAAAAAgAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModel\OblastiOpremeVM.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SmartSoftware.ViewModel.SmartSoftwareDocumentManagerVM" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="16.75" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAgAAAAAIAAAAAAAAAAgAAIAAgACAgAAAAoAAA=</HashCode>
+      <FileName>ViewModel\SmartSoftwareDocumentManagerVM.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="SmartSoftware.ViewModel.SmartSoftwareDocumentVM" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="18.5" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAAAAAgAAAAAIAAACAAEAIAgAAAAAACAAgAAACAAAA=</HashCode>
+      <FileName>ViewModel\SmartSoftwareDocumentVM.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="SmartSoftware.ViewModel.SmartSoftwareGlavnaOblastVM" Collapsed="true">
+    <Position X="12" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAgAAAAAIAAAAAAAAAAgAAAAAAAAAgAAAAAIAA=</HashCode>
+      <FileName>ViewModel\SmartSoftwareGlavnaOblastVM.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="SmartSoftware.ViewModel.OpremaVM" Collapsed="true">
+    <Position X="15" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModel\OpremaVM.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="SmartSoftware.IViewModel&lt;T&gt;" Collapsed="true">
+    <Position X="8.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAA=</HashCode>
+      <FileName>IViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

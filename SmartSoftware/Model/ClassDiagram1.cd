@@ -1,0 +1,127 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="SmartSoftware.Model.OblastiOpreme" Collapsed="true">
+    <Position X="0.5" Y="1.5" Width="2" />
+    <AssociationLine Name="items" Type="SmartSoftware.Model.SmartSoftwareGlavnaOblast">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.1" Y="0.018" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AgkACAAEAAAFCAIACZgQICGAAAAEGAAAAQQAAAQAASA=</HashCode>
+      <FileName>Model\OblastiOpreme.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Field Name="items" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="SmartSoftware.Model.Oprema" Collapsed="true">
+    <Position X="0.5" Y="6" Width="2" />
+    <TypeIdentifier>
+      <HashCode>w9EMAgBEAAxAV5ICRdEogi+AaRBqAMUVQW3CjgYNQjE=</HashCode>
+      <FileName>Model\Oprema.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SmartSoftware.Model.KupljenaOprema" Collapsed="true">
+    <Position X="0.5" Y="4.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AgAAAQIAAAAAIAAAAACAAAAAiAAAIAgAAAEAAAAAAAA=</HashCode>
+      <FileName>Model\Oprema.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SmartSoftware.Model.Narudzbina" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="7" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQAgAggAIAAIAAAAAAAAAAgAAAAAAACAAAIAgAECI=</HashCode>
+      <FileName>Model\Oprema.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="SmartSoftware.Model.GrupaOgranicenja" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="7" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAgAgCBAIIAAUgAAACAgAAAAEggAABJIIAAJQA=</HashCode>
+      <FileName>Model\Oprema.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="SmartSoftware.Model.Parametri" Collapsed="true">
+    <Position X="0.5" Y="7" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAECQAEMBMRCiAwAGwBIABkAQABAwFQQgQRQlAQgCAA=</HashCode>
+      <FileName>Model\Parametri.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SmartSoftware.Model.VrednostiFiltera" Collapsed="true">
+    <Position X="7" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAACAIQAAACAAAAgAAAAAAAAAA=</HashCode>
+      <FileName>Model\Parametri.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SmartSoftware.Model.Rezervacije" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="1.25" Y="13.25" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAQAAkA0AAICEIAAAAAAAAAAgMAIAAEEDAABAAAAAAA=</HashCode>
+      <FileName>Model\Rezervacije.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="SmartSoftware.Model.SmartSoftwareDocument" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="0.5" Y="0.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAgAAAAAKAAAAAgAAAAgAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\SmartSoftwareDocument.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Root" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="SmartSoftware.Model.SmartSoftwareGlavnaOblast" Collapsed="true">
+    <Position X="4.25" Y="4" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAgAIAAAIBAAAAAQAQAgAAEAAAAAAgAAAAIAAA=</HashCode>
+      <FileName>Model\SmartSoftwareGlavnaOblast.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="1.054" />
+  </Class>
+  <Class Name="SmartSoftware.Model.TipoviOpreme" Collapsed="true">
+    <Position X="0.5" Y="3.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AFsSAABOUABgGBAIAZAQACHAAQgwWEIQgQRQRAQAAEA=</HashCode>
+      <FileName>Model\TipoviOpreme.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SmartSoftware.Model.TipoviKofiguracije" Collapsed="true">
+    <Position X="0.5" Y="2.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AQAEAAEAAAQAAAgEAAAAAACAAAAAiAAAAAAAAAAALAA=</HashCode>
+      <FileName>Model\TipoviOpreme.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SmartSoftware.Model.IstorijaKupovine" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="7" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAIgBkAgAAAIICAEAAAgBAgAAAAAEAAAABAAAARCI=</HashCode>
+      <FileName>Model\IstorijaKupovine.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="SmartSoftware.Model.Korisnici" Collapsed="true">
+    <Position X="7" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgEAASAkBgE1AqIAVTcgDA2ko+AEACkBFQwMBBUMADQ=</HashCode>
+      <FileName>Model\Korisnici.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="SmartSoftware.Model.Kupci" Collapsed="true">
+    <Position X="7" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAAIAAAABAAAAAAAQAAAAAAAAgAAAAIAAAAAA=</HashCode>
+      <FileName>Model\Korisnici.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

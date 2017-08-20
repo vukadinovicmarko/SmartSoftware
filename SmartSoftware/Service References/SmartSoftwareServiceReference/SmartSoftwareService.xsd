@@ -1,0 +1,368 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/SmartSoftwareWebService.BiznisSloj" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/SmartSoftwareWebService.BiznisSloj" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:55897/SmartSoftwareService.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:complexType name="DbItemRezervacijeDeleteIUpdate">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:DbItemOprema">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ListaOpremeZaRezervaciju" nillable="true" type="tns:ArrayOfDbItemOprema" />
+          <xs:element minOccurs="0" name="id_rezervacije" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DbItemRezervacijeDeleteIUpdate" nillable="true" type="tns:DbItemRezervacijeDeleteIUpdate" />
+  <xs:complexType name="DbItemOprema">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DeletedField" type="xs:boolean" />
+      <xs:element minOccurs="0" name="cena" type="xs:double" />
+      <xs:element minOccurs="0" name="id_oprema" type="xs:int" />
+      <xs:element minOccurs="0" name="id_tip_opreme" type="xs:int" />
+      <xs:element minOccurs="0" name="kolicinaUKorpi" type="xs:int" />
+      <xs:element minOccurs="0" name="kolicinaURezervacijama" type="xs:int" />
+      <xs:element minOccurs="0" name="kolicina_na_lageru" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="kolicina_rezervisane_opreme" type="xs:int" />
+      <xs:element minOccurs="0" name="kolicina_u_rezervi" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="lager" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="model" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="naslov" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="opis" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="oprema_na_popustu" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="proizvodjac" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="slika" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="slikaOriginalPutanja" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="zaPretragu" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DbItemOprema" nillable="true" type="tns:DbItemOprema" />
+  <xs:complexType name="ArrayOfDbItemOprema">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DbItemOprema" nillable="true" type="tns:DbItemOprema" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDbItemOprema" nillable="true" type="tns:ArrayOfDbItemOprema" />
+  <xs:complexType name="ArrayOfDbItemRezervacijeSelect">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DbItemRezervacijeSelect" nillable="true" type="tns:DbItemRezervacijeSelect" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDbItemRezervacijeSelect" nillable="true" type="tns:ArrayOfDbItemRezervacijeSelect" />
+  <xs:complexType name="DbItemRezervacijeSelect">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:DbItemOpremaSaParametrima">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ListaOpremeZaRezervaciju" nillable="true" type="tns:ArrayOfDbItemOpremaSaParametrima" />
+          <xs:element minOccurs="0" name="brojTelefona" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="datum_azuriranja_rezervacije" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="datum_isteka_rezervacije" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="datum_rezervacije" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="id_Prodavca" type="xs:int" />
+          <xs:element minOccurs="0" name="id_rezervacije" type="xs:int" />
+          <xs:element minOccurs="0" name="imeNaRezervacija" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DbItemRezervacijeSelect" nillable="true" type="tns:DbItemRezervacijeSelect" />
+  <xs:complexType name="DbItemOpremaSaParametrima">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DeletedField" type="xs:boolean" />
+      <xs:element minOccurs="0" name="ListaParametara" nillable="true" type="tns:ArrayOfDbItemParametri" />
+      <xs:element minOccurs="0" name="cena" type="xs:double" />
+      <xs:element minOccurs="0" name="idProdavca" type="xs:int" />
+      <xs:element minOccurs="0" name="id_oprema" type="xs:int" />
+      <xs:element minOccurs="0" name="id_tip_opreme" type="xs:int" />
+      <xs:element minOccurs="0" name="kolicinaUKorpi" type="xs:int" />
+      <xs:element minOccurs="0" name="kolicinaURezervacijama" type="xs:int" />
+      <xs:element minOccurs="0" name="kolicina_na_lageru" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="kolicina_rezervisane_opreme" type="xs:int" />
+      <xs:element minOccurs="0" name="kolicina_u_rezervi" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="lager" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="model" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="naslov" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="opis" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="oprema_na_popustu" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="proizvodjac" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="slika" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="slikaOriginalPutanja" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="zaPretragu" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DbItemOpremaSaParametrima" nillable="true" type="tns:DbItemOpremaSaParametrima" />
+  <xs:complexType name="ArrayOfDbItemParametri">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DbItemParametri" nillable="true" type="tns:DbItemParametri" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDbItemParametri" nillable="true" type="tns:ArrayOfDbItemParametri" />
+  <xs:complexType name="DbItemParametri">
+    <xs:sequence>
+      <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ListaVrednostiZaFiltere" nillable="true" type="q1:ArrayOfstring" />
+      <xs:element minOccurs="0" name="default_vrednost" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="deletedField" type="xs:boolean" />
+      <xs:element minOccurs="0" name="id_parametri" type="xs:int" />
+      <xs:element minOccurs="0" name="id_tip_opreme" type="xs:int" />
+      <xs:element minOccurs="0" name="naziv_parametra" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="tipParametra" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="vrednost_parametra" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="za_filter" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DbItemParametri" nillable="true" type="tns:DbItemParametri" />
+  <xs:complexType name="ArrayOfDbItemOpremaSaParametrima">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DbItemOpremaSaParametrima" nillable="true" type="tns:DbItemOpremaSaParametrima" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDbItemOpremaSaParametrima" nillable="true" type="tns:ArrayOfDbItemOpremaSaParametrima" />
+  <xs:complexType name="DbItemOblastiOpreme">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DeletedField" type="xs:boolean" />
+      <xs:element minOccurs="0" name="SlikaOriginalPutanja" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ZaPretragu" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="id_oblasti_opreme" type="xs:int" />
+      <xs:element minOccurs="0" name="naziv_oblasti_opreme" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="picture" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DbItemOblastiOpreme" nillable="true" type="tns:DbItemOblastiOpreme" />
+  <xs:complexType name="ArrayOfDbItemOblastiOpreme">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DbItemOblastiOpreme" nillable="true" type="tns:DbItemOblastiOpreme" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDbItemOblastiOpreme" nillable="true" type="tns:ArrayOfDbItemOblastiOpreme" />
+  <xs:complexType name="ArrayOfDbItemNarudzbine">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DbItemNarudzbine" nillable="true" type="tns:DbItemNarudzbine" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDbItemNarudzbine" nillable="true" type="tns:ArrayOfDbItemNarudzbine" />
+  <xs:complexType name="DbItemNarudzbine">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="datum_narudzbine" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="id_narudzbine" type="xs:int" />
+      <xs:element minOccurs="0" name="id_oprema" type="xs:int" />
+      <xs:element minOccurs="0" name="id_prodavca" type="xs:int" />
+      <xs:element minOccurs="0" name="kolicina" type="xs:int" />
+      <xs:element minOccurs="0" name="narucenaOprema" nillable="true" type="tns:DbItemOpremaSaParametrima" />
+      <xs:element minOccurs="0" name="prodavac" nillable="true" type="tns:DbItemKorisnici" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DbItemNarudzbine" nillable="true" type="tns:DbItemNarudzbine" />
+  <xs:complexType name="DbItemKorisnici">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="brojKupovina" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="brojOstvarenihPoena" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="broj_telefona" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="datumAzuriranja" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="datumKreiranja" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="deletedField" type="xs:boolean" />
+      <xs:element minOccurs="0" name="id_korisnici" type="xs:int" />
+      <xs:element minOccurs="0" name="id_uloge" type="xs:int" />
+      <xs:element minOccurs="0" name="ime" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="lozinka" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="mejl" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="naziv_uloge" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="polKorisnika" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="prezime" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="slikaKorisnika" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="username" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="zaPretragu" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DbItemKorisnici" nillable="true" type="tns:DbItemKorisnici" />
+  <xs:complexType name="ArrayOfDbItemKolekcijaOpreme">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DbItemKolekcijaOpreme" nillable="true" type="tns:DbItemKolekcijaOpreme" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDbItemKolekcijaOpreme" nillable="true" type="tns:ArrayOfDbItemKolekcijaOpreme" />
+  <xs:complexType name="DbItemKolekcijaOpreme">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:DbItemOpremaSaParametrima">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="KolekcijaOpreme" nillable="true" type="tns:ArrayOfDbItemOpremaSaParametrima" />
+          <xs:element xmlns:q2="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="kolekcijaOpremeIdjevi" nillable="true" type="q2:ArrayOfint" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DbItemKolekcijaOpreme" nillable="true" type="tns:DbItemKolekcijaOpreme" />
+  <xs:complexType name="ArrayOfDbItemGrupeOgranicenja">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DbItemGrupeOgranicenja" nillable="true" type="tns:DbItemGrupeOgranicenja" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDbItemGrupeOgranicenja" nillable="true" type="tns:ArrayOfDbItemGrupeOgranicenja" />
+  <xs:complexType name="DbItemGrupeOgranicenja">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id_grupe_ogranicenja" type="xs:int" />
+      <xs:element minOccurs="0" name="id_parametra1" type="xs:int" />
+      <xs:element minOccurs="0" name="id_parametra2" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="id_tip_opreme1" type="xs:int" />
+      <xs:element minOccurs="0" name="id_tip_opreme2" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="id_tip_opreme_kolekcije" type="xs:int" />
+      <xs:element minOccurs="0" name="nazivParametra1" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="nazivParametra2" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="nazivTipaOpreme1" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="nazivTipaOpreme2" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="tipProvere" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DbItemGrupeOgranicenja" nillable="true" type="tns:DbItemGrupeOgranicenja" />
+  <xs:complexType name="ArrayOfDbItemTipoviZaKonfiguraciju">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DbItemTipoviZaKonfiguraciju" nillable="true" type="tns:DbItemTipoviZaKonfiguraciju" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDbItemTipoviZaKonfiguraciju" nillable="true" type="tns:ArrayOfDbItemTipoviZaKonfiguraciju" />
+  <xs:complexType name="DbItemTipoviZaKonfiguraciju">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:DbItemTipOpreme">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="KolekcijaOpreme" nillable="true" type="tns:ArrayOfDbItemOpremaSaParametrima" />
+          <xs:element minOccurs="0" name="idTipOpremeDeoKolekcije" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="idTipOpremeKolekcije" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="izabranZaKonfiguraciju" nillable="true" type="xs:boolean" />
+          <xs:element xmlns:q3="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="kolekcijaOpremeIdjevi" nillable="true" type="q3:ArrayOfint" />
+          <xs:element minOccurs="0" name="moguca_kolicina_unosa" type="xs:int" />
+          <xs:element minOccurs="0" name="redosledPrikazivanja" nillable="true" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DbItemTipoviZaKonfiguraciju" nillable="true" type="tns:DbItemTipoviZaKonfiguraciju" />
+  <xs:complexType name="DbItemTipOpreme">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DeletedField" type="xs:boolean" />
+      <xs:element minOccurs="0" name="SlikaOriginalPutanja" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ZaPretragu" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="id_oblasti_opreme" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="id_tip_opreme" type="xs:int" />
+      <xs:element minOccurs="0" name="naziv_oblasti_opreme" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="naziv_tipa" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="slika_tipa" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DbItemTipOpreme" nillable="true" type="tns:DbItemTipOpreme" />
+  <xs:complexType name="ArrayOfDbItemTipOpreme">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DbItemTipOpreme" nillable="true" type="tns:DbItemTipOpreme" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDbItemTipOpreme" nillable="true" type="tns:ArrayOfDbItemTipOpreme" />
+  <xs:complexType name="ArrayOfDbItemOpremaSaParametrimaStatistika">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DbItemOpremaSaParametrimaStatistika" nillable="true" type="tns:DbItemOpremaSaParametrimaStatistika" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDbItemOpremaSaParametrimaStatistika" nillable="true" type="tns:ArrayOfDbItemOpremaSaParametrimaStatistika" />
+  <xs:complexType name="DbItemOpremaSaParametrimaStatistika">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:DbItemOpremaSaParametrima">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="kolkoPutaJeProdavata" nillable="true" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DbItemOpremaSaParametrimaStatistika" nillable="true" type="tns:DbItemOpremaSaParametrimaStatistika" />
+  <xs:complexType name="ArrayOfDbItemKupci">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DbItemKupci" nillable="true" type="tns:DbItemKupci" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDbItemKupci" nillable="true" type="tns:ArrayOfDbItemKupci" />
+  <xs:complexType name="DbItemKupci">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:DbItemKorisnici">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ListaKupovina" nillable="true" type="tns:ArrayOfDbItemIstorijaKupovine" />
+          <xs:element minOccurs="0" name="ukupnoPotrosio" nillable="true" type="xs:double" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DbItemKupci" nillable="true" type="tns:DbItemKupci" />
+  <xs:complexType name="ArrayOfDbItemIstorijaKupovine">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DbItemIstorijaKupovine" nillable="true" type="tns:DbItemIstorijaKupovine" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDbItemIstorijaKupovine" nillable="true" type="tns:ArrayOfDbItemIstorijaKupovine" />
+  <xs:complexType name="DbItemIstorijaKupovine">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Kupac" nillable="true" type="tns:DbItemKorisnici" />
+      <xs:element minOccurs="0" name="ListaKupljeneOpreme" nillable="true" type="tns:ArrayOfDbItemKupljenaOpremaSaParametrima" />
+      <xs:element minOccurs="0" name="asc" type="xs:boolean" />
+      <xs:element minOccurs="0" name="broj_iskoriscenih_popust_poena" nillable="true" type="xs:double" />
+      <xs:element minOccurs="0" name="datumDanas" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="datumSutra" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="datum_prodaje" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="idKupac" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="idProdavac" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="id_istorija_kupovine" type="xs:int" />
+      <xs:element minOccurs="0" name="prodavac" nillable="true" type="tns:DbItemKorisnici" />
+      <xs:element minOccurs="0" name="searchKupacIme" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ukupna_cena_kupovine" type="xs:double" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DbItemIstorijaKupovine" nillable="true" type="tns:DbItemIstorijaKupovine" />
+  <xs:complexType name="ArrayOfDbItemKupljenaOpremaSaParametrima">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DbItemKupljenaOpremaSaParametrima" nillable="true" type="tns:DbItemKupljenaOpremaSaParametrima" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDbItemKupljenaOpremaSaParametrima" nillable="true" type="tns:ArrayOfDbItemKupljenaOpremaSaParametrima" />
+  <xs:complexType name="DbItemKupljenaOpremaSaParametrima">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:DbItemOpremaSaParametrima">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="cena_opreme_kad_je_prodata" nillable="true" type="xs:double" />
+          <xs:element minOccurs="0" name="id_istorija_kupovine" type="xs:int" />
+          <xs:element minOccurs="0" name="popust_na_cenu" nillable="true" type="xs:double" />
+          <xs:element minOccurs="0" name="prodataKolicina" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="ukupna_cena_artikla" nillable="true" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DbItemKupljenaOpremaSaParametrima" nillable="true" type="tns:DbItemKupljenaOpremaSaParametrima" />
+  <xs:complexType name="OperationObject">
+    <xs:sequence>
+      <xs:element xmlns:q4="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Niz" nillable="true" type="q4:ArrayOfanyType" />
+      <xs:element minOccurs="0" name="Success" type="xs:boolean" />
+      <xs:element minOccurs="0" name="message" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="OperationObject" nillable="true" type="tns:OperationObject" />
+  <xs:complexType name="ArrayOfDbItemKorisnici">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DbItemKorisnici" nillable="true" type="tns:DbItemKorisnici" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDbItemKorisnici" nillable="true" type="tns:ArrayOfDbItemKorisnici" />
+  <xs:complexType name="DbItemRezervacijeInsert">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:DbItemOprema">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ListaOpremeZaRezervaciju" nillable="true" type="tns:ArrayOfDbItemOprema" />
+          <xs:element minOccurs="0" name="brojTelefona" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="datum_azuriranja_rezervacije" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="datum_isteka_rezervacije" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="datum_rezervacije" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="id_rezervacije" type="xs:int" />
+          <xs:element minOccurs="0" name="imeNaRezervacija" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DbItemRezervacijeInsert" nillable="true" type="tns:DbItemRezervacijeInsert" />
+  <xs:complexType name="ArrayOfDbItemRezervacijeDeleteIUpdate">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DbItemRezervacijeDeleteIUpdate" nillable="true" type="tns:DbItemRezervacijeDeleteIUpdate" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDbItemRezervacijeDeleteIUpdate" nillable="true" type="tns:ArrayOfDbItemRezervacijeDeleteIUpdate" />
+</xs:schema>

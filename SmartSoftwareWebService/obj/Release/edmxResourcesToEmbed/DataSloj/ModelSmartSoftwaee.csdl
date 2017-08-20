@@ -1,0 +1,346 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="SmartSoftwareBazaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="istorija_kupovine">
+    <Key>
+      <PropertyRef Name="id_istorija_kupovine" />
+    </Key>
+    <Property Name="id_istorija_kupovine" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="datum_prodaje" Type="DateTime" Precision="3" />
+    <Property Name="id_oprema" Type="Int32" Nullable="false" />
+    <Property Name="id_korisnici" Type="Int32" />
+    <Property Name="kolicina" Type="Int32" />
+    <NavigationProperty Name="oprema" Relationship="Self.istorija_kupovine_oprema_FK" FromRole="istorija_kupovine" ToRole="oprema" />
+  </EntityType>
+  <EntityType Name="korisnici_kartice">
+    <Key>
+      <PropertyRef Name="serijski_broj" />
+    </Key>
+    <Property Name="serijski_broj" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_korisnici" Type="Int32" Nullable="false" />
+    <Property Name="id_popust_kartice" Type="Int32" Nullable="false" />
+    <Property Name="datum_izdavanja" Type="DateTime" Precision="3" />
+    <Property Name="vazeca" Type="Boolean" />
+    <NavigationProperty Name="popust_kartice" Relationship="Self.korisnici_kartice_popust_kartice_FK" FromRole="korisnici_kartice" ToRole="popust_kartice" />
+    <NavigationProperty Name="korisnici" Relationship="SmartSoftwareBazaModel.korisnici_kartice_korisnici_FK" FromRole="korisnici_kartice" ToRole="korisnici" />
+  </EntityType>
+  <EntityType Name="narudzbine">
+    <Key>
+      <PropertyRef Name="id_narudzbine" />
+    </Key>
+    <Property Name="id_narudzbine" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="kolicina" Type="Int32" />
+    <Property Name="id_oprema" Type="Int32" Nullable="false" />
+    <Property Name="id_prodavca" Type="Int32" />
+    <Property Name="datum_narudzbine" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="oprema" Relationship="Self.narudzbine_oprema_FK" FromRole="narudzbine" ToRole="oprema" />
+  </EntityType>
+  <EntityType Name="oprema">
+    <Key>
+      <PropertyRef Name="id_oprema" />
+    </Key>
+    <Property Name="id_oprema" Type="Int32" Nullable="false" />
+    <Property Name="proizvodjac" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="naslov" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="cena" Type="Decimal" Precision="5" Scale="0" />
+    <Property Name="opis" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="model" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="id_tip_opreme" Type="Int32" Nullable="false" />
+    <Property Name="lager" Type="Boolean" />
+    <Property Name="kolicina_u_rezervi" Type="Int32" />
+    <Property Name="kolicina_na_lageru" Type="Int32" />
+    <Property Name="oprema_na_popustu" Type="Int32" />
+    <Property Name="slika" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="istorija_kupovine" Relationship="Self.istorija_kupovine_oprema_FK" FromRole="oprema" ToRole="istorija_kupovine" />
+    <NavigationProperty Name="narudzbines" Relationship="Self.narudzbine_oprema_FK" FromRole="oprema" ToRole="narudzbine" />
+    <NavigationProperty Name="tip_opreme" Relationship="Self.oprema_tip_opreme_FK" FromRole="oprema" ToRole="tip_opreme" />
+    <NavigationProperty Name="parametarOpremas" Relationship="Self.parametarOprema_oprema_FK" FromRole="oprema" ToRole="parametarOprema" />
+    <NavigationProperty Name="rezervacijes" Relationship="Self.rezervacije_oprema_FK" FromRole="oprema" ToRole="rezervacije" />
+    <NavigationProperty Name="oprema1" Relationship="Self.kolekcija_opreme" FromRole="oprema" ToRole="oprema1" />
+    <NavigationProperty Name="opremas" Relationship="Self.kolekcija_opreme" FromRole="oprema1" ToRole="oprema" />
+  </EntityType>
+  <EntityType Name="parametarOprema">
+    <Key>
+      <PropertyRef Name="id_parametri" />
+      <PropertyRef Name="id_oprema" />
+    </Key>
+    <Property Name="id_parametri" Type="Int32" Nullable="false" />
+    <Property Name="id_oprema" Type="Int32" Nullable="false" />
+    <Property Name="vrednost_parametra" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="oprema" Relationship="Self.parametarOprema_oprema_FK" FromRole="parametarOprema" ToRole="oprema" />
+    <NavigationProperty Name="parametri" Relationship="Self.parametarOprema_parametri_FK" FromRole="parametarOprema" ToRole="parametri" />
+  </EntityType>
+  <EntityType Name="parametri">
+    <Key>
+      <PropertyRef Name="id_parametri" />
+    </Key>
+    <Property Name="id_parametri" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="naziv_parametra" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="default_vrednost" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="id_tip_opreme" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="parametarOpremas" Relationship="Self.parametarOprema_parametri_FK" FromRole="parametri" ToRole="parametarOprema" />
+    <NavigationProperty Name="tip_opreme" Relationship="Self.parametri_tip_opreme_FK" FromRole="parametri" ToRole="tip_opreme" />
+  </EntityType>
+  <EntityType Name="popust_kartice">
+    <Key>
+      <PropertyRef Name="id_popust_kartice" />
+    </Key>
+    <Property Name="id_popust_kartice" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="naziv_kartice" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="rquired_kolicina" Type="Decimal" Precision="5" Scale="0" />
+    <Property Name="popust" Type="Single" />
+    <NavigationProperty Name="korisnici_kartice" Relationship="Self.korisnici_kartice_popust_kartice_FK" FromRole="popust_kartice" ToRole="korisnici_kartice" />
+  </EntityType>
+  <EntityType Name="rezervacije">
+    <Key>
+      <PropertyRef Name="id_rezervacije" />
+    </Key>
+    <Property Name="id_rezervacije" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_oprema" Type="Int32" Nullable="false" />
+    <Property Name="ime" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="datum_rezervacije" Type="DateTime" Precision="3" />
+    <Property Name="datum_isteka_rezervacije" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="oprema" Relationship="Self.rezervacije_oprema_FK" FromRole="rezervacije" ToRole="oprema" />
+  </EntityType>
+  <EntityType Name="tip_opreme">
+    <Key>
+      <PropertyRef Name="id_tip_opreme" />
+    </Key>
+    <Property Name="id_tip_opreme" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="naziv_tipa" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="naziv_tabele" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="id_oblasti_opreme" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="opremas" Relationship="Self.oprema_tip_opreme_FK" FromRole="tip_opreme" ToRole="oprema" />
+    <NavigationProperty Name="parametris" Relationship="Self.parametri_tip_opreme_FK" FromRole="tip_opreme" ToRole="parametri" />
+    <NavigationProperty Name="oblasti_opreme" Relationship="SmartSoftwareBazaModel.tip_opreme_oblasti_opreme_FK" FromRole="tip_opreme" ToRole="oblasti_opreme" />
+  </EntityType>
+  <Association Name="istorija_kupovine_oprema_FK">
+    <End Role="oprema" Type="Self.oprema" Multiplicity="1" />
+    <End Role="istorija_kupovine" Type="Self.istorija_kupovine" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="oprema">
+        <PropertyRef Name="id_oprema" />
+      </Principal>
+      <Dependent Role="istorija_kupovine">
+        <PropertyRef Name="id_oprema" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="korisnici_kartice_popust_kartice_FK">
+    <End Role="popust_kartice" Type="Self.popust_kartice" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="korisnici_kartice" Type="Self.korisnici_kartice" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="popust_kartice">
+        <PropertyRef Name="id_popust_kartice" />
+      </Principal>
+      <Dependent Role="korisnici_kartice">
+        <PropertyRef Name="id_popust_kartice" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="narudzbine_oprema_FK">
+    <End Role="oprema" Type="Self.oprema" Multiplicity="1" />
+    <End Role="narudzbine" Type="Self.narudzbine" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="oprema">
+        <PropertyRef Name="id_oprema" />
+      </Principal>
+      <Dependent Role="narudzbine">
+        <PropertyRef Name="id_oprema" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="oprema_tip_opreme_FK">
+    <End Role="tip_opreme" Type="Self.tip_opreme" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="oprema" Type="Self.oprema" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tip_opreme">
+        <PropertyRef Name="id_tip_opreme" />
+      </Principal>
+      <Dependent Role="oprema">
+        <PropertyRef Name="id_tip_opreme" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="parametarOprema_oprema_FK">
+    <End Role="oprema" Type="Self.oprema" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="parametarOprema" Type="Self.parametarOprema" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="oprema">
+        <PropertyRef Name="id_oprema" />
+      </Principal>
+      <Dependent Role="parametarOprema">
+        <PropertyRef Name="id_oprema" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="rezervacije_oprema_FK">
+    <End Role="oprema" Type="Self.oprema" Multiplicity="1" />
+    <End Role="rezervacije" Type="Self.rezervacije" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="oprema">
+        <PropertyRef Name="id_oprema" />
+      </Principal>
+      <Dependent Role="rezervacije">
+        <PropertyRef Name="id_oprema" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="parametarOprema_parametri_FK">
+    <End Role="parametri" Type="Self.parametri" Multiplicity="1" />
+    <End Role="parametarOprema" Type="Self.parametarOprema" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="parametri">
+        <PropertyRef Name="id_parametri" />
+      </Principal>
+      <Dependent Role="parametarOprema">
+        <PropertyRef Name="id_parametri" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="parametri_tip_opreme_FK">
+    <End Role="tip_opreme" Type="Self.tip_opreme" Multiplicity="1" />
+    <End Role="parametri" Type="Self.parametri" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tip_opreme">
+        <PropertyRef Name="id_tip_opreme" />
+      </Principal>
+      <Dependent Role="parametri">
+        <PropertyRef Name="id_tip_opreme" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="kolekcija_opreme">
+    <End Role="oprema" Type="Self.oprema" Multiplicity="*" />
+    <End Role="oprema1" Type="Self.oprema" Multiplicity="*" />
+  </Association>
+  <EntityContainer Name="SmartSoftwareBazaEntities" annotation:LazyLoadingEnabled="false">
+    <EntitySet Name="istorija_kupovine" EntityType="Self.istorija_kupovine" />
+    <EntitySet Name="korisnici_kartice" EntityType="Self.korisnici_kartice" />
+    <EntitySet Name="narudzbines" EntityType="Self.narudzbine" />
+    <EntitySet Name="opremas" EntityType="Self.oprema" />
+    <EntitySet Name="parametarOpremas" EntityType="Self.parametarOprema" />
+    <EntitySet Name="parametris" EntityType="Self.parametri" />
+    <EntitySet Name="popust_kartice" EntityType="Self.popust_kartice" />
+    <EntitySet Name="rezervacijes" EntityType="Self.rezervacije" />
+    <EntitySet Name="tip_opreme" EntityType="Self.tip_opreme" />
+    <AssociationSet Name="istorija_kupovine_oprema_FK" Association="Self.istorija_kupovine_oprema_FK">
+      <End Role="oprema" EntitySet="opremas" />
+      <End Role="istorija_kupovine" EntitySet="istorija_kupovine" />
+    </AssociationSet>
+    <AssociationSet Name="korisnici_kartice_popust_kartice_FK" Association="Self.korisnici_kartice_popust_kartice_FK">
+      <End Role="popust_kartice" EntitySet="popust_kartice" />
+      <End Role="korisnici_kartice" EntitySet="korisnici_kartice" />
+    </AssociationSet>
+    <AssociationSet Name="narudzbine_oprema_FK" Association="Self.narudzbine_oprema_FK">
+      <End Role="oprema" EntitySet="opremas" />
+      <End Role="narudzbine" EntitySet="narudzbines" />
+    </AssociationSet>
+    <AssociationSet Name="oprema_tip_opreme_FK" Association="Self.oprema_tip_opreme_FK">
+      <End Role="tip_opreme" EntitySet="tip_opreme" />
+      <End Role="oprema" EntitySet="opremas" />
+    </AssociationSet>
+    <AssociationSet Name="parametarOprema_oprema_FK" Association="Self.parametarOprema_oprema_FK">
+      <End Role="oprema" EntitySet="opremas" />
+      <End Role="parametarOprema" EntitySet="parametarOpremas" />
+    </AssociationSet>
+    <AssociationSet Name="rezervacije_oprema_FK" Association="Self.rezervacije_oprema_FK">
+      <End Role="oprema" EntitySet="opremas" />
+      <End Role="rezervacije" EntitySet="rezervacijes" />
+    </AssociationSet>
+    <AssociationSet Name="parametarOprema_parametri_FK" Association="Self.parametarOprema_parametri_FK">
+      <End Role="parametri" EntitySet="parametris" />
+      <End Role="parametarOprema" EntitySet="parametarOpremas" />
+    </AssociationSet>
+    <AssociationSet Name="parametri_tip_opreme_FK" Association="Self.parametri_tip_opreme_FK">
+      <End Role="tip_opreme" EntitySet="tip_opreme" />
+      <End Role="parametri" EntitySet="parametris" />
+    </AssociationSet>
+    <AssociationSet Name="kolekcija_opreme" Association="Self.kolekcija_opreme">
+      <End Role="oprema" EntitySet="opremas" />
+      <End Role="oprema1" EntitySet="opremas" />
+    </AssociationSet>
+    <EntitySet Name="korisnicis" EntityType="SmartSoftwareBazaModel.korisnici" />
+    <EntitySet Name="korisnici_uloge" EntityType="SmartSoftwareBazaModel.korisnici_uloge" />
+    <EntitySet Name="uloges" EntityType="SmartSoftwareBazaModel.uloge" />
+    <AssociationSet Name="korisnici_kartice_korisnici_FK" Association="SmartSoftwareBazaModel.korisnici_kartice_korisnici_FK">
+      <End Role="korisnici" EntitySet="korisnicis" />
+      <End Role="korisnici_kartice" EntitySet="korisnici_kartice" />
+    </AssociationSet>
+    <EntitySet Name="oblasti_opreme" EntityType="SmartSoftwareBazaModel.oblasti_opreme" />
+    <AssociationSet Name="tip_opreme_oblasti_opreme_FK" Association="SmartSoftwareBazaModel.tip_opreme_oblasti_opreme_FK">
+      <End Role="oblasti_opreme" EntitySet="oblasti_opreme" />
+      <End Role="tip_opreme" EntitySet="tip_opreme" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="korisnici">
+    <Key>
+      <PropertyRef Name="id_korisnici" />
+    </Key>
+    <Property Name="id_korisnici" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ime" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="prezime" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="mejl" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="broj_telefona" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="ukupno_potrosio" Type="Decimal" Precision="5" Scale="0" />
+    <Property Name="username" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="lozinka" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="korisnici_kartice" Relationship="SmartSoftwareBazaModel.korisnici_kartice_korisnici_FK" FromRole="korisnici" ToRole="korisnici_kartice" />
+  </EntityType>
+  <EntityType Name="korisnici_uloge">
+    <Key>
+      <PropertyRef Name="id_korisnici" />
+      <PropertyRef Name="id_uloge" />
+    </Key>
+    <Property Name="id_korisnici" Type="Int32" Nullable="false" />
+    <Property Name="id_uloge" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="uloge">
+    <Key>
+      <PropertyRef Name="id_uloge" />
+    </Key>
+    <Property Name="id_uloge" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="naziv_uloge" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <Association Name="korisnici_kartice_korisnici_FK">
+    <End Type="SmartSoftwareBazaModel.korisnici" Role="korisnici" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="SmartSoftwareBazaModel.korisnici_kartice" Role="korisnici_kartice" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="korisnici">
+        <PropertyRef Name="id_korisnici" />
+      </Principal>
+      <Dependent Role="korisnici_kartice">
+        <PropertyRef Name="id_korisnici" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="oblasti_opreme">
+    <Key>
+      <PropertyRef Name="id_oblasti_opreme" />
+    </Key>
+    <Property Name="id_oblasti_opreme" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="naziv_oblasti_opreme" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="tip_opreme" Relationship="SmartSoftwareBazaModel.tip_opreme_oblasti_opreme_FK" FromRole="oblasti_opreme" ToRole="tip_opreme" />
+  </EntityType>
+  <Association Name="tip_opreme_oblasti_opreme_FK">
+    <End Type="SmartSoftwareBazaModel.oblasti_opreme" Role="oblasti_opreme" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="SmartSoftwareBazaModel.tip_opreme" Role="tip_opreme" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="oblasti_opreme">
+        <PropertyRef Name="id_oblasti_opreme" />
+      </Principal>
+      <Dependent Role="tip_opreme">
+        <PropertyRef Name="id_oblasti_opreme" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

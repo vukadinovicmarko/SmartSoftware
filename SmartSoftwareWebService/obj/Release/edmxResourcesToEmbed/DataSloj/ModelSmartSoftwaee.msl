@@ -1,0 +1,152 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="SmartSoftwareBazaModelStoreContainer" CdmEntityContainer="SmartSoftwareBazaEntities">
+    <EntitySetMapping Name="istorija_kupovine">
+      <EntityTypeMapping TypeName="SmartSoftwareBazaModel.istorija_kupovine">
+        <MappingFragment StoreEntitySet="istorija_kupovine">
+          <ScalarProperty Name="id_istorija_kupovine" ColumnName="id_istorija_kupovine" />
+          <ScalarProperty Name="datum_prodaje" ColumnName="datum_prodaje" />
+          <ScalarProperty Name="id_oprema" ColumnName="id_oprema" />
+          <ScalarProperty Name="id_korisnici" ColumnName="id_korisnici" />
+          <ScalarProperty Name="kolicina" ColumnName="kolicina" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="korisnici_kartice">
+      <EntityTypeMapping TypeName="SmartSoftwareBazaModel.korisnici_kartice">
+        <MappingFragment StoreEntitySet="korisnici_kartice">
+          <ScalarProperty Name="serijski_broj" ColumnName="serijski_broj" />
+          <ScalarProperty Name="id_korisnici" ColumnName="id_korisnici" />
+          <ScalarProperty Name="id_popust_kartice" ColumnName="id_popust_kartice" />
+          <ScalarProperty Name="datum_izdavanja" ColumnName="datum_izdavanja" />
+          <ScalarProperty Name="vazeca" ColumnName="vazeca" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="narudzbines">
+      <EntityTypeMapping TypeName="SmartSoftwareBazaModel.narudzbine">
+        <MappingFragment StoreEntitySet="narudzbine">
+          <ScalarProperty Name="id_narudzbine" ColumnName="id_narudzbine" />
+          <ScalarProperty Name="kolicina" ColumnName="kolicina" />
+          <ScalarProperty Name="id_oprema" ColumnName="id_oprema" />
+          <ScalarProperty Name="id_prodavca" ColumnName="id_prodavca" />
+          <ScalarProperty Name="datum_narudzbine" ColumnName="datum_narudzbine" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="opremas">
+      <EntityTypeMapping TypeName="SmartSoftwareBazaModel.oprema">
+        <MappingFragment StoreEntitySet="oprema">
+          <ScalarProperty Name="id_oprema" ColumnName="id_oprema" />
+          <ScalarProperty Name="proizvodjac" ColumnName="proizvodjac" />
+          <ScalarProperty Name="naslov" ColumnName="naslov" />
+          <ScalarProperty Name="cena" ColumnName="cena" />
+          <ScalarProperty Name="opis" ColumnName="opis" />
+          <ScalarProperty Name="model" ColumnName="model" />
+          <ScalarProperty Name="id_tip_opreme" ColumnName="id_tip_opreme" />
+          <ScalarProperty Name="lager" ColumnName="lager" />
+          <ScalarProperty Name="kolicina_u_rezervi" ColumnName="kolicina_u_rezervi" />
+          <ScalarProperty Name="kolicina_na_lageru" ColumnName="kolicina_na_lageru" />
+          <ScalarProperty Name="oprema_na_popustu" ColumnName="oprema_na_popustu" />
+          <ScalarProperty Name="slika" ColumnName="slika" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="parametarOpremas">
+      <EntityTypeMapping TypeName="SmartSoftwareBazaModel.parametarOprema">
+        <MappingFragment StoreEntitySet="parametarOprema">
+          <ScalarProperty Name="id_parametri" ColumnName="id_parametri" />
+          <ScalarProperty Name="id_oprema" ColumnName="id_oprema" />
+          <ScalarProperty Name="vrednost_parametra" ColumnName="vrednost_parametra" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="parametris">
+      <EntityTypeMapping TypeName="SmartSoftwareBazaModel.parametri">
+        <MappingFragment StoreEntitySet="parametri">
+          <ScalarProperty Name="id_parametri" ColumnName="id_parametri" />
+          <ScalarProperty Name="naziv_parametra" ColumnName="naziv_parametra" />
+          <ScalarProperty Name="default_vrednost" ColumnName="default_vrednost" />
+          <ScalarProperty Name="id_tip_opreme" ColumnName="id_tip_opreme" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="popust_kartice">
+      <EntityTypeMapping TypeName="SmartSoftwareBazaModel.popust_kartice">
+        <MappingFragment StoreEntitySet="popust_kartice">
+          <ScalarProperty Name="id_popust_kartice" ColumnName="id_popust_kartice" />
+          <ScalarProperty Name="naziv_kartice" ColumnName="naziv_kartice" />
+          <ScalarProperty Name="rquired_kolicina" ColumnName="rquired_kolicina" />
+          <ScalarProperty Name="popust" ColumnName="popust" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="rezervacijes">
+      <EntityTypeMapping TypeName="SmartSoftwareBazaModel.rezervacije">
+        <MappingFragment StoreEntitySet="rezervacije">
+          <ScalarProperty Name="id_rezervacije" ColumnName="id_rezervacije" />
+          <ScalarProperty Name="id_oprema" ColumnName="id_oprema" />
+          <ScalarProperty Name="ime" ColumnName="ime" />
+          <ScalarProperty Name="datum_rezervacije" ColumnName="datum_rezervacije" />
+          <ScalarProperty Name="datum_isteka_rezervacije" ColumnName="datum_isteka_rezervacije" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tip_opreme">
+      <EntityTypeMapping TypeName="SmartSoftwareBazaModel.tip_opreme">
+        <MappingFragment StoreEntitySet="tip_opreme">
+          <ScalarProperty Name="id_tip_opreme" ColumnName="id_tip_opreme" />
+          <ScalarProperty Name="naziv_tipa" ColumnName="naziv_tipa" />
+          <ScalarProperty Name="naziv_tabele" ColumnName="naziv_tabele" />
+          <ScalarProperty Name="id_oblasti_opreme" ColumnName="id_oblasti_opreme" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="kolekcija_opreme" TypeName="SmartSoftwareBazaModel.kolekcija_opreme" StoreEntitySet="kolekcija_opreme">
+      <EndProperty Name="oprema">
+        <ScalarProperty Name="id_oprema" ColumnName="id_opreme" />
+      </EndProperty>
+      <EndProperty Name="oprema1">
+        <ScalarProperty Name="id_oprema" ColumnName="id_deo" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <EntitySetMapping Name="korisnicis">
+      <EntityTypeMapping TypeName="SmartSoftwareBazaModel.korisnici">
+        <MappingFragment StoreEntitySet="korisnici">
+          <ScalarProperty Name="lozinka" ColumnName="lozinka" />
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="ukupno_potrosio" ColumnName="ukupno_potrosio" />
+          <ScalarProperty Name="broj_telefona" ColumnName="broj_telefona" />
+          <ScalarProperty Name="mejl" ColumnName="mejl" />
+          <ScalarProperty Name="prezime" ColumnName="prezime" />
+          <ScalarProperty Name="ime" ColumnName="ime" />
+          <ScalarProperty Name="id_korisnici" ColumnName="id_korisnici" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="korisnici_uloge">
+      <EntityTypeMapping TypeName="SmartSoftwareBazaModel.korisnici_uloge">
+        <MappingFragment StoreEntitySet="korisnici_uloge">
+          <ScalarProperty Name="id_uloge" ColumnName="id_uloge" />
+          <ScalarProperty Name="id_korisnici" ColumnName="id_korisnici" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="uloges">
+      <EntityTypeMapping TypeName="SmartSoftwareBazaModel.uloge">
+        <MappingFragment StoreEntitySet="uloge">
+          <ScalarProperty Name="naziv_uloge" ColumnName="naziv_uloge" />
+          <ScalarProperty Name="id_uloge" ColumnName="id_uloge" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="oblasti_opreme">
+      <EntityTypeMapping TypeName="SmartSoftwareBazaModel.oblasti_opreme">
+        <MappingFragment StoreEntitySet="oblasti_opreme">
+          <ScalarProperty Name="naziv_oblasti_opreme" ColumnName="naziv_oblasti_opreme" />
+          <ScalarProperty Name="id_oblasti_opreme" ColumnName="id_oblasti_opreme" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,1589 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="SmartSoftwareService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:55897/SmartSoftwareService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:55897/SmartSoftwareService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:55897/SmartSoftwareService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/SmartSoftwareWebService.BiznisSloj" />
+      <xsd:import schemaLocation="http://localhost:55897/SmartSoftwareService.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import schemaLocation="http://localhost:55897/SmartSoftwareService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/SmartSoftwareWebService" />
+      <xsd:import schemaLocation="http://localhost:55897/SmartSoftwareService.svc?xsd=xsd5" namespace="http://schemas.microsoft.com/Message" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="SmartSoftwareServiceInterface_RezervacijeDelete_InputMessage">
+    <wsdl:part name="parameters" element="tns:RezervacijeDelete" />
+  </wsdl:message>
+  <wsdl:message name="SmartSoftwareServiceInterface_RezervacijeDelete_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RezervacijeDeleteResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmartSoftwareServiceInterface_PretragaOpreme_InputMessage">
+    <wsdl:part name="parameters" element="tns:PretragaOpreme" />
+  </wsdl:message>
+  <wsdl:message name="SmartSoftwareServiceInterface_PretragaOpreme_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PretragaOpremeResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmartSoftwareServiceInterface_PrikaziOpremuPoFilterima_InputMessage">
+    <wsdl:part name="parameters" element="tns:PrikaziOpremuPoFilterima" />
+  </wsdl:message>
+  <wsdl:message name="SmartSoftwareServiceInterface_PrikaziOpremuPoFilterima_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PrikaziOpremuPoFilterimaResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmartSoftwareServiceInterface_OblastiOpremeInsert_InputMessage">
+    <wsdl:part name="parameters" element="tns:OblastiOpremeInsert" />
+  </wsdl:message>
+  <wsdl:message name="SmartSoftwareServiceInterface_OblastiOpremeInsert_OutputMessage">
+    <wsdl:part name="parameters" element="tns:OblastiOpremeInsertResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmartSoftwareServiceInterface_OblastiOpremeUpdate_InputMessage">
+    <wsdl:part name="parameters" element="tns:OblastiOpremeUpdate" />
+  </wsdl:message>
+  <wsdl:message name="SmartSoftwareServiceInterface_OblastiOpremeUpdate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:OblastiOpremeUpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmartSoftwareServiceInterface_OpOblastiOpremeDelete_InputMessage">
+    <wsdl:part name="parameters" element="tns:OpOblastiOpremeDelete" />
+  </wsdl:message>
+  <wsdl:message name="SmartSoftwareServiceInterface_OpOblastiOpremeDelete_OutputMessage">
+    <wsdl:part name="parameters" element="tns:OpOblastiOpremeDeleteResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmartSoftwareServiceInterface_OpOblastiOpremeRestore_InputMessage">
+    <wsdl:part name="parameters" element="tns:OpOblastiOpremeRestore" />
+  </wsdl:message>
+  <wsdl:message name="SmartSoftwareServiceInterface_OpOblastiOpremeRestore_OutputMessage">
+    <wsdl:part name="parameters" element="tns:OpOblastiOpremeRestoreResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmartSoftwareServiceInterface_OpNarudzbineSelect_InputMessage">
+    <wsdl:part name="parameters" element="tns:OpNarudzbineSelect" />
+  </wsdl:message>
+  <wsdl:message name="SmartSoftwareServiceInterface_OpNarudzbineSelect_OutputMessage">
+    <wsdl:part name="parameters" element="tns:OpNarudzbineSelectResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmartSoftwareServiceInterface_OpNarudzbinePrihvatiNarudzbinu_InputMessage">
+    <wsdl:part name="parameters" element="tns:OpNarudzbinePrihvatiNarudzbinu" />
+  </wsdl:message>
+  <wsdl:message name="SmartSoftwareServiceInterface_OpNarudzbinePrihvatiNarudzbinu_OutputMessage">
+    <wsdl:part name="parameters" element="tns:OpNarudzbinePrihvatiNarudzbinuResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmartSoftwareServiceInterface_OpNarudzbineOdbijNarudzinu_InputMessage">
+    <wsdl:part name="parameters" element="tns:OpNarudzbineOdbijNarudzinu" />
+  </wsdl:message>
+  <wsdl:message name="SmartSoftwareServiceInterface_OpNarudzbineOdbijNarudzinu_OutputMessage">
+    <wsdl:part name="parameters" element="tns:OpNarudzbineOdbijNarudzinuResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmartSoftwareServiceInterface_OpNarudzbineInsert_InputMessage">
+    <wsdl:part name="parameters" element="tns:OpNarudzbineInsert" />
+  </wsdl:message>
+  <wsdl:message name="SmartSoftwareServiceInterface_OpNarudzbineInsert_OutputMessage">
+    <wsdl:part name="parameters" element="tns:OpNarudzbineInsertResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmartSoftwareServiceInterface_OpKolekcijaOpremeSelect_InputMessage">
+    <wsdl:part name="parameters" element="tns:OpKolekcijaOpremeSelect" />
+  </wsdl:message>
+  <wsdl:message name="SmartSoftwareServiceInterface_OpKolekcijaOpremeSelect_OutputMessage">
+    <wsdl:part name="parameters" element="tns:OpKolekcijaOpremeSelectResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmartSoftwareServiceInterface_OpKolekcijaOpremeInsert_InputMessage">
+    <wsdl:part name="parameters" element="tns:OpKolekcijaOpremeInsert" />
+  </wsdl:message>
+  <wsdl:message name="SmartSoftwareServiceInterface_OpKolekcijaOpremeInsert_OutputMessage">
+    <wsdl:part name="parameters" element="tns:OpKolekcijaOpremeInsertResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmartSoftwareServiceInterface_OgranicenjaSelect_InputMessage">
+    <wsdl:part name="parameters" element="tns:OgranicenjaSelect" />
+  </wsdl:message>
+  <wsdl:message name="SmartSoftwareServiceInterface_OgranicenjaSelect_OutputMessage">
+    <wsdl:part name="parameters" element="tns:OgranicenjaSelectResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmartSoftwareServiceInterface_OgranicenjaInsert_InputMessage">
+    <wsdl:part name="parameters" element="tns:OgranicenjaInsert" />
+  </wsdl:message>
+  <wsdl:message name="SmartSoftwareServiceInterface_OgranicenjaInsert_OutputMessage">
+    <wsdl:part name="parameters" element="tns:OgranicenjaInsertResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmartSoftwareServiceInterface_TipoviZaNovuKonfiguraciju_InputMessage">
+    <wsdl:part name="parameters" element="tns:TipoviZaNovuKonfiguraciju" />
+  </wsdl:message>
+  <wsdl:message name="SmartSoftwareServiceInterface_TipoviZaNovuKonfiguraciju_OutputMessage">
+    <wsdl:part name="parameters" element="tns:TipoviZaNovuKonfiguracijuResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmartSoftwareServiceInterface_TipoviZaNovuKonfiguracijuInsertUpdate_InputMessage">
+    <wsdl:part name="parameters" element="tns:TipoviZaNovuKonfiguracijuInsertUpdate" />
+  </wsdl:message>
+  <wsdl:message name="SmartSoftwareServiceInterface_TipoviZaNovuKonfiguracijuInsertUpdate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:TipoviZaNovuKonfiguracijuInsertUpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmartSoftwareServiceInterface_OpPrikazKolekcijeZaUnos_InputMessage">
+    <wsdl:part name="parameters" element="tns:OpPrikazKolekcijeZaUnos" />
+  </wsdl:message>
+  <wsdl:message name="SmartSoftwareServiceInterface_OpPrikazKolekcijeZaUnos_OutputMessage">
+    <wsdl:part name="parameters" element="tns:OpPrikazKolekcijeZaUnosResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmartSoftwareServiceInterface_GetData_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetData" />
+  </wsdl:message>
+  <wsdl:message name="SmartSoftwareServiceInterface_GetData_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmartSoftwareServiceInterface_GetDataUsingDataContract_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDataUsingDataContract" />
+  </wsdl:message>
+  <wsdl:message name="SmartSoftwareServiceInterface_GetDataUsingDataContract_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDataUsingDataContractResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmartSoftwareServiceInterface_OblastiOpreme_InputMessage">
+    <wsdl:part name="parameters" element="tns:OblastiOpreme" />
+  </wsdl:message>
+  <wsdl:message name="SmartSoftwareServiceInterface_OblastiOpreme_OutputMessage">
+    <wsdl:part name="parameters" element="tns:OblastiOpremeResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmartSoftwareServiceInterface_PretragaOblastiOpreme_InputMessage">
+    <wsdl:part name="parameters" element="tns:PretragaOblastiOpreme" />
+  </wsdl:message>
+  <wsdl:message name="SmartSoftwareServiceInterface_PretragaOblastiOpreme_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PretragaOblastiOpremeResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmartSoftwareServiceInterface_OblastiOpremeAdminPanel_InputMessage">
+    <wsdl:part name="parameters" element="tns:OblastiOpremeAdminPanel" />
+  </wsdl:message>
+  <wsdl:message name="SmartSoftwareServiceInterface_OblastiOpremeAdminPanel_OutputMessage">
+    <wsdl:part name="parameters" element="tns:OblastiOpremeAdminPanelResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmartSoftwareServiceInterface_TipOpreme_InputMessage">
+    <wsdl:part name="parameters" element="tns:TipOpreme" />
+  </wsdl:message>
+  <wsdl:message name="SmartSoftwareServiceInterface_TipOpreme_OutputMessage">
+    <wsdl:part name="parameters" element="tns:TipOpremeResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmartSoftwareServiceInterface_TipOpremeAdminPanel_InputMessage">
+    <wsdl:part name="parameters" element="tns:TipOpremeAdminPanel" />
+  </wsdl:message>
+  <wsdl:message name="SmartSoftwareServiceInterface_TipOpremeAdminPanel_OutputMessage">
+    <wsdl:part name="parameters" element="tns:TipOpremeAdminPanelResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmartSoftwareServiceInterface_PretragaTipovaOpreme_InputMessage">
+    <wsdl:part name="parameters" element="tns:PretragaTipovaOpreme" />
+  </wsdl:message>
+  <wsdl:message name="SmartSoftwareServiceInterface_PretragaTipovaOpreme_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PretragaTipovaOpremeResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmartSoftwareServiceInterface_TipoviOpremeInsert_InputMessage">
+    <wsdl:part name="parameters" element="tns:TipoviOpremeInsert" />
+  </wsdl:message>
+  <wsdl:message name="SmartSoftwareServiceInterface_TipoviOpremeInsert_OutputMessage">
+    <wsdl:part name="parameters" element="tns:TipoviOpremeInsertResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmartSoftwareServiceInterface_TipoviOpremeUpdate_InputMessage">
+    <wsdl:part name="parameters" element="tns:TipoviOpremeUpdate" />
+  </wsdl:message>
+  <wsdl:message name="SmartSoftwareServiceInterface_TipoviOpremeUpdate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:TipoviOpremeUpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmartSoftwareServiceInterface_TipoviOpremeDelete_InputMessage">
+    <wsdl:part name="parameters" element="tns:TipoviOpremeDelete" />
+  </wsdl:message>
+  <wsdl:message name="SmartSoftwareServiceInterface_TipoviOpremeDelete_OutputMessage">
+    <wsdl:part name="parameters" element="tns:TipoviOpremeDeleteResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmartSoftwareServiceInterface_TipoviOpremeRestore_InputMessage">
+    <wsdl:part name="parameters" element="tns:TipoviOpremeRestore" />
+  </wsdl:message>
+  <wsdl:message name="SmartSoftwareServiceInterface_TipoviOpremeRestore_OutputMessage">
+    <wsdl:part name="parameters" element="tns:TipoviOpremeRestoreResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmartSoftwareServiceInterface_OpremeSaParametrima_InputMessage">
+    <wsdl:part name="parameters" element="tns:OpremeSaParametrima" />
+  </wsdl:message>
+  <wsdl:message name="SmartSoftwareServiceInterface_OpremeSaParametrima_OutputMessage">
+    <wsdl:part name="parameters" element="tns:OpremeSaParametrimaResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmartSoftwareServiceInterface_OpremeSaParametrimaGlavniProzor_InputMessage">
+    <wsdl:part name="parameters" element="tns:OpremeSaParametrimaGlavniProzor" />
+  </wsdl:message>
+  <wsdl:message name="SmartSoftwareServiceInterface_OpremeSaParametrimaGlavniProzor_OutputMessage">
+    <wsdl:part name="parameters" element="tns:OpremeSaParametrimaGlavniProzorResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmartSoftwareServiceInterface_UpdateOpreme_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateOpreme" />
+  </wsdl:message>
+  <wsdl:message name="SmartSoftwareServiceInterface_UpdateOpreme_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateOpremeResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmartSoftwareServiceInterface_UpdateOpremeSkiniOpremuSaLagera_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateOpremeSkiniOpremuSaLagera" />
+  </wsdl:message>
+  <wsdl:message name="SmartSoftwareServiceInterface_UpdateOpremeSkiniOpremuSaLagera_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateOpremeSkiniOpremuSaLageraResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmartSoftwareServiceInterface_OpremaSaParametrimaAdminPanel_InputMessage">
+    <wsdl:part name="parameters" element="tns:OpremaSaParametrimaAdminPanel" />
+  </wsdl:message>
+  <wsdl:message name="SmartSoftwareServiceInterface_OpremaSaParametrimaAdminPanel_OutputMessage">
+    <wsdl:part name="parameters" element="tns:OpremaSaParametrimaAdminPanelResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmartSoftwareServiceInterface_OpremaDelete_InputMessage">
+    <wsdl:part name="parameters" element="tns:OpremaDelete" />
+  </wsdl:message>
+  <wsdl:message name="SmartSoftwareServiceInterface_OpremaDelete_OutputMessage">
+    <wsdl:part name="parameters" element="tns:OpremaDeleteResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmartSoftwareServiceInterface_OpremaRestore_InputMessage">
+    <wsdl:part name="parameters" element="tns:OpremaRestore" />
+  </wsdl:message>
+  <wsdl:message name="SmartSoftwareServiceInterface_OpremaRestore_OutputMessage">
+    <wsdl:part name="parameters" element="tns:OpremaRestoreResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmartSoftwareServiceInterface_OpremaSaParametrimaAdminPanelUpdate_InputMessage">
+    <wsdl:part name="parameters" element="tns:OpremaSaParametrimaAdminPanelUpdate" />
+  </wsdl:message>
+  <wsdl:message name="SmartSoftwareServiceInterface_OpremaSaParametrimaAdminPanelUpdate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:OpremaSaParametrimaAdminPanelUpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmartSoftwareServiceInterface_ParametriZaIdTipaOpreme_InputMessage">
+    <wsdl:part name="parameters" element="tns:ParametriZaIdTipaOpreme" />
+  </wsdl:message>
+  <wsdl:message name="SmartSoftwareServiceInterface_ParametriZaIdTipaOpreme_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ParametriZaIdTipaOpremeResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmartSoftwareServiceInterface_SelectAdminPanelParametri_InputMessage">
+    <wsdl:part name="parameters" element="tns:SelectAdminPanelParametri" />
+  </wsdl:message>
+  <wsdl:message name="SmartSoftwareServiceInterface_SelectAdminPanelParametri_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SelectAdminPanelParametriResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmartSoftwareServiceInterface_ParametriPretraga_InputMessage">
+    <wsdl:part name="parameters" element="tns:ParametriPretraga" />
+  </wsdl:message>
+  <wsdl:message name="SmartSoftwareServiceInterface_ParametriPretraga_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ParametriPretragaResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmartSoftwareServiceInterface_ParametriInsert_InputMessage">
+    <wsdl:part name="parameters" element="tns:ParametriInsert" />
+  </wsdl:message>
+  <wsdl:message name="SmartSoftwareServiceInterface_ParametriInsert_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ParametriInsertResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmartSoftwareServiceInterface_ParametriUpdate_InputMessage">
+    <wsdl:part name="parameters" element="tns:ParametriUpdate" />
+  </wsdl:message>
+  <wsdl:message name="SmartSoftwareServiceInterface_ParametriUpdate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ParametriUpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmartSoftwareServiceInterface_ParametriDelete_InputMessage">
+    <wsdl:part name="parameters" element="tns:ParametriDelete" />
+  </wsdl:message>
+  <wsdl:message name="SmartSoftwareServiceInterface_ParametriDelete_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ParametriDeleteResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmartSoftwareServiceInterface_ParametriRestore_InputMessage">
+    <wsdl:part name="parameters" element="tns:ParametriRestore" />
+  </wsdl:message>
+  <wsdl:message name="SmartSoftwareServiceInterface_ParametriRestore_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ParametriRestoreResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmartSoftwareServiceInterface_IstorijaKupovineNajprodavanijaOprema_InputMessage">
+    <wsdl:part name="parameters" element="tns:IstorijaKupovineNajprodavanijaOprema" />
+  </wsdl:message>
+  <wsdl:message name="SmartSoftwareServiceInterface_IstorijaKupovineNajprodavanijaOprema_OutputMessage">
+    <wsdl:part name="parameters" element="tns:IstorijaKupovineNajprodavanijaOpremaResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmartSoftwareServiceInterface_IstorijaKupovineInicijalniPrikazKupaca_InputMessage">
+    <wsdl:part name="parameters" element="tns:IstorijaKupovineInicijalniPrikazKupaca" />
+  </wsdl:message>
+  <wsdl:message name="SmartSoftwareServiceInterface_IstorijaKupovineInicijalniPrikazKupaca_OutputMessage">
+    <wsdl:part name="parameters" element="tns:IstorijaKupovineInicijalniPrikazKupacaResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmartSoftwareServiceInterface_IstorijaKupovineNajcesciKupci_InputMessage">
+    <wsdl:part name="parameters" element="tns:IstorijaKupovineNajcesciKupci" />
+  </wsdl:message>
+  <wsdl:message name="SmartSoftwareServiceInterface_IstorijaKupovineNajcesciKupci_OutputMessage">
+    <wsdl:part name="parameters" element="tns:IstorijaKupovineNajcesciKupciResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmartSoftwareServiceInterface_IstorijaKupovineKupciKojiNajviseKupuju_InputMessage">
+    <wsdl:part name="parameters" element="tns:IstorijaKupovineKupciKojiNajviseKupuju" />
+  </wsdl:message>
+  <wsdl:message name="SmartSoftwareServiceInterface_IstorijaKupovineKupciKojiNajviseKupuju_OutputMessage">
+    <wsdl:part name="parameters" element="tns:IstorijaKupovineKupciKojiNajviseKupujuResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmartSoftwareServiceInterface_IstorijaKupovineKupciKojiNajviseTrose_InputMessage">
+    <wsdl:part name="parameters" element="tns:IstorijaKupovineKupciKojiNajviseTrose" />
+  </wsdl:message>
+  <wsdl:message name="SmartSoftwareServiceInterface_IstorijaKupovineKupciKojiNajviseTrose_OutputMessage">
+    <wsdl:part name="parameters" element="tns:IstorijaKupovineKupciKojiNajviseTroseResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmartSoftwareServiceInterface_IstorijaKupovineUkupanBrojProdateOpreme_InputMessage">
+    <wsdl:part name="parameters" element="tns:IstorijaKupovineUkupanBrojProdateOpreme" />
+  </wsdl:message>
+  <wsdl:message name="SmartSoftwareServiceInterface_IstorijaKupovineUkupanBrojProdateOpreme_OutputMessage">
+    <wsdl:part name="parameters" element="tns:IstorijaKupovineUkupanBrojProdateOpremeResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmartSoftwareServiceInterface_IstorijaKupovineUkupanBrojProdateOpremeZaDanas_InputMessage">
+    <wsdl:part name="parameters" element="tns:IstorijaKupovineUkupanBrojProdateOpremeZaDanas" />
+  </wsdl:message>
+  <wsdl:message name="SmartSoftwareServiceInterface_IstorijaKupovineUkupanBrojProdateOpremeZaDanas_OutputMessage">
+    <wsdl:part name="parameters" element="tns:IstorijaKupovineUkupanBrojProdateOpremeZaDanasResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmartSoftwareServiceInterface_IstorijaKupovineUkupnoZaradjeno_InputMessage">
+    <wsdl:part name="parameters" element="tns:IstorijaKupovineUkupnoZaradjeno" />
+  </wsdl:message>
+  <wsdl:message name="SmartSoftwareServiceInterface_IstorijaKupovineUkupnoZaradjeno_OutputMessage">
+    <wsdl:part name="parameters" element="tns:IstorijaKupovineUkupnoZaradjenoResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmartSoftwareServiceInterface_IstorijaKupovineZaradjenoDanas_InputMessage">
+    <wsdl:part name="parameters" element="tns:IstorijaKupovineZaradjenoDanas" />
+  </wsdl:message>
+  <wsdl:message name="SmartSoftwareServiceInterface_IstorijaKupovineZaradjenoDanas_OutputMessage">
+    <wsdl:part name="parameters" element="tns:IstorijaKupovineZaradjenoDanasResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmartSoftwareServiceInterface_OpremaSaParametrimaAdminPanelInsert_InputMessage">
+    <wsdl:part name="parameters" element="tns:OpremaSaParametrimaAdminPanelInsert" />
+  </wsdl:message>
+  <wsdl:message name="SmartSoftwareServiceInterface_OpremaSaParametrimaAdminPanelInsert_OutputMessage">
+    <wsdl:part name="parameters" element="tns:OpremaSaParametrimaAdminPanelInsertResponse" />
+  </wsdl:message>
+  <wsdl:message name="DownloadRequest">
+    <wsdl:part name="parameters" element="tns:DownloadRequest" />
+  </wsdl:message>
+  <wsdl:message name="RemoteFileInfo">
+    <wsdl:part name="parameters" element="tns:RemoteFileInfo" />
+  </wsdl:message>
+  <wsdl:message name="RemoteFileInfo_Headers">
+    <wsdl:part name="FileName" element="tns:FileName" />
+    <wsdl:part name="Length" element="tns:Length" />
+    <wsdl:part name="prefixPutanja" element="tns:prefixPutanja" />
+  </wsdl:message>
+  <wsdl:message name="PutanjaDoSlike">
+    <wsdl:part name="parameters" element="tns:PutanjaDoSlike" />
+  </wsdl:message>
+  <wsdl:message name="SmartSoftwareServiceInterface_PrikaziFiltere_InputMessage">
+    <wsdl:part name="parameters" element="tns:PrikaziFiltere" />
+  </wsdl:message>
+  <wsdl:message name="SmartSoftwareServiceInterface_PrikaziFiltere_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PrikaziFiltereResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmartSoftwareServiceInterface_PrikaziFiltereGlavniProzor_InputMessage">
+    <wsdl:part name="parameters" element="tns:PrikaziFiltereGlavniProzor" />
+  </wsdl:message>
+  <wsdl:message name="SmartSoftwareServiceInterface_PrikaziFiltereGlavniProzor_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PrikaziFiltereGlavniProzorResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmartSoftwareServiceInterface_KorpaSelect_InputMessage">
+    <wsdl:part name="parameters" element="tns:KorpaSelect" />
+  </wsdl:message>
+  <wsdl:message name="SmartSoftwareServiceInterface_KorpaSelect_OutputMessage">
+    <wsdl:part name="parameters" element="tns:KorpaSelectResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmartSoftwareServiceInterface_KorpaInsert_InputMessage">
+    <wsdl:part name="parameters" element="tns:KorpaInsert" />
+  </wsdl:message>
+  <wsdl:message name="SmartSoftwareServiceInterface_KorpaInsert_OutputMessage">
+    <wsdl:part name="parameters" element="tns:KorpaInsertResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmartSoftwareServiceInterface_KorpaUpdate_InputMessage">
+    <wsdl:part name="parameters" element="tns:KorpaUpdate" />
+  </wsdl:message>
+  <wsdl:message name="SmartSoftwareServiceInterface_KorpaUpdate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:KorpaUpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmartSoftwareServiceInterface_KorpaDelete_InputMessage">
+    <wsdl:part name="parameters" element="tns:KorpaDelete" />
+  </wsdl:message>
+  <wsdl:message name="SmartSoftwareServiceInterface_KorpaDelete_OutputMessage">
+    <wsdl:part name="parameters" element="tns:KorpaDeleteResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmartSoftwareServiceInterface_PrikaziKorisnike_InputMessage">
+    <wsdl:part name="parameters" element="tns:PrikaziKorisnike" />
+  </wsdl:message>
+  <wsdl:message name="SmartSoftwareServiceInterface_PrikaziKorisnike_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PrikaziKorisnikeResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmartSoftwareServiceInterface_PretragaKorisnika_InputMessage">
+    <wsdl:part name="parameters" element="tns:PretragaKorisnika" />
+  </wsdl:message>
+  <wsdl:message name="SmartSoftwareServiceInterface_PretragaKorisnika_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PretragaKorisnikaResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmartSoftwareServiceInterface_OpKorisniciInsert_InputMessage">
+    <wsdl:part name="parameters" element="tns:OpKorisniciInsert" />
+  </wsdl:message>
+  <wsdl:message name="SmartSoftwareServiceInterface_OpKorisniciInsert_OutputMessage">
+    <wsdl:part name="parameters" element="tns:OpKorisniciInsertResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmartSoftwareServiceInterface_AzurirajBrojPoenaKorisnika_InputMessage">
+    <wsdl:part name="parameters" element="tns:AzurirajBrojPoenaKorisnika" />
+  </wsdl:message>
+  <wsdl:message name="SmartSoftwareServiceInterface_AzurirajBrojPoenaKorisnika_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AzurirajBrojPoenaKorisnikaResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmartSoftwareServiceInterface_PrikaziZaposleneKorisnike_InputMessage">
+    <wsdl:part name="parameters" element="tns:PrikaziZaposleneKorisnike" />
+  </wsdl:message>
+  <wsdl:message name="SmartSoftwareServiceInterface_PrikaziZaposleneKorisnike_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PrikaziZaposleneKorisnikeResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmartSoftwareServiceInterface_ZaposleniKorisniciInsert_InputMessage">
+    <wsdl:part name="parameters" element="tns:ZaposleniKorisniciInsert" />
+  </wsdl:message>
+  <wsdl:message name="SmartSoftwareServiceInterface_ZaposleniKorisniciInsert_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ZaposleniKorisniciInsertResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmartSoftwareServiceInterface_ZaposleniKorisniciUpdate_InputMessage">
+    <wsdl:part name="parameters" element="tns:ZaposleniKorisniciUpdate" />
+  </wsdl:message>
+  <wsdl:message name="SmartSoftwareServiceInterface_ZaposleniKorisniciUpdate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ZaposleniKorisniciUpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmartSoftwareServiceInterface_KorisniciDelete_InputMessage">
+    <wsdl:part name="parameters" element="tns:KorisniciDelete" />
+  </wsdl:message>
+  <wsdl:message name="SmartSoftwareServiceInterface_KorisniciDelete_OutputMessage">
+    <wsdl:part name="parameters" element="tns:KorisniciDeleteResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmartSoftwareServiceInterface_KorisniciRestore_InputMessage">
+    <wsdl:part name="parameters" element="tns:KorisniciRestore" />
+  </wsdl:message>
+  <wsdl:message name="SmartSoftwareServiceInterface_KorisniciRestore_OutputMessage">
+    <wsdl:part name="parameters" element="tns:KorisniciRestoreResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmartSoftwareServiceInterface_ProdajaArtikla_InputMessage">
+    <wsdl:part name="parameters" element="tns:ProdajaArtikla" />
+  </wsdl:message>
+  <wsdl:message name="SmartSoftwareServiceInterface_ProdajaArtikla_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ProdajaArtiklaResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmartSoftwareServiceInterface_IstorijaKupovineSelect_InputMessage">
+    <wsdl:part name="parameters" element="tns:IstorijaKupovineSelect" />
+  </wsdl:message>
+  <wsdl:message name="SmartSoftwareServiceInterface_IstorijaKupovineSelect_OutputMessage">
+    <wsdl:part name="parameters" element="tns:IstorijaKupovineSelectResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmartSoftwareServiceInterface_IstorijaKupovineZaListuKupacaDatumSelect_InputMessage">
+    <wsdl:part name="parameters" element="tns:IstorijaKupovineZaListuKupacaDatumSelect" />
+  </wsdl:message>
+  <wsdl:message name="SmartSoftwareServiceInterface_IstorijaKupovineZaListuKupacaDatumSelect_OutputMessage">
+    <wsdl:part name="parameters" element="tns:IstorijaKupovineZaListuKupacaDatumSelectResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmartSoftwareServiceInterface_IstorijaKupovineZaListuKupacaDatumPretraga_InputMessage">
+    <wsdl:part name="parameters" element="tns:IstorijaKupovineZaListuKupacaDatumPretraga" />
+  </wsdl:message>
+  <wsdl:message name="SmartSoftwareServiceInterface_IstorijaKupovineZaListuKupacaDatumPretraga_OutputMessage">
+    <wsdl:part name="parameters" element="tns:IstorijaKupovineZaListuKupacaDatumPretragaResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmartSoftwareServiceInterface_IstorijaKupovineZaListuKupacaImeSelect_InputMessage">
+    <wsdl:part name="parameters" element="tns:IstorijaKupovineZaListuKupacaImeSelect" />
+  </wsdl:message>
+  <wsdl:message name="SmartSoftwareServiceInterface_IstorijaKupovineZaListuKupacaImeSelect_OutputMessage">
+    <wsdl:part name="parameters" element="tns:IstorijaKupovineZaListuKupacaImeSelectResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmartSoftwareServiceInterface_IstorijaKupovineZaListuKupacaBrojKupovinaSelect_InputMessage">
+    <wsdl:part name="parameters" element="tns:IstorijaKupovineZaListuKupacaBrojKupovinaSelect" />
+  </wsdl:message>
+  <wsdl:message name="SmartSoftwareServiceInterface_IstorijaKupovineZaListuKupacaBrojKupovinaSelect_OutputMessage">
+    <wsdl:part name="parameters" element="tns:IstorijaKupovineZaListuKupacaBrojKupovinaSelectResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmartSoftwareServiceInterface_RezervacijeSelect_InputMessage">
+    <wsdl:part name="parameters" element="tns:RezervacijeSelect" />
+  </wsdl:message>
+  <wsdl:message name="SmartSoftwareServiceInterface_RezervacijeSelect_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RezervacijeSelectResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmartSoftwareServiceInterface_PrebaciRezerevacijuUKorpu_InputMessage">
+    <wsdl:part name="parameters" element="tns:PrebaciRezerevacijuUKorpu" />
+  </wsdl:message>
+  <wsdl:message name="SmartSoftwareServiceInterface_PrebaciRezerevacijuUKorpu_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PrebaciRezerevacijuUKorpuResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmartSoftwareServiceInterface_RezervacijeInsert_InputMessage">
+    <wsdl:part name="parameters" element="tns:RezervacijeInsert" />
+  </wsdl:message>
+  <wsdl:message name="SmartSoftwareServiceInterface_RezervacijeInsert_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RezervacijeInsertResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmartSoftwareServiceInterface_RezervacijeUpdate_InputMessage">
+    <wsdl:part name="parameters" element="tns:RezervacijeUpdate" />
+  </wsdl:message>
+  <wsdl:message name="SmartSoftwareServiceInterface_RezervacijeUpdate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RezervacijeUpdateResponse" />
+  </wsdl:message>
+  <wsdl:portType name="SmartSoftwareServiceInterface">
+    <wsdl:operation name="RezervacijeDelete">
+      <wsdl:input wsaw:Action="http://tempuri.org/SmartSoftwareServiceInterface/RezervacijeDelete" message="tns:SmartSoftwareServiceInterface_RezervacijeDelete_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/SmartSoftwareServiceInterface/RezervacijeDeleteResponse" message="tns:SmartSoftwareServiceInterface_RezervacijeDelete_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PretragaOpreme">
+      <wsdl:input wsaw:Action="http://tempuri.org/SmartSoftwareServiceInterface/PretragaOpreme" message="tns:SmartSoftwareServiceInterface_PretragaOpreme_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/SmartSoftwareServiceInterface/PretragaOpremeResponse" message="tns:SmartSoftwareServiceInterface_PretragaOpreme_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PrikaziOpremuPoFilterima">
+      <wsdl:input wsaw:Action="http://tempuri.org/SmartSoftwareServiceInterface/PrikaziOpremuPoFilterima" message="tns:SmartSoftwareServiceInterface_PrikaziOpremuPoFilterima_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/SmartSoftwareServiceInterface/PrikaziOpremuPoFilterimaResponse" message="tns:SmartSoftwareServiceInterface_PrikaziOpremuPoFilterima_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="OblastiOpremeInsert">
+      <wsdl:input wsaw:Action="http://tempuri.org/SmartSoftwareServiceInterface/OblastiOpremeInsert" message="tns:SmartSoftwareServiceInterface_OblastiOpremeInsert_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/SmartSoftwareServiceInterface/OblastiOpremeInsertResponse" message="tns:SmartSoftwareServiceInterface_OblastiOpremeInsert_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="OblastiOpremeUpdate">
+      <wsdl:input wsaw:Action="http://tempuri.org/SmartSoftwareServiceInterface/OblastiOpremeUpdate" message="tns:SmartSoftwareServiceInterface_OblastiOpremeUpdate_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/SmartSoftwareServiceInterface/OblastiOpremeUpdateResponse" message="tns:SmartSoftwareServiceInterface_OblastiOpremeUpdate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="OpOblastiOpremeDelete">
+      <wsdl:input wsaw:Action="http://tempuri.org/SmartSoftwareServiceInterface/OpOblastiOpremeDelete" message="tns:SmartSoftwareServiceInterface_OpOblastiOpremeDelete_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/SmartSoftwareServiceInterface/OpOblastiOpremeDeleteResponse" message="tns:SmartSoftwareServiceInterface_OpOblastiOpremeDelete_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="OpOblastiOpremeRestore">
+      <wsdl:input wsaw:Action="http://tempuri.org/SmartSoftwareServiceInterface/OpOblastiOpremeRestore" message="tns:SmartSoftwareServiceInterface_OpOblastiOpremeRestore_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/SmartSoftwareServiceInterface/OpOblastiOpremeRestoreResponse" message="tns:SmartSoftwareServiceInterface_OpOblastiOpremeRestore_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="OpNarudzbineSelect">
+      <wsdl:input wsaw:Action="http://tempuri.org/SmartSoftwareServiceInterface/OpNarudzbineSelect" message="tns:SmartSoftwareServiceInterface_OpNarudzbineSelect_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/SmartSoftwareServiceInterface/OpNarudzbineSelectResponse" message="tns:SmartSoftwareServiceInterface_OpNarudzbineSelect_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="OpNarudzbinePrihvatiNarudzbinu">
+      <wsdl:input wsaw:Action="http://tempuri.org/SmartSoftwareServiceInterface/OpNarudzbinePrihvatiNarudzbinu" message="tns:SmartSoftwareServiceInterface_OpNarudzbinePrihvatiNarudzbinu_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/SmartSoftwareServiceInterface/OpNarudzbinePrihvatiNarudzbinuResponse" message="tns:SmartSoftwareServiceInterface_OpNarudzbinePrihvatiNarudzbinu_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="OpNarudzbineOdbijNarudzinu">
+      <wsdl:input wsaw:Action="http://tempuri.org/SmartSoftwareServiceInterface/OpNarudzbineOdbijNarudzinu" message="tns:SmartSoftwareServiceInterface_OpNarudzbineOdbijNarudzinu_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/SmartSoftwareServiceInterface/OpNarudzbineOdbijNarudzinuResponse" message="tns:SmartSoftwareServiceInterface_OpNarudzbineOdbijNarudzinu_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="OpNarudzbineInsert">
+      <wsdl:input wsaw:Action="http://tempuri.org/SmartSoftwareServiceInterface/OpNarudzbineInsert" message="tns:SmartSoftwareServiceInterface_OpNarudzbineInsert_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/SmartSoftwareServiceInterface/OpNarudzbineInsertResponse" message="tns:SmartSoftwareServiceInterface_OpNarudzbineInsert_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="OpKolekcijaOpremeSelect">
+      <wsdl:input wsaw:Action="http://tempuri.org/SmartSoftwareServiceInterface/OpKolekcijaOpremeSelect" message="tns:SmartSoftwareServiceInterface_OpKolekcijaOpremeSelect_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/SmartSoftwareServiceInterface/OpKolekcijaOpremeSelectResponse" message="tns:SmartSoftwareServiceInterface_OpKolekcijaOpremeSelect_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="OpKolekcijaOpremeInsert">
+      <wsdl:input wsaw:Action="http://tempuri.org/SmartSoftwareServiceInterface/OpKolekcijaOpremeInsert" message="tns:SmartSoftwareServiceInterface_OpKolekcijaOpremeInsert_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/SmartSoftwareServiceInterface/OpKolekcijaOpremeInsertResponse" message="tns:SmartSoftwareServiceInterface_OpKolekcijaOpremeInsert_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="OgranicenjaSelect">
+      <wsdl:input wsaw:Action="http://tempuri.org/SmartSoftwareServiceInterface/OgranicenjaSelect" message="tns:SmartSoftwareServiceInterface_OgranicenjaSelect_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/SmartSoftwareServiceInterface/OgranicenjaSelectResponse" message="tns:SmartSoftwareServiceInterface_OgranicenjaSelect_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="OgranicenjaInsert">
+      <wsdl:input wsaw:Action="http://tempuri.org/SmartSoftwareServiceInterface/OgranicenjaInsert" message="tns:SmartSoftwareServiceInterface_OgranicenjaInsert_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/SmartSoftwareServiceInterface/OgranicenjaInsertResponse" message="tns:SmartSoftwareServiceInterface_OgranicenjaInsert_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="TipoviZaNovuKonfiguraciju">
+      <wsdl:input wsaw:Action="http://tempuri.org/SmartSoftwareServiceInterface/TipoviZaNovuKonfiguraciju" message="tns:SmartSoftwareServiceInterface_TipoviZaNovuKonfiguraciju_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/SmartSoftwareServiceInterface/TipoviZaNovuKonfiguracijuResponse" message="tns:SmartSoftwareServiceInterface_TipoviZaNovuKonfiguraciju_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="TipoviZaNovuKonfiguracijuInsertUpdate">
+      <wsdl:input wsaw:Action="http://tempuri.org/SmartSoftwareServiceInterface/TipoviZaNovuKonfiguracijuInsertUpdate" message="tns:SmartSoftwareServiceInterface_TipoviZaNovuKonfiguracijuInsertUpdate_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/SmartSoftwareServiceInterface/TipoviZaNovuKonfiguracijuInsertUpdateResponse" message="tns:SmartSoftwareServiceInterface_TipoviZaNovuKonfiguracijuInsertUpdate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="OpPrikazKolekcijeZaUnos">
+      <wsdl:input wsaw:Action="http://tempuri.org/SmartSoftwareServiceInterface/OpPrikazKolekcijeZaUnos" message="tns:SmartSoftwareServiceInterface_OpPrikazKolekcijeZaUnos_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/SmartSoftwareServiceInterface/OpPrikazKolekcijeZaUnosResponse" message="tns:SmartSoftwareServiceInterface_OpPrikazKolekcijeZaUnos_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetData">
+      <wsdl:input wsaw:Action="http://tempuri.org/SmartSoftwareServiceInterface/GetData" message="tns:SmartSoftwareServiceInterface_GetData_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/SmartSoftwareServiceInterface/GetDataResponse" message="tns:SmartSoftwareServiceInterface_GetData_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDataUsingDataContract">
+      <wsdl:input wsaw:Action="http://tempuri.org/SmartSoftwareServiceInterface/GetDataUsingDataContract" message="tns:SmartSoftwareServiceInterface_GetDataUsingDataContract_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/SmartSoftwareServiceInterface/GetDataUsingDataContractResponse" message="tns:SmartSoftwareServiceInterface_GetDataUsingDataContract_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="OblastiOpreme">
+      <wsdl:input wsaw:Action="http://tempuri.org/SmartSoftwareServiceInterface/OblastiOpreme" message="tns:SmartSoftwareServiceInterface_OblastiOpreme_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/SmartSoftwareServiceInterface/OblastiOpremeResponse" message="tns:SmartSoftwareServiceInterface_OblastiOpreme_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PretragaOblastiOpreme">
+      <wsdl:input wsaw:Action="http://tempuri.org/SmartSoftwareServiceInterface/PretragaOblastiOpreme" message="tns:SmartSoftwareServiceInterface_PretragaOblastiOpreme_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/SmartSoftwareServiceInterface/PretragaOblastiOpremeResponse" message="tns:SmartSoftwareServiceInterface_PretragaOblastiOpreme_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="OblastiOpremeAdminPanel">
+      <wsdl:input wsaw:Action="http://tempuri.org/SmartSoftwareServiceInterface/OblastiOpremeAdminPanel" message="tns:SmartSoftwareServiceInterface_OblastiOpremeAdminPanel_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/SmartSoftwareServiceInterface/OblastiOpremeAdminPanelResponse" message="tns:SmartSoftwareServiceInterface_OblastiOpremeAdminPanel_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="TipOpreme">
+      <wsdl:input wsaw:Action="http://tempuri.org/SmartSoftwareServiceInterface/TipOpreme" message="tns:SmartSoftwareServiceInterface_TipOpreme_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/SmartSoftwareServiceInterface/TipOpremeResponse" message="tns:SmartSoftwareServiceInterface_TipOpreme_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="TipOpremeAdminPanel">
+      <wsdl:input wsaw:Action="http://tempuri.org/SmartSoftwareServiceInterface/TipOpremeAdminPanel" message="tns:SmartSoftwareServiceInterface_TipOpremeAdminPanel_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/SmartSoftwareServiceInterface/TipOpremeAdminPanelResponse" message="tns:SmartSoftwareServiceInterface_TipOpremeAdminPanel_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PretragaTipovaOpreme">
+      <wsdl:input wsaw:Action="http://tempuri.org/SmartSoftwareServiceInterface/PretragaTipovaOpreme" message="tns:SmartSoftwareServiceInterface_PretragaTipovaOpreme_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/SmartSoftwareServiceInterface/PretragaTipovaOpremeResponse" message="tns:SmartSoftwareServiceInterface_PretragaTipovaOpreme_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="TipoviOpremeInsert">
+      <wsdl:input wsaw:Action="http://tempuri.org/SmartSoftwareServiceInterface/TipoviOpremeInsert" message="tns:SmartSoftwareServiceInterface_TipoviOpremeInsert_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/SmartSoftwareServiceInterface/TipoviOpremeInsertResponse" message="tns:SmartSoftwareServiceInterface_TipoviOpremeInsert_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="TipoviOpremeUpdate">
+      <wsdl:input wsaw:Action="http://tempuri.org/SmartSoftwareServiceInterface/TipoviOpremeUpdate" message="tns:SmartSoftwareServiceInterface_TipoviOpremeUpdate_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/SmartSoftwareServiceInterface/TipoviOpremeUpdateResponse" message="tns:SmartSoftwareServiceInterface_TipoviOpremeUpdate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="TipoviOpremeDelete">
+      <wsdl:input wsaw:Action="http://tempuri.org/SmartSoftwareServiceInterface/TipoviOpremeDelete" message="tns:SmartSoftwareServiceInterface_TipoviOpremeDelete_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/SmartSoftwareServiceInterface/TipoviOpremeDeleteResponse" message="tns:SmartSoftwareServiceInterface_TipoviOpremeDelete_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="TipoviOpremeRestore">
+      <wsdl:input wsaw:Action="http://tempuri.org/SmartSoftwareServiceInterface/TipoviOpremeRestore" message="tns:SmartSoftwareServiceInterface_TipoviOpremeRestore_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/SmartSoftwareServiceInterface/TipoviOpremeRestoreResponse" message="tns:SmartSoftwareServiceInterface_TipoviOpremeRestore_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="OpremeSaParametrima">
+      <wsdl:input wsaw:Action="http://tempuri.org/SmartSoftwareServiceInterface/OpremeSaParametrima" message="tns:SmartSoftwareServiceInterface_OpremeSaParametrima_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/SmartSoftwareServiceInterface/OpremeSaParametrimaResponse" message="tns:SmartSoftwareServiceInterface_OpremeSaParametrima_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="OpremeSaParametrimaGlavniProzor">
+      <wsdl:input wsaw:Action="http://tempuri.org/SmartSoftwareServiceInterface/OpremeSaParametrimaGlavniProzor" message="tns:SmartSoftwareServiceInterface_OpremeSaParametrimaGlavniProzor_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/SmartSoftwareServiceInterface/OpremeSaParametrimaGlavniProzorResponse" message="tns:SmartSoftwareServiceInterface_OpremeSaParametrimaGlavniProzor_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOpreme">
+      <wsdl:input wsaw:Action="http://tempuri.org/SmartSoftwareServiceInterface/UpdateOpreme" message="tns:SmartSoftwareServiceInterface_UpdateOpreme_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/SmartSoftwareServiceInterface/UpdateOpremeResponse" message="tns:SmartSoftwareServiceInterface_UpdateOpreme_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOpremeSkiniOpremuSaLagera">
+      <wsdl:input wsaw:Action="http://tempuri.org/SmartSoftwareServiceInterface/UpdateOpremeSkiniOpremuSaLagera" message="tns:SmartSoftwareServiceInterface_UpdateOpremeSkiniOpremuSaLagera_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/SmartSoftwareServiceInterface/UpdateOpremeSkiniOpremuSaLageraResponse" message="tns:SmartSoftwareServiceInterface_UpdateOpremeSkiniOpremuSaLagera_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="OpremaSaParametrimaAdminPanel">
+      <wsdl:input wsaw:Action="http://tempuri.org/SmartSoftwareServiceInterface/OpremaSaParametrimaAdminPanel" message="tns:SmartSoftwareServiceInterface_OpremaSaParametrimaAdminPanel_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/SmartSoftwareServiceInterface/OpremaSaParametrimaAdminPanelResponse" message="tns:SmartSoftwareServiceInterface_OpremaSaParametrimaAdminPanel_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="OpremaDelete">
+      <wsdl:input wsaw:Action="http://tempuri.org/SmartSoftwareServiceInterface/OpremaDelete" message="tns:SmartSoftwareServiceInterface_OpremaDelete_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/SmartSoftwareServiceInterface/OpremaDeleteResponse" message="tns:SmartSoftwareServiceInterface_OpremaDelete_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="OpremaRestore">
+      <wsdl:input wsaw:Action="http://tempuri.org/SmartSoftwareServiceInterface/OpremaRestore" message="tns:SmartSoftwareServiceInterface_OpremaRestore_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/SmartSoftwareServiceInterface/OpremaRestoreResponse" message="tns:SmartSoftwareServiceInterface_OpremaRestore_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="OpremaSaParametrimaAdminPanelUpdate">
+      <wsdl:input wsaw:Action="http://tempuri.org/SmartSoftwareServiceInterface/OpremaSaParametrimaAdminPanelUpdate" message="tns:SmartSoftwareServiceInterface_OpremaSaParametrimaAdminPanelUpdate_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/SmartSoftwareServiceInterface/OpremaSaParametrimaAdminPanelUpdateResponse" message="tns:SmartSoftwareServiceInterface_OpremaSaParametrimaAdminPanelUpdate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ParametriZaIdTipaOpreme">
+      <wsdl:input wsaw:Action="http://tempuri.org/SmartSoftwareServiceInterface/ParametriZaIdTipaOpreme" message="tns:SmartSoftwareServiceInterface_ParametriZaIdTipaOpreme_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/SmartSoftwareServiceInterface/ParametriZaIdTipaOpremeResponse" message="tns:SmartSoftwareServiceInterface_ParametriZaIdTipaOpreme_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SelectAdminPanelParametri">
+      <wsdl:input wsaw:Action="http://tempuri.org/SmartSoftwareServiceInterface/SelectAdminPanelParametri" message="tns:SmartSoftwareServiceInterface_SelectAdminPanelParametri_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/SmartSoftwareServiceInterface/SelectAdminPanelParametriResponse" message="tns:SmartSoftwareServiceInterface_SelectAdminPanelParametri_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ParametriPretraga">
+      <wsdl:input wsaw:Action="http://tempuri.org/SmartSoftwareServiceInterface/ParametriPretraga" message="tns:SmartSoftwareServiceInterface_ParametriPretraga_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/SmartSoftwareServiceInterface/ParametriPretragaResponse" message="tns:SmartSoftwareServiceInterface_ParametriPretraga_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ParametriInsert">
+      <wsdl:input wsaw:Action="http://tempuri.org/SmartSoftwareServiceInterface/ParametriInsert" message="tns:SmartSoftwareServiceInterface_ParametriInsert_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/SmartSoftwareServiceInterface/ParametriInsertResponse" message="tns:SmartSoftwareServiceInterface_ParametriInsert_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ParametriUpdate">
+      <wsdl:input wsaw:Action="http://tempuri.org/SmartSoftwareServiceInterface/ParametriUpdate" message="tns:SmartSoftwareServiceInterface_ParametriUpdate_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/SmartSoftwareServiceInterface/ParametriUpdateResponse" message="tns:SmartSoftwareServiceInterface_ParametriUpdate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ParametriDelete">
+      <wsdl:input wsaw:Action="http://tempuri.org/SmartSoftwareServiceInterface/ParametriDelete" message="tns:SmartSoftwareServiceInterface_ParametriDelete_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/SmartSoftwareServiceInterface/ParametriDeleteResponse" message="tns:SmartSoftwareServiceInterface_ParametriDelete_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ParametriRestore">
+      <wsdl:input wsaw:Action="http://tempuri.org/SmartSoftwareServiceInterface/ParametriRestore" message="tns:SmartSoftwareServiceInterface_ParametriRestore_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/SmartSoftwareServiceInterface/ParametriRestoreResponse" message="tns:SmartSoftwareServiceInterface_ParametriRestore_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="IstorijaKupovineNajprodavanijaOprema">
+      <wsdl:input wsaw:Action="http://tempuri.org/SmartSoftwareServiceInterface/IstorijaKupovineNajprodavanijaOprema" message="tns:SmartSoftwareServiceInterface_IstorijaKupovineNajprodavanijaOprema_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/SmartSoftwareServiceInterface/IstorijaKupovineNajprodavanijaOpremaResponse" message="tns:SmartSoftwareServiceInterface_IstorijaKupovineNajprodavanijaOprema_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="IstorijaKupovineInicijalniPrikazKupaca">
+      <wsdl:input wsaw:Action="http://tempuri.org/SmartSoftwareServiceInterface/IstorijaKupovineInicijalniPrikazKupaca" message="tns:SmartSoftwareServiceInterface_IstorijaKupovineInicijalniPrikazKupaca_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/SmartSoftwareServiceInterface/IstorijaKupovineInicijalniPrikazKupacaResponse" message="tns:SmartSoftwareServiceInterface_IstorijaKupovineInicijalniPrikazKupaca_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="IstorijaKupovineNajcesciKupci">
+      <wsdl:input wsaw:Action="http://tempuri.org/SmartSoftwareServiceInterface/IstorijaKupovineNajcesciKupci" message="tns:SmartSoftwareServiceInterface_IstorijaKupovineNajcesciKupci_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/SmartSoftwareServiceInterface/IstorijaKupovineNajcesciKupciResponse" message="tns:SmartSoftwareServiceInterface_IstorijaKupovineNajcesciKupci_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="IstorijaKupovineKupciKojiNajviseKupuju">
+      <wsdl:input wsaw:Action="http://tempuri.org/SmartSoftwareServiceInterface/IstorijaKupovineKupciKojiNajviseKupuju" message="tns:SmartSoftwareServiceInterface_IstorijaKupovineKupciKojiNajviseKupuju_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/SmartSoftwareServiceInterface/IstorijaKupovineKupciKojiNajviseKupujuResponse" message="tns:SmartSoftwareServiceInterface_IstorijaKupovineKupciKojiNajviseKupuju_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="IstorijaKupovineKupciKojiNajviseTrose">
+      <wsdl:input wsaw:Action="http://tempuri.org/SmartSoftwareServiceInterface/IstorijaKupovineKupciKojiNajviseTrose" message="tns:SmartSoftwareServiceInterface_IstorijaKupovineKupciKojiNajviseTrose_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/SmartSoftwareServiceInterface/IstorijaKupovineKupciKojiNajviseTroseResponse" message="tns:SmartSoftwareServiceInterface_IstorijaKupovineKupciKojiNajviseTrose_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="IstorijaKupovineUkupanBrojProdateOpreme">
+      <wsdl:input wsaw:Action="http://tempuri.org/SmartSoftwareServiceInterface/IstorijaKupovineUkupanBrojProdateOpreme" message="tns:SmartSoftwareServiceInterface_IstorijaKupovineUkupanBrojProdateOpreme_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/SmartSoftwareServiceInterface/IstorijaKupovineUkupanBrojProdateOpremeResponse" message="tns:SmartSoftwareServiceInterface_IstorijaKupovineUkupanBrojProdateOpreme_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="IstorijaKupovineUkupanBrojProdateOpremeZaDanas">
+      <wsdl:input wsaw:Action="http://tempuri.org/SmartSoftwareServiceInterface/IstorijaKupovineUkupanBrojProdateOpremeZaDanas" message="tns:SmartSoftwareServiceInterface_IstorijaKupovineUkupanBrojProdateOpremeZaDanas_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/SmartSoftwareServiceInterface/IstorijaKupovineUkupanBrojProdateOpremeZaDanasResponse" message="tns:SmartSoftwareServiceInterface_IstorijaKupovineUkupanBrojProdateOpremeZaDanas_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="IstorijaKupovineUkupnoZaradjeno">
+      <wsdl:input wsaw:Action="http://tempuri.org/SmartSoftwareServiceInterface/IstorijaKupovineUkupnoZaradjeno" message="tns:SmartSoftwareServiceInterface_IstorijaKupovineUkupnoZaradjeno_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/SmartSoftwareServiceInterface/IstorijaKupovineUkupnoZaradjenoResponse" message="tns:SmartSoftwareServiceInterface_IstorijaKupovineUkupnoZaradjeno_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="IstorijaKupovineZaradjenoDanas">
+      <wsdl:input wsaw:Action="http://tempuri.org/SmartSoftwareServiceInterface/IstorijaKupovineZaradjenoDanas" message="tns:SmartSoftwareServiceInterface_IstorijaKupovineZaradjenoDanas_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/SmartSoftwareServiceInterface/IstorijaKupovineZaradjenoDanasResponse" message="tns:SmartSoftwareServiceInterface_IstorijaKupovineZaradjenoDanas_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="OpremaSaParametrimaAdminPanelInsert">
+      <wsdl:input wsaw:Action="http://tempuri.org/SmartSoftwareServiceInterface/OpremaSaParametrimaAdminPanelInsert" message="tns:SmartSoftwareServiceInterface_OpremaSaParametrimaAdminPanelInsert_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/SmartSoftwareServiceInterface/OpremaSaParametrimaAdminPanelInsertResponse" message="tns:SmartSoftwareServiceInterface_OpremaSaParametrimaAdminPanelInsert_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DownloadFile">
+      <wsdl:input wsaw:Action="http://tempuri.org/SmartSoftwareServiceInterface/DownloadFile" name="DownloadRequest" message="tns:DownloadRequest" />
+      <wsdl:output wsaw:Action="http://tempuri.org/SmartSoftwareServiceInterface/DownloadFileResponse" name="RemoteFileInfo" message="tns:RemoteFileInfo" />
+    </wsdl:operation>
+    <wsdl:operation name="UploadFile">
+      <wsdl:input wsaw:Action="http://tempuri.org/SmartSoftwareServiceInterface/UploadFile" name="RemoteFileInfo" message="tns:RemoteFileInfo" />
+      <wsdl:output wsaw:Action="http://tempuri.org/SmartSoftwareServiceInterface/UploadFileResponse" name="PutanjaDoSlike" message="tns:PutanjaDoSlike" />
+    </wsdl:operation>
+    <wsdl:operation name="PrikaziFiltere">
+      <wsdl:input wsaw:Action="http://tempuri.org/SmartSoftwareServiceInterface/PrikaziFiltere" message="tns:SmartSoftwareServiceInterface_PrikaziFiltere_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/SmartSoftwareServiceInterface/PrikaziFiltereResponse" message="tns:SmartSoftwareServiceInterface_PrikaziFiltere_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PrikaziFiltereGlavniProzor">
+      <wsdl:input wsaw:Action="http://tempuri.org/SmartSoftwareServiceInterface/PrikaziFiltereGlavniProzor" message="tns:SmartSoftwareServiceInterface_PrikaziFiltereGlavniProzor_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/SmartSoftwareServiceInterface/PrikaziFiltereGlavniProzorResponse" message="tns:SmartSoftwareServiceInterface_PrikaziFiltereGlavniProzor_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="KorpaSelect">
+      <wsdl:input wsaw:Action="http://tempuri.org/SmartSoftwareServiceInterface/KorpaSelect" message="tns:SmartSoftwareServiceInterface_KorpaSelect_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/SmartSoftwareServiceInterface/KorpaSelectResponse" message="tns:SmartSoftwareServiceInterface_KorpaSelect_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="KorpaInsert">
+      <wsdl:input wsaw:Action="http://tempuri.org/SmartSoftwareServiceInterface/KorpaInsert" message="tns:SmartSoftwareServiceInterface_KorpaInsert_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/SmartSoftwareServiceInterface/KorpaInsertResponse" message="tns:SmartSoftwareServiceInterface_KorpaInsert_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="KorpaUpdate">
+      <wsdl:input wsaw:Action="http://tempuri.org/SmartSoftwareServiceInterface/KorpaUpdate" message="tns:SmartSoftwareServiceInterface_KorpaUpdate_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/SmartSoftwareServiceInterface/KorpaUpdateResponse" message="tns:SmartSoftwareServiceInterface_KorpaUpdate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="KorpaDelete">
+      <wsdl:input wsaw:Action="http://tempuri.org/SmartSoftwareServiceInterface/KorpaDelete" message="tns:SmartSoftwareServiceInterface_KorpaDelete_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/SmartSoftwareServiceInterface/KorpaDeleteResponse" message="tns:SmartSoftwareServiceInterface_KorpaDelete_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PrikaziKorisnike">
+      <wsdl:input wsaw:Action="http://tempuri.org/SmartSoftwareServiceInterface/PrikaziKorisnike" message="tns:SmartSoftwareServiceInterface_PrikaziKorisnike_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/SmartSoftwareServiceInterface/PrikaziKorisnikeResponse" message="tns:SmartSoftwareServiceInterface_PrikaziKorisnike_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PretragaKorisnika">
+      <wsdl:input wsaw:Action="http://tempuri.org/SmartSoftwareServiceInterface/PretragaKorisnika" message="tns:SmartSoftwareServiceInterface_PretragaKorisnika_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/SmartSoftwareServiceInterface/PretragaKorisnikaResponse" message="tns:SmartSoftwareServiceInterface_PretragaKorisnika_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="OpKorisniciInsert">
+      <wsdl:input wsaw:Action="http://tempuri.org/SmartSoftwareServiceInterface/OpKorisniciInsert" message="tns:SmartSoftwareServiceInterface_OpKorisniciInsert_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/SmartSoftwareServiceInterface/OpKorisniciInsertResponse" message="tns:SmartSoftwareServiceInterface_OpKorisniciInsert_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AzurirajBrojPoenaKorisnika">
+      <wsdl:input wsaw:Action="http://tempuri.org/SmartSoftwareServiceInterface/AzurirajBrojPoenaKorisnika" message="tns:SmartSoftwareServiceInterface_AzurirajBrojPoenaKorisnika_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/SmartSoftwareServiceInterface/AzurirajBrojPoenaKorisnikaResponse" message="tns:SmartSoftwareServiceInterface_AzurirajBrojPoenaKorisnika_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PrikaziZaposleneKorisnike">
+      <wsdl:input wsaw:Action="http://tempuri.org/SmartSoftwareServiceInterface/PrikaziZaposleneKorisnike" message="tns:SmartSoftwareServiceInterface_PrikaziZaposleneKorisnike_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/SmartSoftwareServiceInterface/PrikaziZaposleneKorisnikeResponse" message="tns:SmartSoftwareServiceInterface_PrikaziZaposleneKorisnike_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ZaposleniKorisniciInsert">
+      <wsdl:input wsaw:Action="http://tempuri.org/SmartSoftwareServiceInterface/ZaposleniKorisniciInsert" message="tns:SmartSoftwareServiceInterface_ZaposleniKorisniciInsert_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/SmartSoftwareServiceInterface/ZaposleniKorisniciInsertResponse" message="tns:SmartSoftwareServiceInterface_ZaposleniKorisniciInsert_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ZaposleniKorisniciUpdate">
+      <wsdl:input wsaw:Action="http://tempuri.org/SmartSoftwareServiceInterface/ZaposleniKorisniciUpdate" message="tns:SmartSoftwareServiceInterface_ZaposleniKorisniciUpdate_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/SmartSoftwareServiceInterface/ZaposleniKorisniciUpdateResponse" message="tns:SmartSoftwareServiceInterface_ZaposleniKorisniciUpdate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="KorisniciDelete">
+      <wsdl:input wsaw:Action="http://tempuri.org/SmartSoftwareServiceInterface/KorisniciDelete" message="tns:SmartSoftwareServiceInterface_KorisniciDelete_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/SmartSoftwareServiceInterface/KorisniciDeleteResponse" message="tns:SmartSoftwareServiceInterface_KorisniciDelete_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="KorisniciRestore">
+      <wsdl:input wsaw:Action="http://tempuri.org/SmartSoftwareServiceInterface/KorisniciRestore" message="tns:SmartSoftwareServiceInterface_KorisniciRestore_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/SmartSoftwareServiceInterface/KorisniciRestoreResponse" message="tns:SmartSoftwareServiceInterface_KorisniciRestore_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ProdajaArtikla">
+      <wsdl:input wsaw:Action="http://tempuri.org/SmartSoftwareServiceInterface/ProdajaArtikla" message="tns:SmartSoftwareServiceInterface_ProdajaArtikla_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/SmartSoftwareServiceInterface/ProdajaArtiklaResponse" message="tns:SmartSoftwareServiceInterface_ProdajaArtikla_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="IstorijaKupovineSelect">
+      <wsdl:input wsaw:Action="http://tempuri.org/SmartSoftwareServiceInterface/IstorijaKupovineSelect" message="tns:SmartSoftwareServiceInterface_IstorijaKupovineSelect_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/SmartSoftwareServiceInterface/IstorijaKupovineSelectResponse" message="tns:SmartSoftwareServiceInterface_IstorijaKupovineSelect_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="IstorijaKupovineZaListuKupacaDatumSelect">
+      <wsdl:input wsaw:Action="http://tempuri.org/SmartSoftwareServiceInterface/IstorijaKupovineZaListuKupacaDatumSelect" message="tns:SmartSoftwareServiceInterface_IstorijaKupovineZaListuKupacaDatumSelect_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/SmartSoftwareServiceInterface/IstorijaKupovineZaListuKupacaDatumSelectResponse" message="tns:SmartSoftwareServiceInterface_IstorijaKupovineZaListuKupacaDatumSelect_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="IstorijaKupovineZaListuKupacaDatumPretraga">
+      <wsdl:input wsaw:Action="http://tempuri.org/SmartSoftwareServiceInterface/IstorijaKupovineZaListuKupacaDatumPretraga" message="tns:SmartSoftwareServiceInterface_IstorijaKupovineZaListuKupacaDatumPretraga_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/SmartSoftwareServiceInterface/IstorijaKupovineZaListuKupacaDatumPretragaResponse" message="tns:SmartSoftwareServiceInterface_IstorijaKupovineZaListuKupacaDatumPretraga_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="IstorijaKupovineZaListuKupacaImeSelect">
+      <wsdl:input wsaw:Action="http://tempuri.org/SmartSoftwareServiceInterface/IstorijaKupovineZaListuKupacaImeSelect" message="tns:SmartSoftwareServiceInterface_IstorijaKupovineZaListuKupacaImeSelect_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/SmartSoftwareServiceInterface/IstorijaKupovineZaListuKupacaImeSelectResponse" message="tns:SmartSoftwareServiceInterface_IstorijaKupovineZaListuKupacaImeSelect_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="IstorijaKupovineZaListuKupacaBrojKupovinaSelect">
+      <wsdl:input wsaw:Action="http://tempuri.org/SmartSoftwareServiceInterface/IstorijaKupovineZaListuKupacaBrojKupovinaSelect" message="tns:SmartSoftwareServiceInterface_IstorijaKupovineZaListuKupacaBrojKupovinaSelect_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/SmartSoftwareServiceInterface/IstorijaKupovineZaListuKupacaBrojKupovinaSelectResponse" message="tns:SmartSoftwareServiceInterface_IstorijaKupovineZaListuKupacaBrojKupovinaSelect_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RezervacijeSelect">
+      <wsdl:input wsaw:Action="http://tempuri.org/SmartSoftwareServiceInterface/RezervacijeSelect" message="tns:SmartSoftwareServiceInterface_RezervacijeSelect_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/SmartSoftwareServiceInterface/RezervacijeSelectResponse" message="tns:SmartSoftwareServiceInterface_RezervacijeSelect_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PrebaciRezerevacijuUKorpu">
+      <wsdl:input wsaw:Action="http://tempuri.org/SmartSoftwareServiceInterface/PrebaciRezerevacijuUKorpu" message="tns:SmartSoftwareServiceInterface_PrebaciRezerevacijuUKorpu_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/SmartSoftwareServiceInterface/PrebaciRezerevacijuUKorpuResponse" message="tns:SmartSoftwareServiceInterface_PrebaciRezerevacijuUKorpu_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RezervacijeInsert">
+      <wsdl:input wsaw:Action="http://tempuri.org/SmartSoftwareServiceInterface/RezervacijeInsert" message="tns:SmartSoftwareServiceInterface_RezervacijeInsert_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/SmartSoftwareServiceInterface/RezervacijeInsertResponse" message="tns:SmartSoftwareServiceInterface_RezervacijeInsert_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RezervacijeUpdate">
+      <wsdl:input wsaw:Action="http://tempuri.org/SmartSoftwareServiceInterface/RezervacijeUpdate" message="tns:SmartSoftwareServiceInterface_RezervacijeUpdate_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/SmartSoftwareServiceInterface/RezervacijeUpdateResponse" message="tns:SmartSoftwareServiceInterface_RezervacijeUpdate_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_SmartSoftwareServiceInterface" type="tns:SmartSoftwareServiceInterface">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="RezervacijeDelete">
+      <soap:operation soapAction="http://tempuri.org/SmartSoftwareServiceInterface/RezervacijeDelete" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PretragaOpreme">
+      <soap:operation soapAction="http://tempuri.org/SmartSoftwareServiceInterface/PretragaOpreme" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PrikaziOpremuPoFilterima">
+      <soap:operation soapAction="http://tempuri.org/SmartSoftwareServiceInterface/PrikaziOpremuPoFilterima" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OblastiOpremeInsert">
+      <soap:operation soapAction="http://tempuri.org/SmartSoftwareServiceInterface/OblastiOpremeInsert" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OblastiOpremeUpdate">
+      <soap:operation soapAction="http://tempuri.org/SmartSoftwareServiceInterface/OblastiOpremeUpdate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OpOblastiOpremeDelete">
+      <soap:operation soapAction="http://tempuri.org/SmartSoftwareServiceInterface/OpOblastiOpremeDelete" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OpOblastiOpremeRestore">
+      <soap:operation soapAction="http://tempuri.org/SmartSoftwareServiceInterface/OpOblastiOpremeRestore" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OpNarudzbineSelect">
+      <soap:operation soapAction="http://tempuri.org/SmartSoftwareServiceInterface/OpNarudzbineSelect" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OpNarudzbinePrihvatiNarudzbinu">
+      <soap:operation soapAction="http://tempuri.org/SmartSoftwareServiceInterface/OpNarudzbinePrihvatiNarudzbinu" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OpNarudzbineOdbijNarudzinu">
+      <soap:operation soapAction="http://tempuri.org/SmartSoftwareServiceInterface/OpNarudzbineOdbijNarudzinu" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OpNarudzbineInsert">
+      <soap:operation soapAction="http://tempuri.org/SmartSoftwareServiceInterface/OpNarudzbineInsert" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OpKolekcijaOpremeSelect">
+      <soap:operation soapAction="http://tempuri.org/SmartSoftwareServiceInterface/OpKolekcijaOpremeSelect" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OpKolekcijaOpremeInsert">
+      <soap:operation soapAction="http://tempuri.org/SmartSoftwareServiceInterface/OpKolekcijaOpremeInsert" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OgranicenjaSelect">
+      <soap:operation soapAction="http://tempuri.org/SmartSoftwareServiceInterface/OgranicenjaSelect" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OgranicenjaInsert">
+      <soap:operation soapAction="http://tempuri.org/SmartSoftwareServiceInterface/OgranicenjaInsert" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TipoviZaNovuKonfiguraciju">
+      <soap:operation soapAction="http://tempuri.org/SmartSoftwareServiceInterface/TipoviZaNovuKonfiguraciju" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TipoviZaNovuKonfiguracijuInsertUpdate">
+      <soap:operation soapAction="http://tempuri.org/SmartSoftwareServiceInterface/TipoviZaNovuKonfiguracijuInsertUpdate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OpPrikazKolekcijeZaUnos">
+      <soap:operation soapAction="http://tempuri.org/SmartSoftwareServiceInterface/OpPrikazKolekcijeZaUnos" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetData">
+      <soap:operation soapAction="http://tempuri.org/SmartSoftwareServiceInterface/GetData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDataUsingDataContract">
+      <soap:operation soapAction="http://tempuri.org/SmartSoftwareServiceInterface/GetDataUsingDataContract" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OblastiOpreme">
+      <soap:operation soapAction="http://tempuri.org/SmartSoftwareServiceInterface/OblastiOpreme" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PretragaOblastiOpreme">
+      <soap:operation soapAction="http://tempuri.org/SmartSoftwareServiceInterface/PretragaOblastiOpreme" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OblastiOpremeAdminPanel">
+      <soap:operation soapAction="http://tempuri.org/SmartSoftwareServiceInterface/OblastiOpremeAdminPanel" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TipOpreme">
+      <soap:operation soapAction="http://tempuri.org/SmartSoftwareServiceInterface/TipOpreme" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TipOpremeAdminPanel">
+      <soap:operation soapAction="http://tempuri.org/SmartSoftwareServiceInterface/TipOpremeAdminPanel" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PretragaTipovaOpreme">
+      <soap:operation soapAction="http://tempuri.org/SmartSoftwareServiceInterface/PretragaTipovaOpreme" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TipoviOpremeInsert">
+      <soap:operation soapAction="http://tempuri.org/SmartSoftwareServiceInterface/TipoviOpremeInsert" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TipoviOpremeUpdate">
+      <soap:operation soapAction="http://tempuri.org/SmartSoftwareServiceInterface/TipoviOpremeUpdate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TipoviOpremeDelete">
+      <soap:operation soapAction="http://tempuri.org/SmartSoftwareServiceInterface/TipoviOpremeDelete" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TipoviOpremeRestore">
+      <soap:operation soapAction="http://tempuri.org/SmartSoftwareServiceInterface/TipoviOpremeRestore" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OpremeSaParametrima">
+      <soap:operation soapAction="http://tempuri.org/SmartSoftwareServiceInterface/OpremeSaParametrima" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OpremeSaParametrimaGlavniProzor">
+      <soap:operation soapAction="http://tempuri.org/SmartSoftwareServiceInterface/OpremeSaParametrimaGlavniProzor" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOpreme">
+      <soap:operation soapAction="http://tempuri.org/SmartSoftwareServiceInterface/UpdateOpreme" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOpremeSkiniOpremuSaLagera">
+      <soap:operation soapAction="http://tempuri.org/SmartSoftwareServiceInterface/UpdateOpremeSkiniOpremuSaLagera" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OpremaSaParametrimaAdminPanel">
+      <soap:operation soapAction="http://tempuri.org/SmartSoftwareServiceInterface/OpremaSaParametrimaAdminPanel" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OpremaDelete">
+      <soap:operation soapAction="http://tempuri.org/SmartSoftwareServiceInterface/OpremaDelete" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OpremaRestore">
+      <soap:operation soapAction="http://tempuri.org/SmartSoftwareServiceInterface/OpremaRestore" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OpremaSaParametrimaAdminPanelUpdate">
+      <soap:operation soapAction="http://tempuri.org/SmartSoftwareServiceInterface/OpremaSaParametrimaAdminPanelUpdate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ParametriZaIdTipaOpreme">
+      <soap:operation soapAction="http://tempuri.org/SmartSoftwareServiceInterface/ParametriZaIdTipaOpreme" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelectAdminPanelParametri">
+      <soap:operation soapAction="http://tempuri.org/SmartSoftwareServiceInterface/SelectAdminPanelParametri" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ParametriPretraga">
+      <soap:operation soapAction="http://tempuri.org/SmartSoftwareServiceInterface/ParametriPretraga" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ParametriInsert">
+      <soap:operation soapAction="http://tempuri.org/SmartSoftwareServiceInterface/ParametriInsert" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ParametriUpdate">
+      <soap:operation soapAction="http://tempuri.org/SmartSoftwareServiceInterface/ParametriUpdate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ParametriDelete">
+      <soap:operation soapAction="http://tempuri.org/SmartSoftwareServiceInterface/ParametriDelete" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ParametriRestore">
+      <soap:operation soapAction="http://tempuri.org/SmartSoftwareServiceInterface/ParametriRestore" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IstorijaKupovineNajprodavanijaOprema">
+      <soap:operation soapAction="http://tempuri.org/SmartSoftwareServiceInterface/IstorijaKupovineNajprodavanijaOprema" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IstorijaKupovineInicijalniPrikazKupaca">
+      <soap:operation soapAction="http://tempuri.org/SmartSoftwareServiceInterface/IstorijaKupovineInicijalniPrikazKupaca" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IstorijaKupovineNajcesciKupci">
+      <soap:operation soapAction="http://tempuri.org/SmartSoftwareServiceInterface/IstorijaKupovineNajcesciKupci" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IstorijaKupovineKupciKojiNajviseKupuju">
+      <soap:operation soapAction="http://tempuri.org/SmartSoftwareServiceInterface/IstorijaKupovineKupciKojiNajviseKupuju" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IstorijaKupovineKupciKojiNajviseTrose">
+      <soap:operation soapAction="http://tempuri.org/SmartSoftwareServiceInterface/IstorijaKupovineKupciKojiNajviseTrose" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IstorijaKupovineUkupanBrojProdateOpreme">
+      <soap:operation soapAction="http://tempuri.org/SmartSoftwareServiceInterface/IstorijaKupovineUkupanBrojProdateOpreme" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IstorijaKupovineUkupanBrojProdateOpremeZaDanas">
+      <soap:operation soapAction="http://tempuri.org/SmartSoftwareServiceInterface/IstorijaKupovineUkupanBrojProdateOpremeZaDanas" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IstorijaKupovineUkupnoZaradjeno">
+      <soap:operation soapAction="http://tempuri.org/SmartSoftwareServiceInterface/IstorijaKupovineUkupnoZaradjeno" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IstorijaKupovineZaradjenoDanas">
+      <soap:operation soapAction="http://tempuri.org/SmartSoftwareServiceInterface/IstorijaKupovineZaradjenoDanas" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OpremaSaParametrimaAdminPanelInsert">
+      <soap:operation soapAction="http://tempuri.org/SmartSoftwareServiceInterface/OpremaSaParametrimaAdminPanelInsert" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DownloadFile">
+      <soap:operation soapAction="http://tempuri.org/SmartSoftwareServiceInterface/DownloadFile" style="document" />
+      <wsdl:input name="DownloadRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="RemoteFileInfo">
+        <soap:header message="tns:RemoteFileInfo_Headers" part="FileName" use="literal" />
+        <soap:header message="tns:RemoteFileInfo_Headers" part="Length" use="literal" />
+        <soap:header message="tns:RemoteFileInfo_Headers" part="prefixPutanja" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UploadFile">
+      <soap:operation soapAction="http://tempuri.org/SmartSoftwareServiceInterface/UploadFile" style="document" />
+      <wsdl:input name="RemoteFileInfo">
+        <soap:header message="tns:RemoteFileInfo_Headers" part="FileName" use="literal" />
+        <soap:header message="tns:RemoteFileInfo_Headers" part="Length" use="literal" />
+        <soap:header message="tns:RemoteFileInfo_Headers" part="prefixPutanja" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="PutanjaDoSlike">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PrikaziFiltere">
+      <soap:operation soapAction="http://tempuri.org/SmartSoftwareServiceInterface/PrikaziFiltere" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PrikaziFiltereGlavniProzor">
+      <soap:operation soapAction="http://tempuri.org/SmartSoftwareServiceInterface/PrikaziFiltereGlavniProzor" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KorpaSelect">
+      <soap:operation soapAction="http://tempuri.org/SmartSoftwareServiceInterface/KorpaSelect" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KorpaInsert">
+      <soap:operation soapAction="http://tempuri.org/SmartSoftwareServiceInterface/KorpaInsert" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KorpaUpdate">
+      <soap:operation soapAction="http://tempuri.org/SmartSoftwareServiceInterface/KorpaUpdate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KorpaDelete">
+      <soap:operation soapAction="http://tempuri.org/SmartSoftwareServiceInterface/KorpaDelete" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PrikaziKorisnike">
+      <soap:operation soapAction="http://tempuri.org/SmartSoftwareServiceInterface/PrikaziKorisnike" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PretragaKorisnika">
+      <soap:operation soapAction="http://tempuri.org/SmartSoftwareServiceInterface/PretragaKorisnika" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OpKorisniciInsert">
+      <soap:operation soapAction="http://tempuri.org/SmartSoftwareServiceInterface/OpKorisniciInsert" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AzurirajBrojPoenaKorisnika">
+      <soap:operation soapAction="http://tempuri.org/SmartSoftwareServiceInterface/AzurirajBrojPoenaKorisnika" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PrikaziZaposleneKorisnike">
+      <soap:operation soapAction="http://tempuri.org/SmartSoftwareServiceInterface/PrikaziZaposleneKorisnike" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ZaposleniKorisniciInsert">
+      <soap:operation soapAction="http://tempuri.org/SmartSoftwareServiceInterface/ZaposleniKorisniciInsert" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ZaposleniKorisniciUpdate">
+      <soap:operation soapAction="http://tempuri.org/SmartSoftwareServiceInterface/ZaposleniKorisniciUpdate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KorisniciDelete">
+      <soap:operation soapAction="http://tempuri.org/SmartSoftwareServiceInterface/KorisniciDelete" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KorisniciRestore">
+      <soap:operation soapAction="http://tempuri.org/SmartSoftwareServiceInterface/KorisniciRestore" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProdajaArtikla">
+      <soap:operation soapAction="http://tempuri.org/SmartSoftwareServiceInterface/ProdajaArtikla" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IstorijaKupovineSelect">
+      <soap:operation soapAction="http://tempuri.org/SmartSoftwareServiceInterface/IstorijaKupovineSelect" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IstorijaKupovineZaListuKupacaDatumSelect">
+      <soap:operation soapAction="http://tempuri.org/SmartSoftwareServiceInterface/IstorijaKupovineZaListuKupacaDatumSelect" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IstorijaKupovineZaListuKupacaDatumPretraga">
+      <soap:operation soapAction="http://tempuri.org/SmartSoftwareServiceInterface/IstorijaKupovineZaListuKupacaDatumPretraga" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IstorijaKupovineZaListuKupacaImeSelect">
+      <soap:operation soapAction="http://tempuri.org/SmartSoftwareServiceInterface/IstorijaKupovineZaListuKupacaImeSelect" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IstorijaKupovineZaListuKupacaBrojKupovinaSelect">
+      <soap:operation soapAction="http://tempuri.org/SmartSoftwareServiceInterface/IstorijaKupovineZaListuKupacaBrojKupovinaSelect" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RezervacijeSelect">
+      <soap:operation soapAction="http://tempuri.org/SmartSoftwareServiceInterface/RezervacijeSelect" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PrebaciRezerevacijuUKorpu">
+      <soap:operation soapAction="http://tempuri.org/SmartSoftwareServiceInterface/PrebaciRezerevacijuUKorpu" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RezervacijeInsert">
+      <soap:operation soapAction="http://tempuri.org/SmartSoftwareServiceInterface/RezervacijeInsert" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RezervacijeUpdate">
+      <soap:operation soapAction="http://tempuri.org/SmartSoftwareServiceInterface/RezervacijeUpdate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="SmartSoftwareService">
+    <wsdl:port name="BasicHttpBinding_SmartSoftwareServiceInterface" binding="tns:BasicHttpBinding_SmartSoftwareServiceInterface">
+      <soap:address location="http://localhost:55897/SmartSoftwareService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

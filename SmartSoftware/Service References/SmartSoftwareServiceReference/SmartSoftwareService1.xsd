@@ -1,0 +1,1132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:55897/SmartSoftwareService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/SmartSoftwareWebService.BiznisSloj" />
+  <xs:import schemaLocation="http://localhost:55897/SmartSoftwareService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/SmartSoftwareWebService" />
+  <xs:import schemaLocation="http://localhost:55897/SmartSoftwareService.svc?xsd=xsd5" namespace="http://schemas.microsoft.com/Message" />
+  <xs:element name="RezervacijeDelete">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/SmartSoftwareWebService.BiznisSloj" minOccurs="0" name="rezervacija" nillable="true" type="q1:DbItemRezervacijeDeleteIUpdate" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RezervacijeDeleteResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/SmartSoftwareWebService.BiznisSloj" minOccurs="0" name="RezervacijeDeleteResult" nillable="true" type="q2:ArrayOfDbItemRezervacijeSelect" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PretragaOpreme">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="zaPretragu" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="zaAdminPanel" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PretragaOpremeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/SmartSoftwareWebService.BiznisSloj" minOccurs="0" name="PretragaOpremeResult" nillable="true" type="q3:ArrayOfDbItemOpremaSaParametrima" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PrikaziOpremuPoFilterima">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="idTipOpreme" type="xs:int" />
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/SmartSoftwareWebService.BiznisSloj" minOccurs="0" name="filteri" nillable="true" type="q4:ArrayOfDbItemParametri" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PrikaziOpremuPoFilterimaResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/SmartSoftwareWebService.BiznisSloj" minOccurs="0" name="PrikaziOpremuPoFilterimaResult" nillable="true" type="q5:ArrayOfDbItemOpremaSaParametrima" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OblastiOpremeInsert">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/SmartSoftwareWebService.BiznisSloj" minOccurs="0" name="o" nillable="true" type="q6:DbItemOblastiOpreme" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OblastiOpremeInsertResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/SmartSoftwareWebService.BiznisSloj" minOccurs="0" name="OblastiOpremeInsertResult" nillable="true" type="q7:ArrayOfDbItemOblastiOpreme" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OblastiOpremeUpdate">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/SmartSoftwareWebService.BiznisSloj" minOccurs="0" name="o" nillable="true" type="q8:DbItemOblastiOpreme" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OblastiOpremeUpdateResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/SmartSoftwareWebService.BiznisSloj" minOccurs="0" name="OblastiOpremeUpdateResult" nillable="true" type="q9:ArrayOfDbItemOblastiOpreme" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OpOblastiOpremeDelete">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/SmartSoftwareWebService.BiznisSloj" minOccurs="0" name="o" nillable="true" type="q10:DbItemOblastiOpreme" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OpOblastiOpremeDeleteResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/SmartSoftwareWebService.BiznisSloj" minOccurs="0" name="OpOblastiOpremeDeleteResult" nillable="true" type="q11:ArrayOfDbItemOblastiOpreme" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OpOblastiOpremeRestore">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/SmartSoftwareWebService.BiznisSloj" minOccurs="0" name="o" nillable="true" type="q12:DbItemOblastiOpreme" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OpOblastiOpremeRestoreResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/SmartSoftwareWebService.BiznisSloj" minOccurs="0" name="OpOblastiOpremeRestoreResult" nillable="true" type="q13:ArrayOfDbItemOblastiOpreme" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OpNarudzbineSelect">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OpNarudzbineSelectResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/SmartSoftwareWebService.BiznisSloj" minOccurs="0" name="OpNarudzbineSelectResult" nillable="true" type="q14:ArrayOfDbItemNarudzbine" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OpNarudzbinePrihvatiNarudzbinu">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/SmartSoftwareWebService.BiznisSloj" minOccurs="0" name="narduzbina" nillable="true" type="q15:DbItemNarudzbine" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OpNarudzbinePrihvatiNarudzbinuResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/SmartSoftwareWebService.BiznisSloj" minOccurs="0" name="OpNarudzbinePrihvatiNarudzbinuResult" nillable="true" type="q16:ArrayOfDbItemNarudzbine" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OpNarudzbineOdbijNarudzinu">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/SmartSoftwareWebService.BiznisSloj" minOccurs="0" name="narduzbina" nillable="true" type="q17:DbItemNarudzbine" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OpNarudzbineOdbijNarudzinuResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/SmartSoftwareWebService.BiznisSloj" minOccurs="0" name="OpNarudzbineOdbijNarudzinuResult" nillable="true" type="q18:ArrayOfDbItemNarudzbine" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OpNarudzbineInsert">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/SmartSoftwareWebService.BiznisSloj" minOccurs="0" name="narduzbina" nillable="true" type="q19:DbItemNarudzbine" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OpNarudzbineInsertResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="OpNarudzbineInsertResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OpKolekcijaOpremeSelect">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OpKolekcijaOpremeSelectResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/SmartSoftwareWebService.BiznisSloj" minOccurs="0" name="OpKolekcijaOpremeSelectResult" nillable="true" type="q20:ArrayOfDbItemKolekcijaOpreme" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OpKolekcijaOpremeInsert">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/SmartSoftwareWebService.BiznisSloj" minOccurs="0" name="oprema" nillable="true" type="q21:DbItemKolekcijaOpreme" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OpKolekcijaOpremeInsertResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/SmartSoftwareWebService.BiznisSloj" minOccurs="0" name="OpKolekcijaOpremeInsertResult" nillable="true" type="q22:ArrayOfDbItemKolekcijaOpreme" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OgranicenjaSelect">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="idTipaKolekcijeOgranicenja" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OgranicenjaSelectResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/SmartSoftwareWebService.BiznisSloj" minOccurs="0" name="OgranicenjaSelectResult" nillable="true" type="q23:ArrayOfDbItemGrupeOgranicenja" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OgranicenjaInsert">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/SmartSoftwareWebService.BiznisSloj" minOccurs="0" name="ogranicenje" nillable="true" type="q24:DbItemGrupeOgranicenja" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OgranicenjaInsertResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q25="http://schemas.datacontract.org/2004/07/SmartSoftwareWebService.BiznisSloj" minOccurs="0" name="OgranicenjaInsertResult" nillable="true" type="q25:ArrayOfDbItemGrupeOgranicenja" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="TipoviZaNovuKonfiguraciju">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="idTipOpreme" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="TipoviZaNovuKonfiguracijuResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q26="http://schemas.datacontract.org/2004/07/SmartSoftwareWebService.BiznisSloj" minOccurs="0" name="TipoviZaNovuKonfiguracijuResult" nillable="true" type="q26:ArrayOfDbItemTipoviZaKonfiguraciju" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="TipoviZaNovuKonfiguracijuInsertUpdate">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="idTipOpremeKolekcije" type="xs:int" />
+        <xs:element xmlns:q27="http://schemas.datacontract.org/2004/07/SmartSoftwareWebService.BiznisSloj" minOccurs="0" name="kolekcijaKonfiguracije" nillable="true" type="q27:ArrayOfDbItemTipoviZaKonfiguraciju" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="TipoviZaNovuKonfiguracijuInsertUpdateResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q28="http://schemas.datacontract.org/2004/07/SmartSoftwareWebService.BiznisSloj" minOccurs="0" name="TipoviZaNovuKonfiguracijuInsertUpdateResult" nillable="true" type="q28:ArrayOfDbItemTipoviZaKonfiguraciju" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OpPrikazKolekcijeZaUnos">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="idTipOpremeKolekcije" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OpPrikazKolekcijeZaUnosResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q29="http://schemas.datacontract.org/2004/07/SmartSoftwareWebService.BiznisSloj" minOccurs="0" name="OpPrikazKolekcijeZaUnosResult" nillable="true" type="q29:ArrayOfDbItemTipoviZaKonfiguraciju" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetData">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="value" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDataResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetDataResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDataUsingDataContract">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q30="http://schemas.datacontract.org/2004/07/SmartSoftwareWebService" minOccurs="0" name="composite" nillable="true" type="q30:CompositeType" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDataUsingDataContractResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q31="http://schemas.datacontract.org/2004/07/SmartSoftwareWebService" minOccurs="0" name="GetDataUsingDataContractResult" nillable="true" type="q31:CompositeType" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OblastiOpreme">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OblastiOpremeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q32="http://schemas.datacontract.org/2004/07/SmartSoftwareWebService.BiznisSloj" minOccurs="0" name="OblastiOpremeResult" nillable="true" type="q32:ArrayOfDbItemOblastiOpreme" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PretragaOblastiOpreme">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="zaPretragu" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PretragaOblastiOpremeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q33="http://schemas.datacontract.org/2004/07/SmartSoftwareWebService.BiznisSloj" minOccurs="0" name="PretragaOblastiOpremeResult" nillable="true" type="q33:ArrayOfDbItemOblastiOpreme" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OblastiOpremeAdminPanel">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OblastiOpremeAdminPanelResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q34="http://schemas.datacontract.org/2004/07/SmartSoftwareWebService.BiznisSloj" minOccurs="0" name="OblastiOpremeAdminPanelResult" nillable="true" type="q34:ArrayOfDbItemOblastiOpreme" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="TipOpreme">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="TipOpremeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q35="http://schemas.datacontract.org/2004/07/SmartSoftwareWebService.BiznisSloj" minOccurs="0" name="TipOpremeResult" nillable="true" type="q35:ArrayOfDbItemTipOpreme" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="TipOpremeAdminPanel">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="TipOpremeAdminPanelResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q36="http://schemas.datacontract.org/2004/07/SmartSoftwareWebService.BiznisSloj" minOccurs="0" name="TipOpremeAdminPanelResult" nillable="true" type="q36:ArrayOfDbItemTipOpreme" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PretragaTipovaOpreme">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="zaPretragu" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PretragaTipovaOpremeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q37="http://schemas.datacontract.org/2004/07/SmartSoftwareWebService.BiznisSloj" minOccurs="0" name="PretragaTipovaOpremeResult" nillable="true" type="q37:ArrayOfDbItemTipOpreme" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="TipoviOpremeInsert">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q38="http://schemas.datacontract.org/2004/07/SmartSoftwareWebService.BiznisSloj" minOccurs="0" name="TipOpreme" nillable="true" type="q38:DbItemTipOpreme" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="TipoviOpremeInsertResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q39="http://schemas.datacontract.org/2004/07/SmartSoftwareWebService.BiznisSloj" minOccurs="0" name="TipoviOpremeInsertResult" nillable="true" type="q39:ArrayOfDbItemTipOpreme" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="TipoviOpremeUpdate">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q40="http://schemas.datacontract.org/2004/07/SmartSoftwareWebService.BiznisSloj" minOccurs="0" name="TipOpreme" nillable="true" type="q40:DbItemTipOpreme" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="TipoviOpremeUpdateResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q41="http://schemas.datacontract.org/2004/07/SmartSoftwareWebService.BiznisSloj" minOccurs="0" name="TipoviOpremeUpdateResult" nillable="true" type="q41:ArrayOfDbItemTipOpreme" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="TipoviOpremeDelete">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q42="http://schemas.datacontract.org/2004/07/SmartSoftwareWebService.BiznisSloj" minOccurs="0" name="TipOpreme" nillable="true" type="q42:DbItemTipOpreme" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="TipoviOpremeDeleteResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q43="http://schemas.datacontract.org/2004/07/SmartSoftwareWebService.BiznisSloj" minOccurs="0" name="TipoviOpremeDeleteResult" nillable="true" type="q43:ArrayOfDbItemTipOpreme" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="TipoviOpremeRestore">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q44="http://schemas.datacontract.org/2004/07/SmartSoftwareWebService.BiznisSloj" minOccurs="0" name="TipOpreme" nillable="true" type="q44:DbItemTipOpreme" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="TipoviOpremeRestoreResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q45="http://schemas.datacontract.org/2004/07/SmartSoftwareWebService.BiznisSloj" minOccurs="0" name="TipoviOpremeRestoreResult" nillable="true" type="q45:ArrayOfDbItemTipOpreme" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OpremeSaParametrima">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="idTipOpreme" nillable="true" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OpremeSaParametrimaResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q46="http://schemas.datacontract.org/2004/07/SmartSoftwareWebService.BiznisSloj" minOccurs="0" name="OpremeSaParametrimaResult" nillable="true" type="q46:ArrayOfDbItemOpremaSaParametrima" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OpremeSaParametrimaGlavniProzor">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="idTipOpreme" nillable="true" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OpremeSaParametrimaGlavniProzorResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q47="http://schemas.datacontract.org/2004/07/SmartSoftwareWebService.BiznisSloj" minOccurs="0" name="OpremeSaParametrimaGlavniProzorResult" nillable="true" type="q47:ArrayOfDbItemOpremaSaParametrima" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateOpreme">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q48="http://schemas.datacontract.org/2004/07/SmartSoftwareWebService.BiznisSloj" minOccurs="0" name="opremaZaUpdate" nillable="true" type="q48:DbItemOpremaSaParametrima" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateOpremeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q49="http://schemas.datacontract.org/2004/07/SmartSoftwareWebService.BiznisSloj" minOccurs="0" name="UpdateOpremeResult" nillable="true" type="q49:ArrayOfDbItemOpremaSaParametrima" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateOpremeSkiniOpremuSaLagera">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="idOprema" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateOpremeSkiniOpremuSaLageraResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q50="http://schemas.datacontract.org/2004/07/SmartSoftwareWebService.BiznisSloj" minOccurs="0" name="UpdateOpremeSkiniOpremuSaLageraResult" nillable="true" type="q50:ArrayOfDbItemOpremaSaParametrima" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OpremaSaParametrimaAdminPanel">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OpremaSaParametrimaAdminPanelResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q51="http://schemas.datacontract.org/2004/07/SmartSoftwareWebService.BiznisSloj" minOccurs="0" name="OpremaSaParametrimaAdminPanelResult" nillable="true" type="q51:ArrayOfDbItemOpremaSaParametrima" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OpremaDelete">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="idOpreme" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OpremaDeleteResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q52="http://schemas.datacontract.org/2004/07/SmartSoftwareWebService.BiznisSloj" minOccurs="0" name="OpremaDeleteResult" nillable="true" type="q52:ArrayOfDbItemOpremaSaParametrima" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OpremaRestore">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="idOpreme" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OpremaRestoreResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q53="http://schemas.datacontract.org/2004/07/SmartSoftwareWebService.BiznisSloj" minOccurs="0" name="OpremaRestoreResult" nillable="true" type="q53:ArrayOfDbItemOpremaSaParametrima" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OpremaSaParametrimaAdminPanelUpdate">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q54="http://schemas.datacontract.org/2004/07/SmartSoftwareWebService.BiznisSloj" minOccurs="0" name="opremaZaAzuriranje" nillable="true" type="q54:DbItemOpremaSaParametrima" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OpremaSaParametrimaAdminPanelUpdateResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q55="http://schemas.datacontract.org/2004/07/SmartSoftwareWebService.BiznisSloj" minOccurs="0" name="OpremaSaParametrimaAdminPanelUpdateResult" nillable="true" type="q55:ArrayOfDbItemOpremaSaParametrima" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ParametriZaIdTipaOpreme">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="idTipOpreme" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ParametriZaIdTipaOpremeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q56="http://schemas.datacontract.org/2004/07/SmartSoftwareWebService.BiznisSloj" minOccurs="0" name="ParametriZaIdTipaOpremeResult" nillable="true" type="q56:ArrayOfDbItemParametri" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SelectAdminPanelParametri">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SelectAdminPanelParametriResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q57="http://schemas.datacontract.org/2004/07/SmartSoftwareWebService.BiznisSloj" minOccurs="0" name="SelectAdminPanelParametriResult" nillable="true" type="q57:ArrayOfDbItemParametri" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ParametriPretraga">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="zaPretragu" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ParametriPretragaResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q58="http://schemas.datacontract.org/2004/07/SmartSoftwareWebService.BiznisSloj" minOccurs="0" name="ParametriPretragaResult" nillable="true" type="q58:ArrayOfDbItemParametri" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ParametriInsert">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q59="http://schemas.datacontract.org/2004/07/SmartSoftwareWebService.BiznisSloj" minOccurs="0" name="p" nillable="true" type="q59:DbItemParametri" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ParametriInsertResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q60="http://schemas.datacontract.org/2004/07/SmartSoftwareWebService.BiznisSloj" minOccurs="0" name="ParametriInsertResult" nillable="true" type="q60:ArrayOfDbItemParametri" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ParametriUpdate">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q61="http://schemas.datacontract.org/2004/07/SmartSoftwareWebService.BiznisSloj" minOccurs="0" name="p" nillable="true" type="q61:DbItemParametri" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ParametriUpdateResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q62="http://schemas.datacontract.org/2004/07/SmartSoftwareWebService.BiznisSloj" minOccurs="0" name="ParametriUpdateResult" nillable="true" type="q62:ArrayOfDbItemParametri" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ParametriDelete">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="idParametra" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ParametriDeleteResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q63="http://schemas.datacontract.org/2004/07/SmartSoftwareWebService.BiznisSloj" minOccurs="0" name="ParametriDeleteResult" nillable="true" type="q63:ArrayOfDbItemParametri" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ParametriRestore">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="idParametra" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ParametriRestoreResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q64="http://schemas.datacontract.org/2004/07/SmartSoftwareWebService.BiznisSloj" minOccurs="0" name="ParametriRestoreResult" nillable="true" type="q64:ArrayOfDbItemParametri" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="IstorijaKupovineNajprodavanijaOprema">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="asc" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="IstorijaKupovineNajprodavanijaOpremaResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q65="http://schemas.datacontract.org/2004/07/SmartSoftwareWebService.BiznisSloj" minOccurs="0" name="IstorijaKupovineNajprodavanijaOpremaResult" nillable="true" type="q65:ArrayOfDbItemOpremaSaParametrimaStatistika" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="IstorijaKupovineInicijalniPrikazKupaca">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="IstorijaKupovineInicijalniPrikazKupacaResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q66="http://schemas.datacontract.org/2004/07/SmartSoftwareWebService.BiznisSloj" minOccurs="0" name="IstorijaKupovineInicijalniPrikazKupacaResult" nillable="true" type="q66:ArrayOfDbItemKupci" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="IstorijaKupovineNajcesciKupci">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="asc" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="IstorijaKupovineNajcesciKupciResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q67="http://schemas.datacontract.org/2004/07/SmartSoftwareWebService.BiznisSloj" minOccurs="0" name="IstorijaKupovineNajcesciKupciResult" nillable="true" type="q67:ArrayOfDbItemKupci" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="IstorijaKupovineKupciKojiNajviseKupuju">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="asc" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="IstorijaKupovineKupciKojiNajviseKupujuResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q68="http://schemas.datacontract.org/2004/07/SmartSoftwareWebService.BiznisSloj" minOccurs="0" name="IstorijaKupovineKupciKojiNajviseKupujuResult" nillable="true" type="q68:ArrayOfDbItemKupci" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="IstorijaKupovineKupciKojiNajviseTrose">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="asc" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="IstorijaKupovineKupciKojiNajviseTroseResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q69="http://schemas.datacontract.org/2004/07/SmartSoftwareWebService.BiznisSloj" minOccurs="0" name="IstorijaKupovineKupciKojiNajviseTroseResult" nillable="true" type="q69:ArrayOfDbItemKupci" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="IstorijaKupovineUkupanBrojProdateOpreme">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="IstorijaKupovineUkupanBrojProdateOpremeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="IstorijaKupovineUkupanBrojProdateOpremeResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="IstorijaKupovineUkupanBrojProdateOpremeZaDanas">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="danas" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="sutra" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="IstorijaKupovineUkupanBrojProdateOpremeZaDanasResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="IstorijaKupovineUkupanBrojProdateOpremeZaDanasResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="IstorijaKupovineUkupnoZaradjeno">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="IstorijaKupovineUkupnoZaradjenoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="IstorijaKupovineUkupnoZaradjenoResult" type="xs:double" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="IstorijaKupovineZaradjenoDanas">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="danas" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="sutra" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="IstorijaKupovineZaradjenoDanasResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="IstorijaKupovineZaradjenoDanasResult" type="xs:double" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OpremaSaParametrimaAdminPanelInsert">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q70="http://schemas.datacontract.org/2004/07/SmartSoftwareWebService.BiznisSloj" minOccurs="0" name="opremaZaInsert" nillable="true" type="q70:DbItemOpremaSaParametrima" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OpremaSaParametrimaAdminPanelInsertResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q71="http://schemas.datacontract.org/2004/07/SmartSoftwareWebService.BiznisSloj" minOccurs="0" name="OpremaSaParametrimaAdminPanelInsertResult" nillable="true" type="q71:ArrayOfDbItemOpremaSaParametrima" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DownloadRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="FileName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RemoteFileInfo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q72="http://schemas.microsoft.com/Message" name="FileByteStream" type="q72:StreamBody" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FileName" nillable="true" type="xs:string" />
+  <xs:element name="Length" type="xs:long" />
+  <xs:element name="prefixPutanja" nillable="true" type="xs:string" />
+  <xs:element name="PutanjaDoSlike">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="novaPutanja" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PrikaziFiltere">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="idTipOpreme" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PrikaziFiltereResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q73="http://schemas.datacontract.org/2004/07/SmartSoftwareWebService.BiznisSloj" minOccurs="0" name="PrikaziFiltereResult" nillable="true" type="q73:ArrayOfDbItemParametri" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PrikaziFiltereGlavniProzor">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="idTipOpreme" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PrikaziFiltereGlavniProzorResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q74="http://schemas.datacontract.org/2004/07/SmartSoftwareWebService.BiznisSloj" minOccurs="0" name="PrikaziFiltereGlavniProzorResult" nillable="true" type="q74:ArrayOfDbItemParametri" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="KorpaSelect">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="idProdavca" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="KorpaSelectResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q75="http://schemas.datacontract.org/2004/07/SmartSoftwareWebService.BiznisSloj" minOccurs="0" name="KorpaSelectResult" nillable="true" type="q75:ArrayOfDbItemOpremaSaParametrima" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="KorpaInsert">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="idOprema" type="xs:int" />
+        <xs:element minOccurs="0" name="kolicina" type="xs:int" />
+        <xs:element minOccurs="0" name="idProdavca" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="KorpaInsertResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q76="http://schemas.datacontract.org/2004/07/SmartSoftwareWebService.BiznisSloj" minOccurs="0" name="KorpaInsertResult" nillable="true" type="q76:OperationObject" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="KorpaUpdate">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="idOprema" type="xs:int" />
+        <xs:element minOccurs="0" name="kolicina" type="xs:int" />
+        <xs:element minOccurs="0" name="idProdavca" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="KorpaUpdateResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q77="http://schemas.datacontract.org/2004/07/SmartSoftwareWebService.BiznisSloj" minOccurs="0" name="KorpaUpdateResult" nillable="true" type="q77:OperationObject" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="KorpaDelete">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="idOprema" nillable="true" type="xs:int" />
+        <xs:element minOccurs="0" name="idProdavca" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="KorpaDeleteResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q78="http://schemas.datacontract.org/2004/07/SmartSoftwareWebService.BiznisSloj" minOccurs="0" name="KorpaDeleteResult" nillable="true" type="q78:ArrayOfDbItemOpremaSaParametrima" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PrikaziKorisnike">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="idUloge" nillable="true" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PrikaziKorisnikeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q79="http://schemas.datacontract.org/2004/07/SmartSoftwareWebService.BiznisSloj" minOccurs="0" name="PrikaziKorisnikeResult" nillable="true" type="q79:ArrayOfDbItemKorisnici" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PretragaKorisnika">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="pretraga" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PretragaKorisnikaResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q80="http://schemas.datacontract.org/2004/07/SmartSoftwareWebService.BiznisSloj" minOccurs="0" name="PretragaKorisnikaResult" nillable="true" type="q80:ArrayOfDbItemKorisnici" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OpKorisniciInsert">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q81="http://schemas.datacontract.org/2004/07/SmartSoftwareWebService.BiznisSloj" minOccurs="0" name="korisnik" nillable="true" type="q81:DbItemKorisnici" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OpKorisniciInsertResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q82="http://schemas.datacontract.org/2004/07/SmartSoftwareWebService.BiznisSloj" minOccurs="0" name="OpKorisniciInsertResult" nillable="true" type="q82:ArrayOfDbItemKorisnici" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AzurirajBrojPoenaKorisnika">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q83="http://schemas.datacontract.org/2004/07/SmartSoftwareWebService.BiznisSloj" minOccurs="0" name="korisnik" nillable="true" type="q83:DbItemKorisnici" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AzurirajBrojPoenaKorisnikaResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q84="http://schemas.datacontract.org/2004/07/SmartSoftwareWebService.BiznisSloj" minOccurs="0" name="AzurirajBrojPoenaKorisnikaResult" nillable="true" type="q84:ArrayOfDbItemKorisnici" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PrikaziZaposleneKorisnike">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q85="http://schemas.datacontract.org/2004/07/SmartSoftwareWebService.BiznisSloj" minOccurs="0" name="korisnik" nillable="true" type="q85:DbItemKorisnici" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PrikaziZaposleneKorisnikeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q86="http://schemas.datacontract.org/2004/07/SmartSoftwareWebService.BiznisSloj" minOccurs="0" name="PrikaziZaposleneKorisnikeResult" nillable="true" type="q86:ArrayOfDbItemKorisnici" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ZaposleniKorisniciInsert">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q87="http://schemas.datacontract.org/2004/07/SmartSoftwareWebService.BiznisSloj" minOccurs="0" name="korisnik" nillable="true" type="q87:DbItemKorisnici" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ZaposleniKorisniciInsertResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q88="http://schemas.datacontract.org/2004/07/SmartSoftwareWebService.BiznisSloj" minOccurs="0" name="ZaposleniKorisniciInsertResult" nillable="true" type="q88:ArrayOfDbItemKorisnici" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ZaposleniKorisniciUpdate">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q89="http://schemas.datacontract.org/2004/07/SmartSoftwareWebService.BiznisSloj" minOccurs="0" name="korisnik" nillable="true" type="q89:DbItemKorisnici" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ZaposleniKorisniciUpdateResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q90="http://schemas.datacontract.org/2004/07/SmartSoftwareWebService.BiznisSloj" minOccurs="0" name="ZaposleniKorisniciUpdateResult" nillable="true" type="q90:ArrayOfDbItemKorisnici" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="KorisniciDelete">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="idKorisnika" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="KorisniciDeleteResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q91="http://schemas.datacontract.org/2004/07/SmartSoftwareWebService.BiznisSloj" minOccurs="0" name="KorisniciDeleteResult" nillable="true" type="q91:ArrayOfDbItemKorisnici" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="KorisniciRestore">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="idKorisnika" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="KorisniciRestoreResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q92="http://schemas.datacontract.org/2004/07/SmartSoftwareWebService.BiznisSloj" minOccurs="0" name="KorisniciRestoreResult" nillable="true" type="q92:ArrayOfDbItemKorisnici" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ProdajaArtikla">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q93="http://schemas.datacontract.org/2004/07/SmartSoftwareWebService.BiznisSloj" minOccurs="0" name="prodaja" nillable="true" type="q93:DbItemIstorijaKupovine" />
+        <xs:element xmlns:q94="http://schemas.datacontract.org/2004/07/SmartSoftwareWebService.BiznisSloj" minOccurs="0" name="prodataOprema" nillable="true" type="q94:ArrayOfDbItemKupljenaOpremaSaParametrima" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ProdajaArtiklaResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q95="http://schemas.datacontract.org/2004/07/SmartSoftwareWebService.BiznisSloj" minOccurs="0" name="ProdajaArtiklaResult" nillable="true" type="q95:ArrayOfDbItemKupljenaOpremaSaParametrima" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="IstorijaKupovineSelect">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="IstorijaKupovineSelectResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q96="http://schemas.datacontract.org/2004/07/SmartSoftwareWebService.BiznisSloj" minOccurs="0" name="IstorijaKupovineSelectResult" nillable="true" type="q96:ArrayOfDbItemIstorijaKupovine" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="IstorijaKupovineZaListuKupacaDatumSelect">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="IstorijaKupovineZaListuKupacaDatumSelectResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q97="http://schemas.datacontract.org/2004/07/SmartSoftwareWebService.BiznisSloj" minOccurs="0" name="IstorijaKupovineZaListuKupacaDatumSelectResult" nillable="true" type="q97:ArrayOfDbItemIstorijaKupovine" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="IstorijaKupovineZaListuKupacaDatumPretraga">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="searchIme" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="IstorijaKupovineZaListuKupacaDatumPretragaResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q98="http://schemas.datacontract.org/2004/07/SmartSoftwareWebService.BiznisSloj" minOccurs="0" name="IstorijaKupovineZaListuKupacaDatumPretragaResult" nillable="true" type="q98:ArrayOfDbItemIstorijaKupovine" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="IstorijaKupovineZaListuKupacaImeSelect">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="IstorijaKupovineZaListuKupacaImeSelectResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q99="http://schemas.datacontract.org/2004/07/SmartSoftwareWebService.BiznisSloj" minOccurs="0" name="IstorijaKupovineZaListuKupacaImeSelectResult" nillable="true" type="q99:ArrayOfDbItemIstorijaKupovine" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="IstorijaKupovineZaListuKupacaBrojKupovinaSelect">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="asc" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="IstorijaKupovineZaListuKupacaBrojKupovinaSelectResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q100="http://schemas.datacontract.org/2004/07/SmartSoftwareWebService.BiznisSloj" minOccurs="0" name="IstorijaKupovineZaListuKupacaBrojKupovinaSelectResult" nillable="true" type="q100:ArrayOfDbItemIstorijaKupovine" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RezervacijeSelect">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RezervacijeSelectResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q101="http://schemas.datacontract.org/2004/07/SmartSoftwareWebService.BiznisSloj" minOccurs="0" name="RezervacijeSelectResult" nillable="true" type="q101:ArrayOfDbItemRezervacijeSelect" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PrebaciRezerevacijuUKorpu">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="idRezervacije" type="xs:int" />
+        <xs:element minOccurs="0" name="idProdavca" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PrebaciRezerevacijuUKorpuResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q102="http://schemas.datacontract.org/2004/07/SmartSoftwareWebService.BiznisSloj" minOccurs="0" name="PrebaciRezerevacijuUKorpuResult" nillable="true" type="q102:ArrayOfDbItemRezervacijeSelect" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RezervacijeInsert">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q103="http://schemas.datacontract.org/2004/07/SmartSoftwareWebService.BiznisSloj" minOccurs="0" name="rezervacija" nillable="true" type="q103:DbItemRezervacijeInsert" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RezervacijeInsertResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="RezervacijeInsertResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RezervacijeUpdate">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q104="http://schemas.datacontract.org/2004/07/SmartSoftwareWebService.BiznisSloj" minOccurs="0" name="rezervacija" nillable="true" type="q104:ArrayOfDbItemRezervacijeDeleteIUpdate" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RezervacijeUpdateResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q105="http://schemas.datacontract.org/2004/07/SmartSoftwareWebService.BiznisSloj" minOccurs="0" name="RezervacijeUpdateResult" nillable="true" type="q105:OperationObject" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

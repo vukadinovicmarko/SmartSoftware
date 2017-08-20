@@ -1,0 +1,281 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="SmartSoftwareBazaModelStoreContainer" CdmEntityContainer="SmartSoftwareBazaEntities">
+    <EntitySetMapping Name="parametarOpremas">
+      <EntityTypeMapping TypeName="SmartSoftwareBazaModel.parametarOprema">
+        <MappingFragment StoreEntitySet="parametarOprema">
+          <ScalarProperty Name="deletedField" ColumnName="deletedField" />
+          <ScalarProperty Name="id_parametri" ColumnName="id_parametri" />
+          <ScalarProperty Name="id_oprema" ColumnName="id_oprema" />
+          <ScalarProperty Name="vrednost_parametra" ColumnName="vrednost_parametra" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="uloges">
+      <EntityTypeMapping TypeName="SmartSoftwareBazaModel.uloge">
+        <MappingFragment StoreEntitySet="uloge">
+          <ScalarProperty Name="id_uloge" ColumnName="id_uloge" />
+          <ScalarProperty Name="naziv_uloge" ColumnName="naziv_uloge" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="parametris">
+      <EntityTypeMapping TypeName="SmartSoftwareBazaModel.parametri">
+        <MappingFragment StoreEntitySet="parametri">
+          <ScalarProperty Name="deletedField" ColumnName="deletedField" />
+          <ScalarProperty Name="tipParametra" ColumnName="tipParametra" />
+          <ScalarProperty Name="za_filter" ColumnName="za_filter" />
+          <ScalarProperty Name="id_tip_opreme" ColumnName="id_tip_opreme" />
+          <ScalarProperty Name="default_vrednost" ColumnName="default_vrednost" />
+          <ScalarProperty Name="naziv_parametra" ColumnName="naziv_parametra" />
+          <ScalarProperty Name="id_parametri" ColumnName="id_parametri" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="VrednostiParametra" FunctionName="SmartSoftwareBazaModel.Store.VrednostiParametra" />
+    <EntitySetMapping Name="Korpas">
+      <EntityTypeMapping TypeName="SmartSoftwareBazaModel.Korpa">
+        <MappingFragment StoreEntitySet="Korpa">
+          <ScalarProperty Name="idProdavca" ColumnName="idProdavca" />
+          <ScalarProperty Name="kolicina" ColumnName="kolicina" />
+          <ScalarProperty Name="idOprema" ColumnName="idOprema" />
+          <ScalarProperty Name="IdKorpa" ColumnName="IdKorpa" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="AzurirajKorpu" FunctionName="SmartSoftwareBazaModel.Store.AzurirajKorpu" />
+    <FunctionImportMapping FunctionImportName="DodajUKorpu" FunctionName="SmartSoftwareBazaModel.Store.DodajUKorpu" />
+    <FunctionImportMapping FunctionImportName="ObrisiCeluKorpu" FunctionName="SmartSoftwareBazaModel.Store.ObrisiCeluKorpu" />
+    <FunctionImportMapping FunctionImportName="ObrisiOpremuIzKorpe" FunctionName="SmartSoftwareBazaModel.Store.ObrisiOpremuIzKorpe" />
+    <FunctionImportMapping FunctionImportName="OpremaUpdate" FunctionName="SmartSoftwareBazaModel.Store.OpremaUpdate" />
+    <FunctionImportMapping FunctionImportName="AzurirajBrojPoena" FunctionName="SmartSoftwareBazaModel.Store.AzurirajBrojPoena" />
+    <FunctionImportMapping FunctionImportName="AzurirajRezervacije" FunctionName="SmartSoftwareBazaModel.Store.AzurirajRezervacije" />
+    <FunctionImportMapping FunctionImportName="ObrisiOpremuIzRezervacije" FunctionName="SmartSoftwareBazaModel.Store.ObrisiOpremuIzRezervacije" />
+    <FunctionImportMapping FunctionImportName="ObrisiSveRezervacije" FunctionName="SmartSoftwareBazaModel.Store.ObrisiSveRezervacije" />
+    <EntitySetMapping Name="rezervacijes">
+      <EntityTypeMapping TypeName="SmartSoftwareBazaModel.rezervacije">
+        <MappingFragment StoreEntitySet="rezervacije">
+          <ScalarProperty Name="broj_telefona" ColumnName="broj_telefona" />
+          <ScalarProperty Name="datum_azuriranja_rezervacije" ColumnName="datum_azuriranja_rezervacije" />
+          <ScalarProperty Name="datum_isteka_rezervacije" ColumnName="datum_isteka_rezervacije" />
+          <ScalarProperty Name="datum_rezervacije" ColumnName="datum_rezervacije" />
+          <ScalarProperty Name="ime" ColumnName="ime" />
+          <ScalarProperty Name="id_rezervacije" ColumnName="id_rezervacije" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RezervacijeOpremas">
+      <EntityTypeMapping TypeName="SmartSoftwareBazaModel.RezervacijeOprema">
+        <MappingFragment StoreEntitySet="RezervacijeOprema">
+          <ScalarProperty Name="kolicina_rezervisane_opreme" ColumnName="kolicina_rezervisane_opreme" />
+          <ScalarProperty Name="id_rezervacije" ColumnName="id_rezervacije" />
+          <ScalarProperty Name="id_oprema" ColumnName="id_oprema" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="DodajRezervacije" FunctionName="SmartSoftwareBazaModel.Store.DodajRezervacije" />
+    <EntitySetMapping Name="tip_opreme">
+      <EntityTypeMapping TypeName="SmartSoftwareBazaModel.tip_opreme">
+        <MappingFragment StoreEntitySet="tip_opreme">
+          <ScalarProperty Name="deletedField" ColumnName="deletedField" />
+          <ScalarProperty Name="slika_tipa" ColumnName="slika_tipa" />
+          <ScalarProperty Name="id_oblasti_opreme" ColumnName="id_oblasti_opreme" />
+          <ScalarProperty Name="naziv_tipa" ColumnName="naziv_tipa" />
+          <ScalarProperty Name="id_tip_opreme" ColumnName="id_tip_opreme" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="oblasti_opreme">
+      <EntityTypeMapping TypeName="SmartSoftwareBazaModel.oblasti_opreme">
+        <MappingFragment StoreEntitySet="oblasti_opreme">
+          <ScalarProperty Name="deletedField" ColumnName="deletedField" />
+          <ScalarProperty Name="picture" ColumnName="picture" />
+          <ScalarProperty Name="naziv_oblasti_opreme" ColumnName="naziv_oblasti_opreme" />
+          <ScalarProperty Name="id_oblasti_opreme" ColumnName="id_oblasti_opreme" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="OblastiOpremeInsert" FunctionName="SmartSoftwareBazaModel.Store.OblastiOpremeInsert" />
+    <FunctionImportMapping FunctionImportName="OblastiOpremeUpdate" FunctionName="SmartSoftwareBazaModel.Store.OblastiOpremeUpdate" />
+    <FunctionImportMapping FunctionImportName="ObrisiOblastOpreme" FunctionName="SmartSoftwareBazaModel.Store.ObrisiOblastOpreme" />
+    <FunctionImportMapping FunctionImportName="TipoviOpremeInsert" FunctionName="SmartSoftwareBazaModel.Store.TipoviOpremeInsert" />
+    <FunctionImportMapping FunctionImportName="TipoviOpremeDelete" FunctionName="SmartSoftwareBazaModel.Store.TipoviOpremeDelete" />
+    <FunctionImportMapping FunctionImportName="TipoviOpremeUpdate" FunctionName="SmartSoftwareBazaModel.Store.TipoviOpremeUpdate" />
+    <FunctionImportMapping FunctionImportName="ZaposleniKorisniciInsert" FunctionName="SmartSoftwareBazaModel.Store.ZaposleniKorisniciInsert" />
+    <FunctionImportMapping FunctionImportName="ZaposleniKorisniciUpdate" FunctionName="SmartSoftwareBazaModel.Store.ZaposleniKorisniciUpdate" />
+    <FunctionImportMapping FunctionImportName="UpdateVrednostParametra" FunctionName="SmartSoftwareBazaModel.Store.UpdateVrednostParametra" />
+    <FunctionImportMapping FunctionImportName="OpremaInsert" FunctionName="SmartSoftwareBazaModel.Store.OpremaInsert" />
+    <FunctionImportMapping FunctionImportName="OpremaDelete" FunctionName="SmartSoftwareBazaModel.Store.OpremaDelete" />
+    <FunctionImportMapping FunctionImportName="RestoreIzbrisanaOblastOpreme" FunctionName="SmartSoftwareBazaModel.Store.RestoreIzbrisanaOblastOpreme" />
+    <FunctionImportMapping FunctionImportName="RestoreIzbrisanaOprema" FunctionName="SmartSoftwareBazaModel.Store.RestoreIzbrisanaOprema" />
+    <FunctionImportMapping FunctionImportName="RestoreIzbrisaneOpreme" FunctionName="SmartSoftwareBazaModel.Store.RestoreIzbrisaneOpreme" />
+    <FunctionImportMapping FunctionImportName="RestoreIzbrisaniTipoviOpreme" FunctionName="SmartSoftwareBazaModel.Store.RestoreIzbrisaniTipoviOpreme" />
+    <FunctionImportMapping FunctionImportName="RestoreIzbrisanTipOpreme" FunctionName="SmartSoftwareBazaModel.Store.RestoreIzbrisanTipOpreme" />
+    <FunctionImportMapping FunctionImportName="DodajUIstorijuKupovine" FunctionName="SmartSoftwareBazaModel.Store.DodajUIstorijuKupovine" />
+    <FunctionImportMapping FunctionImportName="DodajUIstorijuKupovineOprema" FunctionName="SmartSoftwareBazaModel.Store.DodajUIstorijuKupovineOprema" />
+    <FunctionImportMapping FunctionImportName="ParametriInsert" FunctionName="SmartSoftwareBazaModel.Store.ParametriInsert" />
+    <FunctionImportMapping FunctionImportName="ParametriUpdate" FunctionName="SmartSoftwareBazaModel.Store.ParametriUpdate" />
+    <FunctionImportMapping FunctionImportName="ParametriDelete" FunctionName="SmartSoftwareBazaModel.Store.ParametriDelete" />
+    <FunctionImportMapping FunctionImportName="RestoreIzbrisaniParametri" FunctionName="SmartSoftwareBazaModel.Store.RestoreIzbrisaniParametri" />
+    <FunctionImportMapping FunctionImportName="RestoreIzbrisanParametar" FunctionName="SmartSoftwareBazaModel.Store.RestoreIzbrisanParametar" />
+    <FunctionImportMapping FunctionImportName="KorisniciDelete" FunctionName="SmartSoftwareBazaModel.Store.KorisniciDelete" />
+    <FunctionImportMapping FunctionImportName="RestoreIzbrisanKorisnik" FunctionName="SmartSoftwareBazaModel.Store.RestoreIzbrisanKorisnik" />
+    <EntitySetMapping Name="korisnicis">
+      <EntityTypeMapping TypeName="SmartSoftwareBazaModel.korisnici">
+        <MappingFragment StoreEntitySet="korisnici">
+          <ScalarProperty Name="datum_azuriranja" ColumnName="datum_azuriranja" />
+          <ScalarProperty Name="datum_kreiranja" ColumnName="datum_kreiranja" />
+          <ScalarProperty Name="pol_korisnika" ColumnName="pol_korisnika" />
+          <ScalarProperty Name="slika_korisnika" ColumnName="slika_korisnika" />
+          <ScalarProperty Name="deletedField" ColumnName="deletedField" />
+          <ScalarProperty Name="id_uloge" ColumnName="id_uloge" />
+          <ScalarProperty Name="broj_ostvareni_poena" ColumnName="broj_ostvareni_poena" />
+          <ScalarProperty Name="lozinka" ColumnName="lozinka" />
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="broj_telefona" ColumnName="broj_telefona" />
+          <ScalarProperty Name="mejl" ColumnName="mejl" />
+          <ScalarProperty Name="prezime" ColumnName="prezime" />
+          <ScalarProperty Name="ime" ColumnName="ime" />
+          <ScalarProperty Name="id_korisnici" ColumnName="id_korisnici" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="DodajKorisnika" FunctionName="SmartSoftwareBazaModel.Store.DodajKorisnika" />
+    <EntitySetMapping Name="istorija_kupovine">
+      <EntityTypeMapping TypeName="SmartSoftwareBazaModel.istorija_kupovine">
+        <MappingFragment StoreEntitySet="istorija_kupovine">
+          <ScalarProperty Name="broj_iskoriscenih_popust_poena" ColumnName="broj_iskoriscenih_popust_poena" />
+          <ScalarProperty Name="ukupna_cena_kupovine" ColumnName="ukupna_cena_kupovine" />
+          <ScalarProperty Name="id_kupca" ColumnName="id_kupca" />
+          <ScalarProperty Name="id_prodavca" ColumnName="id_prodavca" />
+          <ScalarProperty Name="datum_prodaje" ColumnName="datum_prodaje" />
+          <ScalarProperty Name="id_istorija_kupovine" ColumnName="id_istorija_kupovine" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="istorija_kupovine_oprema">
+      <EntityTypeMapping TypeName="SmartSoftwareBazaModel.istorija_kupovine_oprema">
+        <MappingFragment StoreEntitySet="istorija_kupovine_oprema">
+          <ScalarProperty Name="id_istorija_kupovine" ColumnName="id_istorija_kupovine" />
+          <ScalarProperty Name="ukupna_cena_artikla" ColumnName="ukupna_cena_artikla" />
+          <ScalarProperty Name="popust_na_cenu" ColumnName="popust_na_cenu" />
+          <ScalarProperty Name="cena_opreme_kad_je_prodata" ColumnName="cena_opreme_kad_je_prodata" />
+          <ScalarProperty Name="kolicina" ColumnName="kolicina" />
+          <ScalarProperty Name="id_oprema" ColumnName="id_oprema" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="IstorijaKupovineKupciKojiNajviseKupuju" FunctionName="SmartSoftwareBazaModel.Store.IstorijaKupovineKupciKojiNajviseKupuju">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SmartSoftwareBazaModel.IstorijaKupovineKupciKojiNajviseKupuju_Result">
+          <ScalarProperty Name="id_kupca" ColumnName="id_kupca" />
+          <ScalarProperty Name="kupljenoOpreme" ColumnName="kupljenoOpreme" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="IstorijaKupovineNajcesciKupci" FunctionName="SmartSoftwareBazaModel.Store.IstorijaKupovineNajcesciKupci">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SmartSoftwareBazaModel.IstorijaKupovineNajcesciKupci_Result">
+          <ScalarProperty Name="id_kupca" ColumnName="id_kupca" />
+          <ScalarProperty Name="brojKupovina" ColumnName="brojKupovina" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="IstorijaKupovineNajprodavanijaOprema" FunctionName="SmartSoftwareBazaModel.Store.IstorijaKupovineNajprodavanijaOprema">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SmartSoftwareBazaModel.IstorijaKupovineNajprodavanijaOprema_Result">
+          <ScalarProperty Name="id_oprema" ColumnName="id_oprema" />
+          <ScalarProperty Name="prodataKolicinaOpreme" ColumnName="prodataKolicinaOpreme" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="IstorijaKupovineUkupnoProdanoOpremeDanas" FunctionName="SmartSoftwareBazaModel.Store.IstorijaKupovineUkupnoProdanoOpremeDanas" />
+    <FunctionImportMapping FunctionImportName="IstorijaKupovineUkupnoZaradjeno" FunctionName="SmartSoftwareBazaModel.Store.IstorijaKupovineUkupnoZaradjeno" />
+    <FunctionImportMapping FunctionImportName="IstorijaKupovineZaradjenoDanas" FunctionName="SmartSoftwareBazaModel.Store.IstorijaKupovineZaradjenoDanas" />
+    <FunctionImportMapping FunctionImportName="InsertRezervacijeOprema" FunctionName="SmartSoftwareBazaModel.Store.InsertRezervacijeOprema" />
+    <FunctionImportMapping FunctionImportName="IstorijaKupovinePotrosnjaKupaca" FunctionName="SmartSoftwareBazaModel.Store.IstorijaKupovinePotrosnjaKupaca">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SmartSoftwareBazaModel.IstorijaKupovinePotrosnjaKupaca_Result">
+          <ScalarProperty Name="id_kupca" ColumnName="id_kupca" />
+          <ScalarProperty Name="ukupnoPotrosio" ColumnName="ukupnoPotrosio" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="narudzbines">
+      <EntityTypeMapping TypeName="SmartSoftwareBazaModel.narudzbine">
+        <MappingFragment StoreEntitySet="narudzbine">
+          <ScalarProperty Name="datum_narudzbine" ColumnName="datum_narudzbine" />
+          <ScalarProperty Name="id_prodavca" ColumnName="id_prodavca" />
+          <ScalarProperty Name="id_oprema" ColumnName="id_oprema" />
+          <ScalarProperty Name="kolicina" ColumnName="kolicina" />
+          <ScalarProperty Name="id_narudzbine" ColumnName="id_narudzbine" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="NarudzbineDelete" FunctionName="SmartSoftwareBazaModel.Store.NarudzbineDelete" />
+    <FunctionImportMapping FunctionImportName="NarudzbineInsert" FunctionName="SmartSoftwareBazaModel.Store.NarudzbineInsert" />
+    <EntitySetMapping Name="kolekcija_opreme">
+      <EntityTypeMapping TypeName="SmartSoftwareBazaModel.kolekcija_opreme">
+        <MappingFragment StoreEntitySet="kolekcija_opreme">
+          <ScalarProperty Name="id_deo" ColumnName="id_deo" />
+          <ScalarProperty Name="id_opreme" ColumnName="id_opreme" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="opremas">
+      <EntityTypeMapping TypeName="SmartSoftwareBazaModel.oprema">
+        <MappingFragment StoreEntitySet="oprema">
+          <ScalarProperty Name="deletedField" ColumnName="deletedField" />
+          <ScalarProperty Name="slika" ColumnName="slika" />
+          <ScalarProperty Name="oprema_na_popustu" ColumnName="oprema_na_popustu" />
+          <ScalarProperty Name="kolicina_na_lageru" ColumnName="kolicina_na_lageru" />
+          <ScalarProperty Name="kolicina_u_rezervi" ColumnName="kolicina_u_rezervi" />
+          <ScalarProperty Name="lager" ColumnName="lager" />
+          <ScalarProperty Name="id_tip_opreme" ColumnName="id_tip_opreme" />
+          <ScalarProperty Name="model" ColumnName="model" />
+          <ScalarProperty Name="opis" ColumnName="opis" />
+          <ScalarProperty Name="cena" ColumnName="cena" />
+          <ScalarProperty Name="naslov" ColumnName="naslov" />
+          <ScalarProperty Name="proizvodjac" ColumnName="proizvodjac" />
+          <ScalarProperty Name="id_oprema" ColumnName="id_oprema" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="KolekcijaOpremeInsert" FunctionName="SmartSoftwareBazaModel.Store.KolekcijaOpremeInsert" />
+    <FunctionImportMapping FunctionImportName="IstorijaKupovineKupciInitPrikaz" FunctionName="SmartSoftwareBazaModel.Store.IstorijaKupovineKupciInitPrikaz" />
+    <FunctionImportMapping FunctionImportName="OpremaSkiniSaLagera" FunctionName="SmartSoftwareBazaModel.Store.OpremaSkiniSaLagera" />
+    <FunctionImportMapping FunctionImportName="KonfigurcijaKolekcijeInsertUpdate" FunctionName="SmartSoftwareBazaModel.Store.KonfigurcijaKolekcijeInsertUpdate" />
+    <EntitySetMapping Name="grupe_ogranicenja">
+      <EntityTypeMapping TypeName="SmartSoftwareBazaModel.grupe_ogranicenja">
+        <MappingFragment StoreEntitySet="grupe_ogranicenja">
+          <ScalarProperty Name="id_tip_opreme_kolekcije" ColumnName="id_tip_opreme_kolekcije" />
+          <ScalarProperty Name="tipProvere" ColumnName="tipProvere" />
+          <ScalarProperty Name="id_parametra2" ColumnName="id_parametra2" />
+          <ScalarProperty Name="id_tip_opreme2" ColumnName="id_tip_opreme2" />
+          <ScalarProperty Name="id_parametra1" ColumnName="id_parametra1" />
+          <ScalarProperty Name="id_tip_opreme1" ColumnName="id_tip_opreme1" />
+          <ScalarProperty Name="Id_grupe_ogranicenja" ColumnName="Id_grupe_ogranicenja" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="GrupeOgranicenjaInsert" FunctionName="SmartSoftwareBazaModel.Store.GrupeOgranicenjaInsert" />
+    <EntitySetMapping Name="konfiguracija_kolekcije">
+      <EntityTypeMapping TypeName="SmartSoftwareBazaModel.konfiguracija_kolekcije">
+        <MappingFragment StoreEntitySet="konfiguracija_kolekcije">
+          <ScalarProperty Name="moguca_kolicina_unosa" ColumnName="moguca_kolicina_unosa" />
+          <ScalarProperty Name="redosled_prikazivanja" ColumnName="redosled_prikazivanja" />
+          <ScalarProperty Name="id_tip_opreme_deo_kolekcije" ColumnName="id_tip_opreme_deo_kolekcije" />
+          <ScalarProperty Name="Id_tip_opreme_kolekcije" ColumnName="Id_tip_opreme_kolekcije" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="VrednostiParametraGlavniProzor" FunctionName="SmartSoftwareBazaModel.Store.VrednostiParametraGlavniProzor" />
+    <FunctionImportMapping FunctionImportName="RestoreIzbrisanParametarOprema" FunctionName="SmartSoftwareBazaModel.Store.RestoreIzbrisanParametarOprema" />
+    <FunctionImportMapping FunctionImportName="IzbrisiRezervaciju" FunctionName="SmartSoftwareBazaModel.Store.IzbrisiRezervaciju" />
+    <FunctionImportMapping FunctionImportName="DeletePojedinacnoRezervacijeOprema" FunctionName="SmartSoftwareBazaModel.Store.DeletePojedinacnoRezervacijeOprema" />
+    <FunctionImportMapping FunctionImportName="DodajUKorpuIzRezervacije" FunctionName="SmartSoftwareBazaModel.Store.DodajUKorpuIzRezervacije" />
+    <FunctionImportMapping FunctionImportName="IzbrisiRezervacijuZaStavljanjeUkorpu" FunctionName="SmartSoftwareBazaModel.Store.IzbrisiRezervacijuZaStavljanjeUkorpu" />
+    <FunctionImportMapping FunctionImportName="IzbrisiOpremuIzRezervacije" FunctionName="SmartSoftwareBazaModel.Store.IzbrisiOpremuIzRezervacije" />
+    <FunctionImportMapping FunctionImportName="NarudzbinePrihvati" FunctionName="SmartSoftwareBazaModel.Store.NarudzbinePrihvati" />
+  </EntityContainerMapping>
+</Mapping>

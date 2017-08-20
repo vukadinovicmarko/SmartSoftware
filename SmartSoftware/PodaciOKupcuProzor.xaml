@@ -1,0 +1,2137 @@
+﻿<Window x:Class="SmartSoftware.PodaciOKupcuProzor"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:avalon ="http://schemas.xceed.com/wpf/xaml/avalondock"
+        Title="ODABIR KUPCA" Height="700" Width="900" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="SingleBorderWindow"  StateChanged="Window_StateChanged">
+
+    <Window.Resources>
+
+        <DataTemplate x:Key="probaAvalon">
+            <Border Height="30">
+                <TextBlock Text="{Binding Title}"/>
+            </Border>
+        </DataTemplate>
+
+
+        <Style x:Key="stilDugmiciDodavanje" TargetType="{x:Type Button}">
+
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Height" Value="35"/>
+            <Setter Property="Width" Value="Auto"/>
+            <Setter Property="FontSize" Value="10"/>
+
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border Background="{TemplateBinding Background}"  BorderThickness="1" Padding="10,0" BorderBrush="#FF2F5778">
+                            <!--<ContentPresenter HorizontalAlignment="Center"  VerticalAlignment="Center" Width="Auto" />-->
+                            <Grid VerticalAlignment="Center">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="20"/>
+                                    <ColumnDefinition Width="10"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+                                <Border Grid.Column="0"  VerticalAlignment="Center">
+                                    <Image Source="{Binding Source={StaticResource sveSlike},Path=PutanjaDoSlikeNaruciNaLager, UpdateSourceTrigger=PropertyChanged}" Height="15" Width="15"/>
+                                </Border>
+                                <Border Grid.Column="2" VerticalAlignment="Center">
+                                    <TextBlock Text="{TemplateBinding Content}" VerticalAlignment="Center" Foreground="#FF2F5778"/>
+                                </Border>
+                            </Grid>
+                        </Border>
+
+
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#FF2F5778"/>
+                    <Setter Property="Foreground" Value="White"/>
+
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type Button}">
+                                <Border Background="{TemplateBinding Background}"  BorderThickness="0" Padding="10,0" BorderBrush="White">
+                                    <!--<ContentPresenter HorizontalAlignment="Center"  VerticalAlignment="Center" Width="Auto" />-->
+                                    <Grid VerticalAlignment="Center">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="20"/>
+                                            <ColumnDefinition Width="10"/>
+                                            <ColumnDefinition Width="Auto"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Border Grid.Column="0"  VerticalAlignment="Center">
+                                            <Image Source="{Binding Source={StaticResource sveSlike},Path=PutanjaDoSlikeNaruciNaLagerHoverovano, UpdateSourceTrigger=PropertyChanged}" Height="15" Width="15"/>
+                                        </Border>
+                                        <Border Grid.Column="2" VerticalAlignment="Center">
+                                            <TextBlock Text="{TemplateBinding Content}" VerticalAlignment="Center" Foreground="White" />
+                                        </Border>
+                                    </Grid>
+                                </Border>
+
+
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+
+        <Style x:Key="stilDugmiciOpremaSacuvajUnos" TargetType="{x:Type Button}">
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="Foreground" Value="DarkGreen"/>
+            <Setter Property="Height" Value="40"/>
+            <Setter Property="Width" Value="135"/>
+            <Setter Property="Padding" Value="20,0"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border Background="{TemplateBinding Background}"  BorderThickness="1" BorderBrush="DarkGreen" Padding="5" >
+                            <!--<ContentPresenter HorizontalAlignment="Center"  VerticalAlignment="Center" Width="Auto" />-->
+                            <Grid HorizontalAlignment="Center">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="20"/>
+                                    <ColumnDefinition Width="5"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+                                <Border Grid.Column="0">
+                                    <Image Source="{Binding Source={StaticResource sveSlike},Path=PutanjaDoSlikeSacuvajIzmene}" Width="20" Height="20" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                </Border>
+                                <Border Grid.Column="2">
+                                    <Label Content="Sačuvaj" VerticalAlignment="Stretch" VerticalContentAlignment="Center" FontSize="10" Foreground="DarkGreen"/>
+                                </Border>
+
+                            </Grid>
+                        </Border>
+
+
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="DarkGreen"/>
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type Button}">
+                                <Border Background="{TemplateBinding Background}"  BorderThickness="1" BorderBrush="White" Padding="5" >
+                                    <!--<ContentPresenter HorizontalAlignment="Center"  VerticalAlignment="Center" Width="Auto" />-->
+                                    <Grid HorizontalAlignment="Center">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="20"/>
+                                            <ColumnDefinition Width="5"/>
+                                            <ColumnDefinition Width="Auto"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Border Grid.Column="0">
+                                            <Image Source="{Binding Source={StaticResource sveSlike},Path=PutanjaDoSlikeSacuvajIzmeneHoverovano}" Width="20" Height="20" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                        </Border>
+                                        <Border Grid.Column="2">
+                                            <Label Content="Sačuvaj" VerticalAlignment="Stretch" VerticalContentAlignment="Center" FontSize="10" Foreground="White"/>
+                                        </Border>
+
+                                    </Grid>
+                                </Border>
+
+
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Trigger>
+
+            </Style.Triggers>
+        </Style>
+
+        <Style x:Key="stilDugmiciOpremaOtkaziUnos" TargetType="{x:Type Button}">
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="Foreground" Value="DarkRed"/>
+            <Setter Property="Height" Value="40"/>
+            <Setter Property="Width" Value="135"/>
+            <Setter Property="Padding" Value="20,0"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border Background="{TemplateBinding Background}"  BorderThickness="1" BorderBrush="DarkRed" Padding="5,0" >
+                            <!--<ContentPresenter HorizontalAlignment="Center"  VerticalAlignment="Center" Width="Auto" />-->
+                            <Grid HorizontalAlignment="Center">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="20"/>
+                                    <ColumnDefinition Width="5"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+                                <Border Grid.Column="0">
+                                    <Image Source="{Binding Source={StaticResource sveSlike},Path=PutanjaDoSlikeSkiniSaLagera}" Width="20" Height="20" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                </Border>
+                                <Border Grid.Column="2">
+                                    <Label Content="Otkaži" VerticalAlignment="Stretch" VerticalContentAlignment="Center" FontSize="10" Foreground="DarkRed"/>
+                                </Border>
+
+                            </Grid>
+                        </Border>
+
+
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="DarkRed"/>
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type Button}">
+                                <Border Background="{TemplateBinding Background}"  BorderThickness="1" BorderBrush="White" Padding="5,0" >
+                                    <!--<ContentPresenter HorizontalAlignment="Center"  VerticalAlignment="Center" Width="Auto" />-->
+                                    <Grid HorizontalAlignment="Center">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="20"/>
+                                            <ColumnDefinition Width="5"/>
+                                            <ColumnDefinition Width="Auto"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Border Grid.Column="0">
+                                            <Image Source="{Binding Source={StaticResource sveSlike},Path=PutanjaDoSlikeSkiniSaLageraHoverovano}" Width="20" Height="20" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                        </Border>
+                                        <Border Grid.Column="2">
+                                            <Label Content="Otkaži" VerticalAlignment="Stretch" VerticalContentAlignment="Center" FontSize="10" Foreground="White"/>
+                                        </Border>
+
+                                    </Grid>
+                                </Border>
+
+
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Trigger>
+
+            </Style.Triggers>
+
+        </Style>
+        
+        <ControlTemplate x:Key="ctpPrikazDetaljaDugmiciKorisniciUnos">
+            <Grid Grid.Row="0" VerticalAlignment="Center" >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+
+                </Grid.ColumnDefinitions>
+
+                <Border Grid.Column="0"  HorizontalAlignment="Center"  >
+                    <Button    Name="btnKorisniciSacuvajUnos"   Style="{DynamicResource stilDugmiciOpremaSacuvajUnos}" TabIndex="11" Click="btnKorisniciSacuvajUnos_Click"/>
+                </Border>
+
+                <Border Grid.Column="1"  HorizontalAlignment="Center" >
+                    <Button   Name="btnOtkaziIzmene" Click="btnOtkaziIzmene_Click"  Style="{DynamicResource stilDugmiciOpremaOtkaziUnos}" TabIndex="12"/>
+                </Border>
+
+            </Grid>
+        </ControlTemplate>
+
+        <Style x:Key="stilDugmiciOpremaIzaberiKorisnika" TargetType="{x:Type Button}">
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="Foreground" Value="DarkGreen"/>
+            <Setter Property="Height" Value="40"/>
+            <Setter Property="Width" Value="160"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border Background="{TemplateBinding Background}"  BorderThickness="1" BorderBrush="DarkGreen" Padding="5,0" >
+                            <!--<ContentPresenter HorizontalAlignment="Center"  VerticalAlignment="Center" Width="Auto" />-->
+                            <Grid HorizontalAlignment="Center">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="20"/>
+                                    <ColumnDefinition Width="5"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+                                <Border Grid.Column="0">
+                                    <Image Source="{Binding Source={StaticResource sveSlike},Path=PutanjaDoSlikePrihvatiNarudzbinu}" Width="20" Height="20" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                </Border>
+                                <Border Grid.Column="2">
+                                    <Label Content="Odaberi ovog korisnika" VerticalAlignment="Stretch" VerticalContentAlignment="Center" FontSize="10" Foreground="DarkGreen"  Cursor="Hand"/>
+                                </Border>
+
+                            </Grid>
+                        </Border>
+                        
+
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="DarkGreen"/>
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type Button}">
+                                <Border Background="{TemplateBinding Background}"  BorderThickness="1" BorderBrush="White" Padding="5,0" >
+                                    <!--<ContentPresenter HorizontalAlignment="Center"  VerticalAlignment="Center" Width="Auto" />-->
+                                    <Grid HorizontalAlignment="Center">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="20"/>
+                                            <ColumnDefinition Width="5"/>
+                                            <ColumnDefinition Width="Auto"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Border Grid.Column="0">
+                                            <Image Source="{Binding Source={StaticResource sveSlike},Path=PutanjaDoSlikePrihvatiNarudzbinuHoverovano}" Width="20" Height="20" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                        </Border>
+                                        <Border Grid.Column="2">
+                                            <Label Content="Odaberi ovog korisnika" VerticalAlignment="Stretch" VerticalContentAlignment="Center" FontSize="10" Foreground="White"/>
+                                        </Border>
+
+                                    </Grid>
+                                </Border>
+
+
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Trigger>
+
+            </Style.Triggers>
+
+        </Style>
+
+        <ControlTemplate x:Key="ctpPrikazDetaljaDugmiciKorisniciAzuriranje">
+            <Grid Grid.Row="0" VerticalAlignment="Center">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition Width="*"/>
+
+                </Grid.ColumnDefinitions>
+
+                <!--<Border Grid.Column="0"  HorizontalAlignment="Left">
+                    <Button    Name="btnIzmeniISacuvajKorisnici"   Style="{DynamicResource stilDugmiciOpremaSacuvajIzmene}" TabIndex="11" Click="btnIzmeniISacuvajKorisnici_Click"/>
+                </Border>-->
+
+                <Border Grid.Column="1"  HorizontalAlignment="Center">
+                    <Button   Name="btnOtkaziIzmeneKorisniciDole" Click="btnIzaberiKorisnika_Click"  Style="{DynamicResource stilDugmiciOpremaIzaberiKorisnika}" TabIndex="12"  Cursor="Hand"/>
+                </Border>
+                <!--<Border Grid.Column="2"  VerticalAlignment="Center" HorizontalAlignment="Right">
+                    <Button  Name="btnObrisiKorisnikaDole" Click="btnObrisiKorisnika_Click"  Style="{DynamicResource stilDugmiciIzbrisiOvogKorisnika}" TabIndex="13" >
+
+                    </Button>
+
+                </Border>-->
+
+            </Grid>
+        </ControlTemplate>
+
+        
+
+        <ControlTemplate x:Key="ctpPretragaIUnos">
+            <Border  x:Name="probaproba"  Padding="5,5,5,5" HorizontalAlignment="Stretch"  BorderThickness="0,0,0,3" BorderBrush="Gainsboro"  Background="#0C000000">
+                <!--<Border.Background>
+                                                                        <RadialGradientBrush GradientOrigin="0.5,0.5" Center="0.5,0.5" RadiusY="2" RadiusX="0.7">
+                                                                            <GradientStop Color="White" Offset="0.207"/>
+                                                                            <GradientStop Color="#FFEBF0F4" Offset="0.425"/>
+                                                                            <GradientStop Color="#FFE9EBEE" Offset="0.702"/>
+                                                                        </RadialGradientBrush>
+                                                                    </Border.Background>-->
+                <Grid HorizontalAlignment="Center"  >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="0"/>
+                        <ColumnDefinition Width="0"/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="25"/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="25"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Border Grid.Column="2">
+                        <Image x:Name="imgOblastOpremeSearch" Source="{Binding Source={StaticResource sveSlike},Path=PutanjaDoSlikeDugmeSearch}" Width="20" Height="20" VerticalAlignment="Center" HorizontalAlignment="Center" MouseLeftButtonUp="imgOblastOpremeSearch_MouseLeftButtonUp" ToolTip="Kliknite ovde kako biste pretražili korisnike" Cursor="Hand"/>
+                    </Border>
+                    <Border Grid.Column="4">
+                        <Image x:Name="imgOblastOpremeDodaj" Source="{Binding Source={StaticResource sveSlike},Path=PutanjaDoSlikeNaruciNaLager}" Width="20" Height="20" VerticalAlignment="Center" HorizontalAlignment="Center" MouseLeftButtonUp="imgOblastOpremeDodaj_MouseLeftButtonUp" ToolTip="Kliknite ovde kako biste pretražili oblasti opreme" Cursor="Hand"/>
+                    </Border>
+                    <Border Grid.Column="6">
+                        <Image x:Name="imgOblastOpremeOsveziListu" Source="{Binding Source={StaticResource sveSlike},Path=PutanjaDoSlikeOsveziHoverovano}" Width="20" Height="20" VerticalAlignment="Center" HorizontalAlignment="Center" MouseLeftButtonUp="imgOblastOpremeOsveziListu_MouseLeftButtonUp" ToolTip="Osveži listu" Cursor="Hand"/>
+                    </Border>
+                </Grid>
+            </Border>
+        </ControlTemplate>
+
+        <ControlTemplate x:Key="ctpGlavniProzorTitle">
+            <Border  HorizontalAlignment="Stretch">
+
+                <Border.Background>
+
+                    <RadialGradientBrush RadiusY="2">
+                        <GradientStop Color="#FF2F5778" Offset="1"/>
+                        <GradientStop Color="#FF17405E"/>
+                    </RadialGradientBrush>
+                </Border.Background>
+                <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Border x:Name="grdSlikaINazivAplikacije" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="15,10,0,0">
+                        <Grid >
+                            <Grid.ColumnDefinitions>
+
+                                <ColumnDefinition Width="15"/>
+                                <ColumnDefinition Width="5"/>
+                                <ColumnDefinition Width="Auto"/>
+
+                            </Grid.ColumnDefinitions>
+                            <Border Grid.Column="0" VerticalAlignment="Center"  >
+                                <Image x:Name="slikaLogo"  Source="{Binding Source={StaticResource sveSlike},Path=PutanjaDoSlikeLogoNormalno}" Width="15" Height="15" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                            </Border>
+                            <Border Grid.Column="2" VerticalAlignment="Center" >
+                                <TextBlock Name="tbNazivTitle"  Text="SmartSoftware" Foreground="White" FontSize="11" >
+
+                                </TextBlock>
+                            </Border>
+                        </Grid>
+                    </Border>
+                    <Grid x:Name="grdSlikaINazivTitlaIPodaciOProdavcu" Grid.Column="1" VerticalAlignment="Stretch">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="40"/>
+                            <RowDefinition Height="5"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+
+                        <Grid Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Bottom">
+                            <Grid.ColumnDefinitions>
+
+                                <ColumnDefinition Width="25"/>
+                                <ColumnDefinition Width="10"/>
+                                <ColumnDefinition Width="Auto"/>
+
+                            </Grid.ColumnDefinitions>
+                            <Border Grid.Column="0" VerticalAlignment="Center"  >
+                                <Image x:Name="slikaTitlaLogo"  Source="{Binding Source={StaticResource sveSlike},Path=PutanjaDoSlikeOdabirKupca}" Width="25" Height="25" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                            </Border>
+                            <Border Grid.Column="2" VerticalAlignment="Center" >
+                                <TextBlock Name="tbNazivTitla"  Text="{Binding Title, RelativeSource={RelativeSource FindAncestor,AncestorType=Window},FallbackValue=Title}" Foreground="White" FontSize="14" >
+
+                                </TextBlock>
+                            </Border>
+
+                        </Grid>
+                        <Grid Grid.Row="2" Grid.ColumnSpan="3">
+                            <Border Grid.Row="4" Grid.Column="1" HorizontalAlignment="Stretch">
+                                <Grid HorizontalAlignment="Center">
+                                    <Grid.ColumnDefinitions >
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="5"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <TextBlock Grid.Column="0" Text="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}, Path=DataContext.TrenutniProdavac.ImeKorisnika, UpdateSourceTrigger=PropertyChanged}" Foreground="White" FontSize="11"/>
+                                    <TextBlock Grid.Column="2" Text="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}, Path=DataContext.TrenutniProdavac.PrezimeKorisnika, UpdateSourceTrigger=PropertyChanged}" Foreground="White" FontSize="11"/>
+                                </Grid>
+                            </Border>
+                        </Grid>
+                    </Grid>
+
+                    <!--<Button Grid.ColumnSpan="3" Content="X" Style="{StaticResource dugmeClose}" HorizontalAlignment="Right"/>-->
+                </Grid>
+            </Border>
+        </ControlTemplate>
+
+        <ControlTemplate x:Key="ctpPrikazDetaljaKorisnici">
+        <Grid  Name="grdPrikazDetaljaKorisnici"  Visibility="Visible" Tag="1" >
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <Border  Grid.Row="0"  BorderBrush="Gainsboro" BorderThickness="0,0,0,2"  HorizontalAlignment="Stretch"  Background="#0C000000" x:Name="brdKorisniciImeIPrezimeNaslov" MouseEnter="brdKorisniciImeIPrezimeNaslov_MouseEnter" MouseLeave="brdKorisniciImeIPrezimeNaslov_MouseLeave" MouseLeftButtonUp="brdKorisniciImeIPrezimeNaslov_MouseLeftButtonUp" Cursor="Hand" >
+                <ContentControl x:Name="cclPrikazHederaImePrezimeKorisnici" Template="{DynamicResource ctpHederImePrezimeKorisnici}" IsTabStop="False"/>
+            </Border>
+
+            <ScrollViewer ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto"  Grid.Row="1"  VerticalAlignment="Top" HorizontalAlignment="Stretch" Focusable="False" >
+                <Border x:Name="brdPrikazDetaljaKorisniciSadrzaj" Padding="0,20"  Width="460">
+
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="0"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="5"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="5"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="5"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="5"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="5"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="5"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="5"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="5"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="5"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="5"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+
+                        <Grid.Resources>
+                            <Style TargetType="TextBlock">
+                                <Setter Property="HorizontalAlignment" Value="Left"/>
+                                <Setter Property="VerticalAlignment" Value="Center"/>
+                                <Setter Property="FontSize" Value="10"/>
+                                <Setter Property="Height" Value="Auto"/>
+                                <Setter Property="TextWrapping" Value="Wrap"/>
+                                <Setter Property="Foreground" Value="Black"/>
+                                <Setter Property="TextOptions.TextFormattingMode" Value="Ideal"/>
+                                <Setter Property="FontWeight" Value="SemiBold"/>
+                            </Style>
+                            <Style TargetType="TextBox">
+                                <Setter Property="HorizontalAlignment" Value="Left"/>
+                                <Setter Property="VerticalAlignment" Value="Bottom"/>
+                                <Setter Property="VerticalContentAlignment" Value="Center"/>
+                                <Setter Property="FontSize" Value="11"/>
+                                <!--<Setter Property="Height" Value="30"/>-->
+                                <Setter Property="Width" Value="250"/>
+                                <Setter Property="TextWrapping" Value="Wrap"/>
+                                <Setter Property="Foreground" Value="Black"/>
+                                <Setter Property="BorderBrush" Value="Gainsboro"/>
+                                <Setter Property="BorderThickness" Value="0,0,0,1"/>
+                                <Setter Property="Padding" Value="0,2"/>
+                                    <Setter Property="IsReadOnly" Value="True"/>
+                                    <Setter Property="Background" Value="Transparent"/>
+                            </Style>
+                        </Grid.Resources>
+
+                        <Grid Grid.Row="0" x:Name="grdPromenaVisine" Height="0" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"/>
+
+                        <Grid Grid.Row="2" VerticalAlignment="Center" >
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="190"/>
+                                <ColumnDefinition Width="20"/>
+                                <ColumnDefinition Width="250"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Border Grid.Column="0" x:Name="brdImeKorisnika">
+                                <TextBlock x:Name="tblckImeKorisnika" Text="IME"/>
+                            </Border>
+
+                            <Border Grid.Column="2" x:Name="brdImeKorisnikaTxtBox" BorderBrush="#FF2F5778" Height="Auto" MouseEnter="brdDesno_MouseEnter" MouseLeave="brdDesno_MouseLeave" Background="Transparent" HorizontalAlignment="Stretch">
+                                <TextBox x:Name="tboxImeKorisnika" Text="{Binding CurrentKorisnici.ImeKorisnika,UpdateSourceTrigger=PropertyChanged}"  GotFocus="TextBoxAdminPanel_GotFocus" LostFocus="TextBoxAdminPanel_LostFocus" TabIndex="1" KeyUp="TextBoxImeKorisnika_KeyUp"/>
+                            </Border>
+                            <!--<Label Content="1" x:Name="skrivenIdIme" Visibility="Hidden"/>-->
+                        </Grid>
+
+                        <Grid Grid.Row="4" VerticalAlignment="Center">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="190"/>
+                                <ColumnDefinition Width="20"/>
+                                <ColumnDefinition Width="250"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Border Grid.Column="0"  x:Name="brdPrezimeKorisnika">
+                                <TextBlock x:Name="tblckPrezimeKorisnika" Text="PREZIME"/>
+                            </Border>
+                            <Border  Grid.Column="2" x:Name="brdPrezimeKorisnikaTxtBox" BorderBrush="#FF2F5778" Height="Auto" MouseEnter="brdDesno_MouseEnter" MouseLeave="brdDesno_MouseLeave" Background="Transparent" HorizontalAlignment="Stretch">
+                                <TextBox x:Name="tboxPrezimeKorisnika" Text="{Binding CurrentKorisnici.PrezimeKorisnika,UpdateSourceTrigger=PropertyChanged}" GotFocus="TextBoxAdminPanel_GotFocus" LostFocus="TextBoxAdminPanel_LostFocus"  TabIndex="2" KeyUp="TextBoxPrezimeKorisnika_KeyUp"/>
+                            </Border>
+                            <!--<Label Content="2" x:Name="skrivenIdPrezime" Visibility="Hidden"/>-->
+                        </Grid>
+
+                        <!--<Grid Grid.Row="6" VerticalAlignment="Center">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="190"/>
+                                <ColumnDefinition Width="20"/>
+                                <ColumnDefinition Width="250"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Border  Grid.Column="0" x:Name="brdOdabirUlogeZaKorisnikaHeader">
+                                <TextBlock x:Name="tblckOdabirUlogeZaKorisnika" Text="PRIPADA ULOZI"/>
+                            </Border>
+                            <Border Grid.Column="2"  x:Name="brdOdabirUlogeZaKorisnika" BorderBrush="#FF2F5778" Background="Transparent" MouseEnter="brdDesno_MouseEnter" MouseLeave="brdDesno_MouseLeave" HorizontalAlignment="Stretch" >
+
+                                <ComboBox Grid.Row="0" ItemsSource="{Binding ListaUloga}" SelectedIndex="{Binding CurrentKorisnici.IzabranaUloga}" Name="cmbListaUloga" SelectionChanged="cmbListaUloga_SelectionChanged" Width="250"  HorizontalContentAlignment="Left" VerticalAlignment="Center" VerticalContentAlignment="Center" FontSize="11" Foreground="Black" GotFocus="cmbBoxAdminPanel_GotFocus" LostFocus="cmbBoxAdminPanel_LostFocus" TabIndex="3"/>
+                            </Border>
+                            --><!--<Label Content="3" x:Name="skrivenIdUloga" Visibility="Hidden"/>--><!--
+                        </Grid>-->
+
+                        <!--<Grid Grid.Row="8" VerticalAlignment="Center">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="190"/>
+                                <ColumnDefinition Width="20"/>
+                                <ColumnDefinition Width="250"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Border Grid.Column="0"  x:Name="brdPolKorisnikaHeader" >
+                                <TextBlock x:Name="tblckPolKorisnikaHeader" Text="POL"/>
+                            </Border>
+                            <Border Grid.Column="2" x:Name="brdPolKorisnikaRB" BorderBrush="#FF2F5778"  MouseEnter="brdDesno_MouseEnter" MouseLeave="brdDesno_MouseLeave" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="Transparent" Height="20">
+                                <Grid HorizontalAlignment="Stretch" VerticalAlignment="Center" Width="240" Height="15">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="3*"/>
+                                        <ColumnDefinition Width="2*"/>
+                                        <ColumnDefinition Width="3*"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <RadioButton Grid.Column="1" x:Name="rbMuskiPol"  Content="Muški" IsChecked="{Binding CurrentKorisnici.DaLiJeMuskiPolCekiran,UpdateSourceTrigger=PropertyChanged}" Click="rbMuskiPol_Click" FontSize="11"  VerticalAlignment="Center" GotFocus="rbAdminPanel_GotFocus" LostFocus="rbAdminPanel_LostFocus" TabIndex="4" VerticalContentAlignment="Center" />
+                                    <RadioButton Grid.Column="3" x:Name="rbZenskiPol"  Content="Ženski" IsChecked="{Binding CurrentKorisnici.DaLiJeZenskiPolCekiran,UpdateSourceTrigger=PropertyChanged}" Click="rbZenskiPol_Click" FontSize="11" VerticalAlignment="Center" GotFocus="rbAdminPanel_GotFocus" LostFocus="rbAdminPanel_LostFocus" TabIndex="5" VerticalContentAlignment="Center"/>
+                                </Grid>
+
+                            </Border>
+                            <Label Content="4" x:Name="skrivenIdPol" Visibility="Hidden"/>
+                        </Grid>-->
+
+                        <!--<Grid Grid.Row="10"  VerticalAlignment="Center">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="190"/>
+                                <ColumnDefinition Width="20"/>
+                                <ColumnDefinition Width="250"/>
+                            </Grid.ColumnDefinitions>
+                            <Border Grid.Column="0" x:Name="brdKorisnickoImeHeader">
+                                <TextBlock x:Name="tblckKorisnickoIme" Text="KORISNIČKO IME"/>
+                            </Border>
+                            <Border Grid.Column="2" x:Name="brdKorisnickoImeTxtBox" BorderBrush="#FF2F5778" Height="Auto" Background="Transparent" MouseEnter="brdDesno_MouseEnter" MouseLeave="brdDesno_MouseLeave" >
+                                <TextBox x:Name="tbKorisnickoIme" Text="{Binding CurrentKorisnici.Username,UpdateSourceTrigger=PropertyChanged}" GotFocus="TextBoxAdminPanel_GotFocus" LostFocus="TextBoxAdminPanel_LostFocus" TabIndex="6" />
+                            </Border>
+                            --><!--<Label Content="5" x:Name="skrivenIdKorisnickoIme" Visibility="Hidden"/>--><!--
+                        </Grid>-->
+
+                        <!--<Grid Grid.Row="12"  VerticalAlignment="Center">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="190"/>
+                                <ColumnDefinition Width="20"/>
+                                <ColumnDefinition Width="250"/>
+                            </Grid.ColumnDefinitions>
+                            <Border Grid.Column="0" x:Name="brdLozinkaKorisnikaHeader">
+                                <TextBlock x:Name="tblcLozinkaKorisnika" Text="LOZINKA"/>
+                            </Border>
+                            <Border  Grid.Column="2"  x:Name="brdLozinkaKorisnikaTxtBox" BorderBrush="#FF2F5778" Height="Auto" Background="Transparent" MouseEnter="brdDesno_MouseEnter" MouseLeave="brdDesno_MouseLeave" >
+                                <TextBox Text="{Binding CurrentKorisnici.Lozinka,UpdateSourceTrigger=PropertyChanged}"  GotFocus="TextBoxAdminPanel_GotFocus" LostFocus="TextBoxAdminPanel_LostFocus" TabIndex="7"/>
+                            </Border>
+                            --><!--<Label Content="6" x:Name="skrivenIdLozinka" Visibility="Hidden"/>--><!--
+                        </Grid>-->
+
+                        <Grid Grid.Row="14" VerticalAlignment="Center">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="190"/>
+                                <ColumnDefinition Width="20"/>
+                                <ColumnDefinition Width="250"/>
+                            </Grid.ColumnDefinitions>
+                            <Border Grid.Column="0" x:Name="brdBrojTelefonaKorisnikaHeader">
+                                <TextBlock x:Name="tblckBrojTelefonaKorisnika" Text="BROJ TELEFONA"/>
+                            </Border>
+                            <Border  Grid.Column="2" x:Name="brdBrojTelefonaKorisnikaTxtBox" BorderBrush="#FF2F5778" Height="Auto" Background="Transparent" MouseEnter="brdDesno_MouseEnter" MouseLeave="brdDesno_MouseLeave">
+                                <TextBox x:Name="tboxBrojTelefona" Text="{Binding CurrentKorisnici.BrojTelefonaKorisnika,UpdateSourceTrigger=PropertyChanged}" GotFocus="TextBoxAdminPanel_GotFocus" LostFocus="TextBoxAdminPanel_LostFocus" TabIndex="8"/>
+                            </Border>
+                            <!--<Label Content="7" x:Name="skrivenIdBrojTelefona" Visibility="Hidden"/>-->
+                        </Grid>
+
+                        <Grid Grid.Row="16" VerticalAlignment="Center">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="190"/>
+                                <ColumnDefinition Width="20"/>
+                                <ColumnDefinition Width="250"/>
+                            </Grid.ColumnDefinitions>
+                            <Border Grid.Column="0"  x:Name="brdMejlKorisnikaHeader">
+                                <TextBlock x:Name="tblckMejlKorisnika" Text="ELEKTRONSKA POŠTA"/>
+                            </Border>
+                            <Border Grid.Column="2" x:Name="brdMejlKorisnikaTxtBox" BorderBrush="#FF2F5778" Height="Auto" Background="Transparent" MouseEnter="brdDesno_MouseEnter" MouseLeave="brdDesno_MouseLeave">
+                                    <TextBox x:Name="tboxEmail" Text="{Binding CurrentKorisnici.MejlKorisnika,UpdateSourceTrigger=PropertyChanged}" GotFocus="TextBoxAdminPanel_GotFocus" LostFocus="TextBoxAdminPanel_LostFocus" TabIndex="9"/>
+                            </Border>
+                            <!--<Label Content="8" x:Name="skrivenIdMejl" Visibility="Hidden"/>-->
+                        </Grid>
+
+                        <!--<Grid Grid.Row="18" VerticalAlignment="Center" x:Name="grdDatumKreiranjaKorisnici">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="190"/>
+                                <ColumnDefinition Width="20"/>
+                                <ColumnDefinition Width="250"/>
+                            </Grid.ColumnDefinitions>
+                            <Border Grid.Column="0" x:Name="brdDatumKreiranjaHeader">
+                                <TextBlock x:Name="tblckDatumKreiranja" Text="DATUM KREIRANJA"/>
+                            </Border>
+                            <Border Grid.Column="2" x:Name="brdDatumKreiranjaTxtBox" BorderBrush="#FF2F5778" Height="Auto" Background="Transparent" MouseEnter="brdDesno_MouseEnter" MouseLeave="brdDesno_MouseLeave">
+                                <TextBox Text="{Binding CurrentKorisnici.DatumKreiranjaKorisnika,UpdateSourceTrigger=PropertyChanged, Mode=OneWay}" IsReadOnly="True" BorderThickness="0" Focusable="False" AllowDrop="False" />
+                            </Border>
+                            --><!--<Label Content="9" x:Name="skrivenIdDatumKreiranja" Visibility="Hidden"/>--><!--
+                        </Grid>
+
+                        <Grid Grid.Row="20" VerticalAlignment="Center" x:Name="grdDatumAzuriranjaKorisnici">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="190"/>
+                                <ColumnDefinition Width="20"/>
+                                <ColumnDefinition Width="250"/>
+                            </Grid.ColumnDefinitions>
+                            <Border Grid.Column="0" x:Name="brdDatumAzuriranjaHeader">
+                                <TextBlock x:Name="tblcDatumAzuriranja" Text="DATUM AŽURIRANJA"/>
+                            </Border>
+                            <Border  Grid.Column="2" x:Name="brdDatumAzuriranjaTxtBox" BorderBrush="#FF2F5778" Height="Auto" Background="Transparent" MouseEnter="brdDesno_MouseEnter" MouseLeave="brdDesno_MouseLeave">
+                                <TextBox x:Name="tbDatumAzuriranja" Text="{Binding CurrentKorisnici.DatumAzuriranjaKorisnika,UpdateSourceTrigger=PropertyChanged, Mode=OneWay}" IsReadOnly="True" BorderThickness="0" Focusable="False" AllowDrop="False"/>
+                            </Border>
+                            --><!--<Label Content="10" x:Name="skrivenIdDatumAzuriranja" Visibility="Hidden"/>--><!--
+                        </Grid>-->
+
+                        <!--<Grid Grid.Row="22" Grid.Column="1" VerticalAlignment="Center">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="190"/>
+                                <ColumnDefinition Width="20"/>
+                                <ColumnDefinition Width="250"/>
+                            </Grid.ColumnDefinitions>
+                            <Border Grid.Column="0" x:Name="brdSlikaKorisnika">
+                                <TextBlock x:Name="tblckSlikaKorisnika" Text="SLIKA"/>
+                            </Border>
+                            <Border Grid.Column="2" Background="Transparent" x:Name="brdIzmenaSlike" MouseEnter="brdDesno_MouseEnter" MouseLeave="brdDesno_MouseLeave">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="15"/>
+                                        <RowDefinition Height="100"/>
+                                        <RowDefinition Height="15"/>
+                                        <RowDefinition Height="30"/>
+                                    </Grid.RowDefinitions>
+                                    <Border Grid.Row="1" x:Name="brdSlikaKorisnikaImage" BorderBrush="#FF2F5778">
+                                        <Image Grid.Row="0" Source="{Binding CurrentKorisnici.SlikaKorisnika, UpdateSourceTrigger=PropertyChanged}"   Width="80" Height="80" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </Border>
+                                    <Border Grid.Row="3">
+                                        <Button  Name="btnAzurirajSlikuKorisnika" Click="btnAzurirajSlikuOblastiOpreme_Click" Style="{DynamicResource stilDugmiciOpremaIzmeniSliku}" GotFocus="btnAdminPanel_GotFocus" LostFocus="btnAdminPanel_LostFocus" TabIndex="10"/>
+                                    </Border>
+                                </Grid>
+                            </Border>
+                            --><!--<Label Content="11" x:Name="skrivenIdSlika" Visibility="Hidden"/>--><!--
+                        </Grid>-->
+
+                    </Grid>
+
+                </Border>
+            </ScrollViewer>
+
+            <!--<Border Grid.Row="0" Grid.Column="2" Grid.RowSpan="3"  BorderBrush="Gainsboro" BorderThickness="5,0,0,0" Background="#06000000" Width="0" x:Name="brdDugmiciDesno">
+
+                                                                        <Grid VerticalAlignment="Top" HorizontalAlignment="Center">
+
+
+                                                                            <Grid Grid.Row="0" VerticalAlignment="Center">
+                                                                                <Grid.RowDefinitions>
+                                                                                    <RowDefinition Height="15"/>
+                                                                                    <RowDefinition Height="Auto"/>
+                                                                                    <RowDefinition Height="15"/>
+                                                                                    <RowDefinition Height="Auto"/>
+                                                                                    <RowDefinition Height="15"/>
+                                                                                    <RowDefinition Height="Auto"/>
+                                                                                </Grid.RowDefinitions>
+
+                                                                                <Border Grid.Row="1"  HorizontalAlignment="Left">
+                                                                                    <Button    Name="btnIzmeniISacuvajKorisnici"   Style="{StaticResource stilDugmiciOpremaSacuvajIzmene}" TabIndex="11" />
+                                                                                </Border>
+
+                                                                                <Border Grid.Row="3"  HorizontalAlignment="Left">
+                                                                                    <Button   Name="btnOtkaziIzmeneKorisnici" Click="btnOtkaziIzmene_Click"  Style="{StaticResource stilDugmiciOpremaOtkaziIzmene}" TabIndex="12"/>
+                                                                                </Border>
+                                                                                <Border Grid.Row="5"  VerticalAlignment="Center" HorizontalAlignment="Center">
+                                                                                    <Button  Name="btnObrisiKorisnika" Click="btnObrisiKorisnika_Click"  Style="{StaticResource stilDugmiciIzbrisiOvuOblastOpreme}" TabIndex="13">
+
+                                                                                    </Button>
+
+                                                                                </Border>
+
+                                                                            </Grid>
+
+
+                                                                        </Grid>
+
+
+
+
+                                                                    </Border>-->
+
+            <Border Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2"  BorderBrush="Gainsboro" BorderThickness="0,5,0,0" Background="#0C000000" Height="100"  HorizontalAlignment="Stretch">
+
+                <Grid VerticalAlignment="Center" HorizontalAlignment="Center"  x:Name="brdDugmiciDole"  Width="460">
+
+                    <ContentControl x:Name="cclPrikazDetaljaDugmiciKorisnici" Template="{DynamicResource ctpPrikazDetaljaDugmiciKorisniciAzuriranje}"/>
+
+
+                </Grid>
+
+
+
+
+            </Border>
+        </Grid>
+        </ControlTemplate>
+
+        <ControlTemplate x:Key="ctpHederImePrezimeKorisnici">
+            <Border Padding="0,11,0,10">
+                <Grid  x:Name="brdImeIUlogaKorisnikaDetalji" VerticalAlignment="Top" Width="460" MinWidth="460">
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="5"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="10"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="10"/>
+                    </Grid.RowDefinitions>
+
+
+                    <Grid.Resources>
+                        <Style TargetType="TextBlock">
+                            <Setter Property="FontSize" Value="20"/>
+                            <Setter Property="Height" Value="Auto"/>
+                            <Setter Property="MaxHeight" Value="130"/>
+                            <Setter Property="Foreground" Value="#FF2F5778"/>
+                            <Setter Property="VerticalAlignment" Value="Center"/>
+                            <Setter Property="HorizontalAlignment" Value="Left"/>
+                            <Setter Property="FontWeight" Value="SemiBold"/>
+                            <Setter Property="TextWrapping" Value="Wrap"/>
+                            <Setter Property="TextOptions.TextFormattingMode" Value="Ideal"/>
+                        </Style>
+                    </Grid.Resources>
+
+                    <Label Content="1" x:Name="skrivenId" Visibility="Hidden"/>
+                    <Grid Grid.Row="0"   HorizontalAlignment="Stretch" VerticalAlignment="Stretch" >
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <TextBlock Grid.Row="0" x:Name="tblckImePrezime"  Text="{Binding CurrentKorisnici.ImeIPrezimeKorisnika,UpdateSourceTrigger=PropertyChanged}" ToolTipService.IsEnabled="{Binding CurrentKorisnici.DaLiTekstImenaIPrezimenaKorisniciZauzimaViseRedova, UpdateSourceTrigger=PropertyChanged}">
+                            <TextBlock.ToolTip>
+                                <Border Width="200">
+                                    <TextBlock Text="{Binding CurrentKorisnici.ImeIPrezimeKorisnika,UpdateSourceTrigger=PropertyChanged}"  HorizontalAlignment="Left" LineHeight="5" TextWrapping="Wrap" FontStyle="Normal" FontSize="10"/>
+                                </Border>
+                            </TextBlock.ToolTip>
+                     </TextBlock>
+                        <TextBlock  Grid.Row="1" Name="tblckImeIPrezimeKorisnikaDetaljnijeHeder" Text="..." HorizontalAlignment="Left" VerticalAlignment="Center" ToolTipService.IsEnabled="{Binding CurrentKorisnici.DaLiTekstImenaIPrezimenaKorisniciZauzimaViseRedova, UpdateSourceTrigger=PropertyChanged}"   Visibility="Hidden" Height="0" Width="20">
+                            <TextBlock.ToolTip>
+                                <Border Width="200">
+                                    <TextBlock Text="{Binding CurrentKorisnici.ImeIPrezimeKorisnika,UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Center" LineHeight="5" TextWrapping="Wrap" FontStyle="Normal" FontSize="10"/>
+                                </Border>
+                            </TextBlock.ToolTip>
+                                                    </TextBlock>
+                    </Grid>
+
+                    <TextBlock   FontSize="12" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2"  Foreground="Gray" Text="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}, Path=DataContext.IzabraniNazivUloge, UpdateSourceTrigger=PropertyChanged}" Padding="0,0,0,1" MaxWidth="240" VerticalAlignment="Bottom" />
+
+
+                    <Grid Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2"  x:Name="grdPrikazObavestenjaZbogArhiviranogKorisnika" Height="{Binding CurrentKorisnici.VisinaSakrivenogBorderaZbogPorukeZaArhiviranje}" Visibility="{Binding CurrentKorisnici.VisibilityPorukeZaArhiviranje}">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="20"/>
+                            <ColumnDefinition Width="5"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <Image Source="{Binding Source={StaticResource sveSlike},Path=PutanjaDoSlikeAlert}" Width="17" Height="17" VerticalAlignment="Center"/>
+
+                        <Label Grid.Column="2" FontSize="12"  Foreground="DarkRed" Content="OVAJ NALOG JE ARHIVIRAN" HorizontalAlignment="Left" VerticalAlignment="Stretch"  VerticalContentAlignment="Center" FontWeight="SemiBold"  FontStyle="Italic"/>
+
+
+                    </Grid>
+                    <Image Grid.Row="5" x:Name="slikaStrelicaHederImePrezimeKorisnika"  Source="{Binding Source={StaticResource sveSlike},Path=PutanjaDoSlikeSakrijHederNaGore}" Width="10" Height="10" VerticalAlignment="Bottom" HorizontalAlignment="Center" Visibility="Hidden"/>
+                </Grid>
+            </Border>
+        </ControlTemplate>
+
+        <ControlTemplate x:Key="ctpHederImePrezimeKorisniciKliknuto">
+            <Border Padding="0,9,0,6" >
+                <Grid  x:Name="brdImeIUlogaKorisnikaDetalji" VerticalAlignment="Center" Width="460" MinWidth="460">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="20"/>
+                        <RowDefinition Height="10"/>
+                    </Grid.RowDefinitions>
+                    <Grid.Resources>
+                        <Style TargetType="TextBlock">
+                            <Setter Property="FontSize" Value="15"/>
+                            <Setter Property="Foreground" Value="{Binding CurrentKorisnici.BojaTekstaZaTrivjuItemKorisniciHeder, UpdateSourceTrigger=PropertyChanged}"/>
+                            <Setter Property="VerticalAlignment" Value="Top"/>
+                            <Setter Property="HorizontalAlignment" Value="Left"/>
+                            <Setter Property="FontWeight" Value="SemiBold"/>
+                            <Setter Property="TextWrapping" Value="Wrap"/>
+                            <Setter Property="TextOptions.TextFormattingMode" Value="Ideal"/>
+                        </Style>
+                    </Grid.Resources>
+                    <Label Content="2" x:Name="skrivenId" Visibility="Hidden"/>
+                    <Grid Grid.Row="0" VerticalAlignment="Top" HorizontalAlignment="Left">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="15"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock  Grid.Column="0" x:Name="tblckImePrezime"  Text="{Binding CurrentKorisnici.ImeIPrezimeKorisnika,UpdateSourceTrigger=PropertyChanged}" ToolTipService.IsEnabled="{Binding CurrentKorisnici.DaLiTekstImenaIPrezimenaKorisniciZauzimaViseRedova, UpdateSourceTrigger=PropertyChanged}">
+                            <TextBlock.ToolTip>
+                                <Border >
+                                    <TextBlock Text="{Binding CurrentKorisnici.ImeIPrezimeKorisnika,UpdateSourceTrigger=PropertyChanged}"  HorizontalAlignment="Center" LineHeight="5" TextWrapping="Wrap" FontStyle="Normal" FontSize="10"/>
+                                </Border>
+                            </TextBlock.ToolTip>
+                    </TextBlock>
+                        <TextBlock  Grid.Column="1" Name="tblckImeIPrezimeKorisnikaDetaljnijeHeder" Text="..." HorizontalAlignment="Left" VerticalAlignment="Center" ToolTipService.IsEnabled="{Binding CurrentKorisnici.DaLiTekstImenaIPrezimenaKorisniciZauzimaViseRedova, UpdateSourceTrigger=PropertyChanged}"   Visibility="Hidden"  Width="0">
+                            <TextBlock.ToolTip>
+                                <Border Width="200">
+                                    <TextBlock Text="{Binding CurrentKorisnici.ImeIPrezimeKorisnika,UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Center" LineHeight="5" TextWrapping="Wrap" FontStyle="Normal" FontSize="10"/>
+                                </Border>
+                            </TextBlock.ToolTip>
+                                                    </TextBlock>
+                    </Grid>
+                    <Image x:Name="slikaStrelicaHederImePrezimeKorisnika" Grid.Row="1" Source="{Binding Source={StaticResource sveSlike},Path=PutanjaDoSlikeSakrijHederNaDole}" Width="10" Height="10" VerticalAlignment="Bottom" HorizontalAlignment="Center" Visibility="Hidden"/>
+                </Grid>
+            </Border>
+
+        </ControlTemplate>
+
+
+
+        
+    </Window.Resources>
+
+    <WindowChrome.WindowChrome>
+        <WindowChrome CaptionHeight="0" GlassFrameThickness="0,0,0,1" ResizeBorderThickness="1"/>
+    </WindowChrome.WindowChrome>
+
+    <DockPanel  Name="dockPanelCeoSadrzaj">
+        <Grid Name="grdCeoSadrzaj">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <!--<Rectangle Name="recNijeAktivanProzor" Grid.RowSpan="2" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Panel.ZIndex="1" Fill="#BF000000" Visibility="Hidden"/>-->
+            <Rectangle Grid.Row="0" DockPanel.Dock="Top" Height="75"   Name="titleBar" MouseDown="titleBar_MouseDown">
+                <Rectangle.Fill>
+                    <RadialGradientBrush RadiusY="2">
+                        <GradientStop Color="#FF2F5778" Offset="1"/>
+                        <GradientStop Color="#FF17405E"/>
+                    </RadialGradientBrush>
+                </Rectangle.Fill>
+            </Rectangle>
+            <Grid>
+                <!--<TextBlock Text="{Binding Title, RelativeSource={RelativeSource FindAncestor,AncestorType=Window},FallbackValue=Title}" 
+                      HorizontalAlignment="Center"
+                       VerticalAlignment="Center" Foreground="White" FontSize="14" ></TextBlock>-->
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <!--<Grid.Effect>
+                        <DropShadowEffect BlurRadius="2" Direction="270" RenderingBias="Quality" ShadowDepth="1"/>
+                    </Grid.Effect>-->
+                <ContentControl Grid.Row="0" x:Name="ctlTitleBar" DockPanel.Dock="Top" Template="{DynamicResource ctpGlavniProzorTitle}"  VerticalAlignment="Stretch" VerticalContentAlignment="Center" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center" Height="75" MouseDown="titleBar_MouseDown" IsTabStop="False"/>
+
+                <Grid Name="grdDugmiciZaProzor" Grid.ColumnSpan="3" HorizontalAlignment="Right" VerticalAlignment="Top" >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <Button Grid.Column="0" x:Name="dugmeMinimize"   Style="{StaticResource dugmeMinimize}"  Click="dugmeMinimize_Click" IsTabStop="False" />
+                    <Button Grid.Column="1" x:Name="dugmeMaximize"   Style="{StaticResource dugmeMaximize}"  Click="dugmeMaximize_Click" IsTabStop="False" />
+                    <Button Grid.Column="2" x:Name="dugmeZatvori" Style="{StaticResource dugmeClose}"   Click="dugmeZatvori_Click" IsTabStop="False"/>
+                </Grid>
+
+            </Grid>
+            <Border Grid.Row="1" >
+                <Border.Background>
+                    <RadialGradientBrush GradientOrigin="0.5,0.5" Center="0.5,0.5" RadiusY="2" RadiusX="0.7">
+                        <GradientStop Color="#FF270000" Offset="0.945"/>
+                        <GradientStop Color="White" Offset="0.207"/>
+                        <GradientStop Color="#FFEBF0F4" Offset="0.425"/>
+                        <GradientStop Color="#FFE9EBEE" Offset="0.702"/>
+                    </RadialGradientBrush>
+                </Border.Background>
+                <Border.Effect>
+                    <DropShadowEffect  Color="Black" Direction="90" BlurRadius="10" ShadowDepth="2" RenderingBias="Quality"/>
+                </Border.Effect>
+                <Grid >
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="0"/>
+                        <RowDefinition Height="0"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Border Grid.Row="0"  Name="a"  HorizontalAlignment="Stretch" Padding="10,0" BorderBrush="Gainsboro" BorderThickness="0,5">
+                        <Border.Background>
+                            <RadialGradientBrush RadiusY="2">
+                                <GradientStop Color="#FF2F5778" Offset="1"/>
+                                <GradientStop Color="#FF17405E"/>
+                            </RadialGradientBrush>
+                        </Border.Background>
+                    </Border>
+                    <Grid Grid.Row="2">
+                            
+                            <Border Grid.Row="2" Grid.Column="0" x:Name="brdKorisniciCeoSadrzaj">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="2*"/>
+
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="5"/>
+                                        <RowDefinition Height="*"/>
+                                    </Grid.RowDefinitions>
+                                    <!--<Border x:Name="brdPretragaIUnosKorisnici" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Padding="10,0,25,0" BorderBrush="Gainsboro" BorderThickness="0,0,0,5" Height="0">
+
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition  Width="Auto"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <TextBox Grid.Column="0" x:Name="tbPretragaKorisnici"  Text="Pretažite korisnike" Height="30" VerticalContentAlignment="Center" Padding="10,0" FontSize="10"  Width="275"/>
+
+                                </Grid>
+                            </Border >-->
+                                    <Border Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" BorderThickness="0"  VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Padding="10,0,10,0" Visibility="Visible">
+
+                                        <avalon:DockingManager x:Name="DockingManagerKorisnici" Grid.Row="1"  Background="Transparent"  AnchorableTitleTemplate="{StaticResource probaAvalon}">
+                                            <avalon:DockingManager.Theme>
+                                                <avalon:MetroTheme/>
+                                            </avalon:DockingManager.Theme>
+
+
+
+
+
+
+
+                                            <avalon:LayoutRoot >
+
+
+
+                                                <avalon:LayoutPanel Orientation="Horizontal" DockHeight="*" >
+
+
+
+                                                    <avalon:LayoutAnchorablePaneGroup DockWidth="275"  DockHeight="*" >
+
+                                                        <avalon:LayoutAnchorablePane >
+                                                            <avalon:LayoutAnchorable x:Name="probal" Title="PRIKAZ LISTE" TextOptions.TextRenderingMode="ClearType" TextBlock.TextAlignment="Center" AutoHideWidth="275" CanClose="False" CanHide="False" TextBlock.FontSize="10" TextBlock.FontStyle="Italic" TextBlock.Foreground="#FF2F5778" >
+                                                                <Border BorderBrush="Gainsboro" BorderThickness="1,5,1,5" Margin="0,-5,0,0"  HorizontalAlignment="Stretch" Padding="0,0,0,0 ">
+                                                                    <Grid>
+                                                                        <Grid.RowDefinitions>
+                                                                            <RowDefinition Height="45"/>
+                                                                            <RowDefinition Height="Auto"/>
+                                                                            <RowDefinition Height="*"/>
+                                                                        </Grid.RowDefinitions>
+
+                                                                        <ContentControl Template="{StaticResource ctpPretragaIUnos}"/>
+
+                                                                        <Border Grid.Row="1" x:Name="brdPretragaIUnosKorisnici"   BorderThickness="0,0,0,3" BorderBrush="Gainsboro"   HorizontalAlignment="Stretch"   Height="0" Padding="5" Background="#0C000000">
+
+                                                                            <Grid>
+
+
+                                                                                <TextBox Grid.Column="0" x:Name="tbPretragaKorisnici"  Text="Pretažite korisnike" Height="30" VerticalContentAlignment="Center" Padding="10,0" FontSize="10" />
+
+                                                                            </Grid>
+                                                                        </Border >
+
+                                                                        <TreeView Grid.Row="2"  x:Name="trivjuKorisnici" ItemsSource="{Binding ListaKorisnika, UpdateSourceTrigger=PropertyChanged}" Background="Transparent" BorderThickness="0" BorderBrush="Transparent" HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch"  Margin="0,5,0,0" SizeChanged="trivjuKorisnici_SizeChanged" ScrollViewer.HorizontalScrollBarVisibility="Hidden" >
+
+                                                                            <TreeView.ItemTemplate>
+                                                                                <DataTemplate>
+
+
+
+                                                                                    <Grid  x:Name="grdListaKorisnici" MouseLeftButtonDown="grdListaKorisnici_MouseLeftButtonDown" MouseEnter="grdListaKorisnici_MouseEnter" MouseLeave="grdListaKorisnici_MouseLeave" HorizontalAlignment="Stretch" Height="40"  Margin="0,0,0,-1"   Cursor="Hand"  VerticalAlignment="Stretch"  Background="Transparent" >
+
+                                                                                        <Grid.ColumnDefinitions>
+                                                                                            <ColumnDefinition Width="40" />
+                                                                                            <ColumnDefinition Width="3" />
+                                                                                            <ColumnDefinition Width="*" />
+                                                                                        </Grid.ColumnDefinitions>
+
+                                                                                        <Grid Grid.Column="0" x:Name="grdHijerarhikalSlikaITgb">
+
+
+                                                                                            <!--<ToggleButton Width="0"  x:Name="Expander"  
+                                              ClickMode="Press" Grid.Column="0" Checked="Expander_Checked" Unchecked="Expander_Unchecked"/>-->
+
+                                                                                            <Border   x:Name="brdTriVjuHierarchicalSlika" BorderBrush="Gainsboro" BorderThickness="0,1" Height="40" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Background="White" >
+
+                                                                                                <Image  VerticalAlignment="Center" HorizontalAlignment="Center" Width="40" Height="40" Source="{Binding  SlikaKorisnika}"/>
+
+
+                                                                                            </Border>
+                                                                                        </Grid>
+
+                                                                                        <Border  Grid.Column="2" BorderBrush="Gainsboro" BorderThickness="0,1" Height="40" VerticalAlignment="Stretch" HorizontalAlignment="Left" x:Name="brdNazivIUlogaKorisnika" >
+
+                                                                                            <Grid >
+                                                                                                <Grid.RowDefinitions>
+                                                                                                    <RowDefinition Height="*"/>
+                                                                                                    <RowDefinition Height="5"/>
+                                                                                                    <RowDefinition Height="*"/>
+                                                                                                </Grid.RowDefinitions>
+
+                                                                                                <TextBlock Name="skrivenId" VerticalAlignment="Center" Padding="10,0" FontSize="11" Text="{Binding IdKorisnici}" Foreground="{Binding BojaTekstaZaTrivjuItemKorisnici}" Background="{Binding PozadinskaBojaZaTrivjuItemKorisniciUloga}" Visibility="Hidden"/>
+
+
+                                                                                                <Border Grid.Row="0" Name="brdTriVjuHierarchicalImeIPrezimeKorisnika" Grid.Column="2"   HorizontalAlignment="Stretch" Padding="10,0" VerticalAlignment="Bottom">
+                                                                                                    <Grid  HorizontalAlignment="Left" VerticalAlignment="Bottom">
+                                                                                                        <Grid.ColumnDefinitions>
+                                                                                                            <ColumnDefinition Width="*" />
+                                                                                                            <ColumnDefinition Width="Auto"/>
+                                                                                                        </Grid.ColumnDefinitions>
+                                                                                                        <Grid.Resources>
+                                                                                                            <Style TargetType="TextBlock">
+                                                                                                                <Setter Property="HorizontalAlignment" Value="Stretch"/>
+                                                                                                                <!--<Setter Property="HorizontalContentAlignment" Value="Left"/>-->
+                                                                                                                <Setter Property="VerticalAlignment" Value="Center"/>
+                                                                                                                <!--<Setter Property="VerticalContentAlignment" Value="Center"/>-->
+                                                                                                                <Setter Property="Foreground" Value="{Binding BojaTekstaZaTrivjuItemKorisnici}"/>
+                                                                                                                <Setter Property="FontSize" Value="11"/>
+                                                                                                                <Setter Property="FontStyle" Value="{Binding StilFontaZaTrivjuItemKorisnici}"/>
+                                                                                                                <!--<Setter Property="Height" Value="35"/>-->
+                                                                                                                <Setter Property="Width" Value="Auto"/>
+                                                                                                                <!--<Setter Property="Padding" Value="0,10"/>-->
+                                                                                                            </Style>
+                                                                                                        </Grid.Resources>
+
+                                                                                                        <TextBlock Grid.Column="0" x:Name="tbImeIPrezimeKorisnika"  Text="{Binding ImeIPrezimeKorisnika}"  ToolTipService.IsEnabled="{Binding DaLiTekstImenaIPrezimenaZauzimaViseRedova, UpdateSourceTrigger=PropertyChanged}" >
+                                                                                                            <TextBlock.ToolTip>
+                                                                                                                <Border Width="200">
+                                                                                                                    <TextBlock Text="{Binding ImeIPrezimeKorisnika}" HorizontalAlignment="Center" LineHeight="5" TextWrapping="Wrap" FontStyle="Normal" FontSize="10"/>
+                                                                                                                </Border>
+                                                                                                            </TextBlock.ToolTip>
+
+                                                                                </TextBlock>
+                                                                                                        <TextBlock Grid.Column="1" Name="tblckImeIPrezimeKorisnikaDetaljnije" Text="..."  HorizontalAlignment="Right"    ToolTipService.IsEnabled="{Binding DaLiTekstImenaIPrezimenaZauzimaViseRedova, UpdateSourceTrigger=PropertyChanged}"  Visibility="Hidden" Width="0" >
+                                                                                                            <TextBlock.ToolTip>
+                                                                                                                <Border Width="200">
+                                                                                                                    <TextBlock Text="{Binding ImeIPrezimeKorisnika}" HorizontalAlignment="Center" LineHeight="5" TextWrapping="Wrap" FontStyle="Normal" FontSize="10"/>
+                                                                                                                </Border>
+                                                                                                            </TextBlock.ToolTip>
+                                                    </TextBlock>
+                                                                                                    </Grid>
+                                                                                                </Border>
+                                                                                                <Border Grid.Row="2" Name="brdTriVjuHierarchicalKorisnikPripadaUlozi" Grid.Column="2"   HorizontalAlignment="Stretch" Padding="10,0" VerticalAlignment="Top">
+                                                                                                    <Grid   HorizontalAlignment="Left" VerticalAlignment="Top">
+                                                                                                        <Grid.ColumnDefinitions>
+                                                                                                            <ColumnDefinition Width="*" />
+                                                                                                            <ColumnDefinition Width="15"/>
+                                                                                                        </Grid.ColumnDefinitions>
+                                                                                                        <Grid.Resources>
+                                                                                                            <Style TargetType="TextBlock">
+                                                                                                                <Setter Property="HorizontalAlignment" Value="Stretch"/>
+                                                                                                                <!--<Setter Property="HorizontalContentAlignment" Value="Left"/>-->
+                                                                                                                <Setter Property="VerticalAlignment" Value="Center"/>
+                                                                                                                <!--<Setter Property="VerticalContentAlignment" Value="Center"/>-->
+                                                                                                                <Setter Property="Foreground" Value="{Binding BojaTekstaZaTrivjuItemKorisnici}"/>
+                                                                                                                <Setter Property="FontSize" Value="9"/>
+                                                                                                                <!--<Setter Property="Height" Value="35"/>-->
+                                                                                                                <Setter Property="Width" Value="Auto"/>
+                                                                                                                <Setter Property="FontStyle" Value="Italic"/>
+                                                                                                                <Setter Property="Foreground" Value="Gray"/>
+                                                                                                                <!--<Setter Property="Padding" Value="0,10"/>-->
+                                                                                                            </Style>
+                                                                                                        </Grid.Resources>
+
+                                                                                                        <TextBlock Grid.Column="0" x:Name="tbIzabranaUlogaKorisnika"  Text="{Binding NazivUloge}"  ToolTipService.IsEnabled="{Binding DaLiTekstIzabraneUlogeZauzimaViseRedova, UpdateSourceTrigger=PropertyChanged}" Foreground="{Binding PozadinskaBojaZaTrivjuItemKorisniciUlogaKorpa}">
+                                                                                                            <TextBlock.ToolTip>
+                                                                                                                <Border Width="200">
+                                                                                                                    <TextBlock Text="{Binding NazivUloge}" HorizontalAlignment="Center" LineHeight="5" TextWrapping="Wrap" FontStyle="Normal" FontSize="10"/>
+                                                                                                                </Border>
+                                                                                                            </TextBlock.ToolTip>
+
+                                                                                </TextBlock>
+                                                                                                    <TextBlock Grid.Column="1" Name="tblckIzabranaUlogaKorisnikaDetaljnije" Text="..."  HorizontalAlignment="Right"    ToolTipService.IsEnabled="{Binding DaLiTekstIzabraneUlogeZauzimaViseRedova, UpdateSourceTrigger=PropertyChanged}"  Visibility="Hidden" Width="0" Foreground="{Binding PozadinskaBojaZaTrivjuItemKorisniciUlogaKorpa}">
+                                                                                                            <TextBlock.ToolTip>
+                                                                                                                <Border Width="200">
+                                                                                                                    <TextBlock Text="{Binding NazivUloge}" HorizontalAlignment="Center" LineHeight="5" TextWrapping="Wrap" FontStyle="Normal" FontSize="10"/>
+                                                                                                                </Border>
+                                                                                                            </TextBlock.ToolTip>
+                                                    </TextBlock>
+                                                                                                    </Grid>
+                                                                                                </Border>
+
+                                                                                            </Grid>
+                                                                                        </Border>
+                                                                                    </Grid>
+
+
+                                                                                </DataTemplate>
+                                                                            </TreeView.ItemTemplate>
+                                                                            <TreeView.ItemContainerStyle >
+                                                                                <Style TargetType="TreeViewItem" >
+                                                                                    <Setter Property="Template">
+                                                                                        <Setter.Value>
+                                                                                            <ControlTemplate TargetType="TreeViewItem" >
+
+                                                                                                <Grid HorizontalAlignment="Stretch" >
+                                                                                                    <Grid.ColumnDefinitions>
+                                                                                                        <!--<ColumnDefinition Width="Auto" />-->
+                                                                                                        <!--<ColumnDefinition Width="Auto" />-->
+                                                                                                        <ColumnDefinition Width="*" />
+                                                                                                    </Grid.ColumnDefinitions>
+                                                                                                    <Grid.RowDefinitions>
+                                                                                                        <RowDefinition Height="Auto" />
+                                                                                                        <RowDefinition Height="Auto"/>
+                                                                                                    </Grid.RowDefinitions>
+                                                                                                    <!--<ToggleButton Width="0" x:Name="Expander" Style="{StaticResource ExpandCollapseToggleStyle}" 
+                                              ClickMode="Press" IsChecked="{Binding IsExpanded, RelativeSource={RelativeSource TemplatedParent}}" >
+
+
+                                                                                </ToggleButton>-->
+                                                                                                    <Border BorderThickness="{TemplateBinding Border.BorderThickness}"
+                                        Padding="{TemplateBinding Control.Padding}"
+                                                                                   
+                                        BorderBrush="{TemplateBinding Border.BorderBrush}"
+                                        Background="{TemplateBinding Panel.Background}"
+                                        Name="Bd"
+                                        SnapsToDevicePixels="True"
+                                        Grid.Column="0">
+                                                                                                        <ContentPresenter Content="{TemplateBinding HeaderedContentControl.Header}"
+                                                      ContentTemplate="{TemplateBinding HeaderedContentControl.HeaderTemplate}"
+                                                      ContentStringFormat="{TemplateBinding HeaderedItemsControl.HeaderStringFormat}"
+                                                      ContentSource="Header"
+                                                      Name="PART_Header"
+                                                      HorizontalAlignment="{TemplateBinding Control.HorizontalContentAlignment}"
+                                                      SnapsToDevicePixels="{TemplateBinding UIElement.SnapsToDevicePixels}" />
+                                                                                                    </Border>
+
+                                                                                                    <ItemsPresenter Name="ItemsHost"
+                                                Grid.Column="0"
+                                                Grid.Row="1"
+                                                Grid.ColumnSpan="2" Margin="0" />
+
+                                                                                                </Grid>
+
+                                                                                                <ControlTemplate.Triggers >
+                                                                                                    <!--<Trigger Property="TreeViewItem.IsExpanded" Value="False">
+                                                                                            <Setter Property="UIElement.Visibility" TargetName="ItemsHost" Value="Collapsed"/>
+                                                                                        </Trigger>-->
+                                                                                                    <!--<Trigger Property="ItemsControl.HasItems" Value="False">
+                                                                                    <Setter Property="UIElement.Visibility" TargetName="Expander" Value="Hidden"/>
+                                                                                </Trigger>-->
+                                                                                                    <Trigger Property="TreeViewItem.IsSelected" Value="True">
+                                                                                                        <Setter Property="Panel.Background" Value="Transparent" TargetName="Bd">
+                                                                                                            <!--<Setter.Value>
+                                                                                        <DynamicResource ResourceKey="{x:Static SystemColors.HighlightBrushKey}" />
+                                                                                    </Setter.Value>-->
+                                                                                                        </Setter>
+                                                                                                        <Setter Property="TextElement.Foreground">
+                                                                                                            <Setter.Value>
+                                                                                                                <DynamicResource ResourceKey="{x:Static SystemColors.HighlightTextBrushKey}" />
+                                                                                                            </Setter.Value>
+                                                                                                        </Setter>
+
+                                                                                                    </Trigger>
+                                                                                                    <!--<Trigger Property="TreeViewItem.IsMouseOver" Value="True" >
+                                                                                    <Setter TargetName="Expander" Property="Style" Value="{StaticResource ExpandCollapseToggleStyleHoverovano}"/>
+                                                                                    <Setter TargetName="Expander" Property="Width" Value="25"/>
+                                                                                </Trigger>-->
+                                                                                                    <Trigger Property="UIElement.IsEnabled" Value="False">
+                                                                                                        <Setter Property="TextElement.Foreground">
+                                                                                                            <Setter.Value>
+                                                                                                                <DynamicResource ResourceKey="{x:Static SystemColors.GrayTextBrushKey}" />
+                                                                                                            </Setter.Value>
+                                                                                                        </Setter>
+                                                                                                    </Trigger>
+                                                                                                </ControlTemplate.Triggers>
+                                                                                            </ControlTemplate>
+
+                                                                                        </Setter.Value>
+                                                                                    </Setter>
+                                                                                </Style>
+                                                                            </TreeView.ItemContainerStyle>
+
+                                                                        </TreeView>
+
+                                                                    </Grid>
+                                                                </Border>
+                                                            </avalon:LayoutAnchorable>
+                                                        </avalon:LayoutAnchorablePane>
+                                                    </avalon:LayoutAnchorablePaneGroup>
+                                                    <avalon:LayoutDocumentPaneGroup DockWidth="*"  DockHeight="*" >
+                                                        <avalon:LayoutDocumentPane >
+                                                            <avalon:LayoutDocument Title="PRIKAZ DETALJA" TextOptions.TextRenderingMode="ClearType"   TextBlock.Foreground="#FF2F5778"  CanClose="False" x:Name="LejautDokumentTitlePrikazDetaljaKorisnici">
+
+                                                                <Grid>
+
+                                                                    <Border BorderBrush="Gainsboro" BorderThickness="1,5,1,5" Margin="0,-5,0,-5"  HorizontalAlignment="Stretch" Padding="0"  x:Name="brdPrikazDetaljaKorisnici" Opacity="0" Panel.ZIndex="0" Background="{Binding CurrentKorisnici.BojaCentralnogPrikazaKorisnici}" SizeChanged="brdPrikazDetaljaKorisnici_SizeChanged">
+
+                                                                        <ContentControl x:Name="cclPrikazDetaljaKorisnici" Template="{DynamicResource ctpPrikazDetaljaKorisnici}" />
+
+
+                                                                    </Border>
+
+                                                                    <Border BorderBrush="Gainsboro" BorderThickness="1,5,1,5" Margin="0,-5,0,-5" HorizontalAlignment="Stretch" Padding="0"  x:Name="brdPrazanPrikazDetaljaKorisnici" Opacity="1" Panel.ZIndex="1">
+                                                                        <Border.Background>
+                                                                            <RadialGradientBrush GradientOrigin="0.5,0.5" Center="0.5,0.5" RadiusY="4" RadiusX="1.3">
+                                                                                <GradientStop Color="#FF270000" Offset="0.945"/>
+                                                                                <GradientStop Color="White" Offset="0.207"/>
+                                                                                <GradientStop Color="#FFEBF0F4" Offset="0.425"/>
+                                                                                <GradientStop Color="#FFE9EBEE" Offset="0.702"/>
+                                                                            </RadialGradientBrush>
+                                                                        </Border.Background>
+                                                                        <Grid>
+                                                                            <Border x:Name="brdPrazanPrikazDetaljaKorisniciSadrzaj" VerticalAlignment="Center" HorizontalAlignment="Center">
+                                                                                <Grid>
+                                                                                    <Grid.RowDefinitions>
+                                                                                        <RowDefinition Height="Auto"/>
+                                                                                        <RowDefinition Height="5"/>
+                                                                                        <RowDefinition Height="Auto"/>
+                                                                                        <RowDefinition Height="15"/>
+                                                                                        <RowDefinition Height="Auto"/>
+                                                                                    </Grid.RowDefinitions>
+                                                                                    <Grid.Resources>
+                                                                                        <Style TargetType="TextBlock">
+                                                                                            <Setter Property="FontStyle" Value="Italic"/>
+                                                                                            <Setter Property="Foreground" Value="#FF2F5778"/>
+                                                                                            <Setter Property="FontSize" Value="12"/>
+                                                                                            <Setter Property="HorizontalAlignment" Value="Center"/>
+                                                                                        </Style>
+                                                                                    </Grid.Resources>
+                                                                                    <TextBlock Grid.Row="0" Text="Odaberite korisnika" />
+                                                                                    <TextBlock Grid.Row="2" Text="ili"/>
+                                                                                    <Border Grid.Row="4" HorizontalAlignment="Center" >
+                                                                                        <Button   Name="btnUnesiNovogKorisnika" Click="btnUnesiNovogKorisnika_Click" Content="UNOS NOVOG KORISNIKA"  Style="{DynamicResource stilDugmiciDodavanje}" Visibility="Visible" />
+                                                                                    </Border>
+
+                                                                                </Grid>
+                                                                            </Border>
+                                                                        </Grid>
+                                                                    </Border>
+
+
+
+
+                                                                </Grid>
+
+                                                            </avalon:LayoutDocument>
+                                                        </avalon:LayoutDocumentPane>
+                                                    </avalon:LayoutDocumentPaneGroup>
+
+
+                                                </avalon:LayoutPanel>
+                                                <!--</avalon:LayoutRoot.RootPanel>-->
+
+                                            </avalon:LayoutRoot>
+                                        </avalon:DockingManager>
+
+                                    </Border>
+
+
+
+                                </Grid>
+                            </Border>
+
+
+
+
+                            <!--<Border Grid.Row="1"  Padding="10,10,10,8" >
+                <Border.Background>
+                    <RadialGradientBrush GradientOrigin="0.5,0.5" Center="0.5,0.5" RadiusY="2" RadiusX="0.7">
+                        <GradientStop Color="#FF270000" Offset="0.945"/>
+                        <GradientStop Color="White" Offset="0.207"/>
+                        <GradientStop Color="#FFEBF0F4" Offset="0.425"/>
+                        <GradientStop Color="#FFE9EBEE" Offset="0.702"/>
+                    </RadialGradientBrush>
+                </Border.Background>
+                <Border.Effect>
+                    <DropShadowEffect  Color="Black" Direction="90" BlurRadius="5" ShadowDepth="2" RenderingBias="Quality"/>
+                </Border.Effect>
+
+                <Grid  Name="grdUpravljanjeOblastimaOpreme" >
+                    
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="90" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="250"/>
+                        <ColumnDefinition Width="10"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="10"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Grid Grid.Row="0" >
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="50"/>
+                        </Grid.RowDefinitions>
+                        <Grid Grid.Row="0"  Height="30" VerticalAlignment="Center">
+                            <Grid.Background>
+                                <RadialGradientBrush RadiusY="2">
+                                    <GradientStop Color="#FFFDFDFD" Offset="0.004"/>
+                                    <GradientStop Color="#FF868787" Offset="1"/>
+                                </RadialGradientBrush>
+                            </Grid.Background>
+                            <Label   Content="UNOS"  FontSize="14" Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                            <Grid.Effect>
+                                <DropShadowEffect Direction="270" Color="Black" RenderingBias="Quality" BlurRadius="7" ShadowDepth="5"/>
+                            </Grid.Effect>
+                        </Grid>
+                        <Grid Grid.Row="1" Height="50">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="5"/>
+                                <RowDefinition Height="40"/>
+                                <RowDefinition Height="5"/>
+                            </Grid.RowDefinitions>
+
+                            <Button  Grid.Row="1" Height="40" Content="Unesi novog korisnika" Name="btnUnesiNovogKorisnika" Click="btnUnesiNovogKorisnika_Click" VerticalAlignment="Center"  Width="244" >
+
+                                <Button.Resources>
+
+                                    <Style TargetType="{x:Type Button}">
+                                        <Setter Property="Background">
+                                            <Setter.Value>
+                                                <RadialGradientBrush RadiusY="2">
+                                                    <GradientStop Color="Gainsboro" Offset="1"/>
+                                                    <GradientStop Color="#FFC5C5C5"/>
+
+                                                </RadialGradientBrush>
+                                            </Setter.Value>
+                                        </Setter>
+                                        <Setter Property="Foreground" Value="Black"/>
+                                        <Setter Property="Template">
+                                            <Setter.Value>
+                                                <ControlTemplate TargetType="{x:Type Button}">
+                                                    <Border Background="{TemplateBinding Background}"   Padding="10,0">
+                                                        <ContentPresenter HorizontalAlignment="Center"  VerticalAlignment="Center" />
+                                                    </Border>
+
+
+                                                </ControlTemplate>
+                                            </Setter.Value>
+                                        </Setter>
+                                        <Style.Triggers>
+                                            <Trigger Property="IsMouseOver" Value="True">
+                                                <Setter Property="Background">
+                                                    <Setter.Value>
+                                                        <RadialGradientBrush RadiusY="1" RadiusX="1" GradientOrigin="0.5,0.5" Center="0.5,0.5">
+                                                            <GradientStop Color="#FF470000" Offset="1"/>
+                                                            <GradientStop Color="DarkRed" Offset="0.163"/>
+                                                        </RadialGradientBrush>
+                                                    </Setter.Value>
+                                                </Setter>
+                                                <Setter Property="Foreground" Value="White"/>
+                                            </Trigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </Button.Resources>
+                                <Button.Effect>
+                                    <DropShadowEffect ShadowDepth="0" RenderingBias="Quality" BlurRadius="15"/>
+                                </Button.Effect>
+                            </Button>
+
+                        </Grid>
+                    </Grid>
+
+                    <Grid  Name="Pretraga" Grid.Row="1" Grid.Column="0">
+
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="100" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="3"/>
+                            <ColumnDefinition Width="244"/>
+                            <ColumnDefinition Width="3"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Grid Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3"  Height="30" VerticalAlignment="Top">
+                            <Grid.Background>
+                                <RadialGradientBrush RadiusY="2">
+                                    <GradientStop Color="#FFFDFDFD" Offset="0.004"/>
+                                    <GradientStop Color="#FF868787" Offset="1"/>
+                                </RadialGradientBrush>
+                            </Grid.Background>
+                            <Label   Content="PRIKAZ LISTE KORISNIKA"  FontSize="14" Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                            <Grid.Effect>
+                                <DropShadowEffect Direction="270" Color="Black" RenderingBias="Quality" BlurRadius="5" ShadowDepth="2"/>
+                            </Grid.Effect>
+                        </Grid>
+
+                        <Grid Grid.Row="1" Grid.Column="1"   Margin="0,5,0,0">
+                            <Grid.Background>
+                                <RadialGradientBrush RadiusY="2">
+                                    <GradientStop Color="Gainsboro" Offset="1"/>
+                                    <GradientStop Color="#FFC5C5C5"/>
+                                </RadialGradientBrush>
+                            </Grid.Background>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="30"/>
+                                <RowDefinition Height="50"/>
+                            </Grid.RowDefinitions>
+
+                            <Grid.Resources>
+                                <Style TargetType="TextBox">
+                                    <Setter Property="Background" Value="White"/>
+                                    <Setter Property="Width" Value="235"/>
+                                    <Setter Property="Height" Value="30"/>
+                                    <Setter Property="VerticalAlignment" Value="Center"/>
+                                    <Setter Property="VerticalContentAlignment" Value="Center"/>
+                                    <Setter Property="HorizontalAlignment" Value="Center"/>
+                                    <Setter Property="Padding" Value="5,0,0,0"/>
+                                    <Setter Property="Height" Value="30"/>
+                                    <Setter Property="Height" Value="30"/>
+                                </Style>
+                            </Grid.Resources>
+
+
+                            <Grid Grid.Row="1">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+                                <Label Name="lblPretraga" Content="Pretražite korisnike :" Grid.Row="0" Foreground="Black"/>
+                                <TextBox Grid.Row="1" x:Name="tbPretragaKorisnika" KeyUp="tbPretragaKorisnika_KeyUp"  />
+
+                                <TextBlock Grid.Row="1"  IsHitTestVisible="False" Text="Pretražite korisnike" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10,0,0,0" Foreground="#FF7E7E7E">
+                                    <TextBlock.Style>
+                                        <Style TargetType="{x:Type TextBlock}">
+                                            <Setter Property="Visibility" Value="Collapsed"/>
+                                            <Style.Triggers>
+                                                <DataTrigger Binding="{Binding Text, ElementName=tbPretragaOblastiOpreme}" Value="">
+                                                    <Setter Property="Visibility" Value="Visible"/>
+                                                </DataTrigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </TextBlock.Style>
+                                </TextBlock>
+                            </Grid>
+
+                        </Grid>
+
+                        <ScrollViewer  Grid.Row="2" Grid.Column="1" >
+                            <ItemsControl ItemsSource="{Binding ListaKorisnika}"   Name="PrikazDetaljaKorisnika"  Width="245"  HorizontalContentAlignment="Left" HorizontalAlignment="Left"  ScrollViewer.HorizontalScrollBarVisibility="Hidden" Background="Transparent" BorderThickness="0">
+                                <ItemsControl.ItemTemplate>
+                                    <DataTemplate>
+                                        <Grid Name="GridPrikazRezultataKorisnika" MouseDown="GridPrikazRezultataKorisnika_MouseDown" Width="245" Margin="0,2,0,0">
+                                            <Grid.Background>
+                                                <RadialGradientBrush RadiusY="2">
+                                                    <GradientStop Color="Gainsboro" Offset="1"/>
+                                                    <GradientStop Color="#FFC5C5C5"/>
+                                                </RadialGradientBrush>
+                                            </Grid.Background>
+
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="Auto" />
+                                                <RowDefinition Height="Auto" />
+                                            </Grid.RowDefinitions>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="Auto" />
+                                                <ColumnDefinition Width="*" />
+                                            </Grid.ColumnDefinitions>
+                                            <Grid Grid.Row="0" Grid.Column="0" MinWidth="44" Height="40" Margin="-7,0,0,0">
+
+                                                <TextBlock Text="{Binding IdKorisnici}" Visibility="Hidden" Name="skrivenId" Foreground="White"/>
+                                                <TextBlock  Text="{Binding ImeKorisnika}" Padding="15,0,0,0" VerticalAlignment="Center" HorizontalAlignment="Left" Foreground="Black"/>
+                                            </Grid>
+                                            <Grid Grid.Row="0" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Stretch" Height="40"   >
+
+                                                <TextBlock  Text="{Binding PrezimeKorisnika}"   Padding="0,0,15,0" Margin="10,0,0,0"  VerticalAlignment="Center" HorizontalAlignment="Left" Foreground="Black" Width="174"/>
+                                            </Grid>
+                                        </Grid>
+                                    </DataTemplate>
+                                </ItemsControl.ItemTemplate>
+                            </ItemsControl>
+                        </ScrollViewer>
+
+                        <Grid.Effect>
+                            <DropShadowEffect Direction="360" Color="Black" RenderingBias="Quality" BlurRadius="15" ShadowDepth="5"/>
+                        </Grid.Effect>
+                    </Grid>
+
+                    <Grid  Name="grdPrikazDetaljaKorisnika" Grid.Row="0" Grid.Column="2" Grid.RowSpan="2" Background="Transparent" Visibility="Hidden" >
+
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="70"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="3"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="3"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Rectangle Grid.Row="0" Grid.Column="1" Grid.RowSpan="6"  Name="Kvadrat12">
+                            <Rectangle.Fill>
+                                <RadialGradientBrush RadiusY="2">
+                                    <GradientStop Color="#FF2F5778" Offset="1"/>
+                                    <GradientStop Color="#FF164668"/>
+                                </RadialGradientBrush>
+                            </Rectangle.Fill>
+
+                        </Rectangle>
+                        <Rectangle Grid.Row="0" Grid.Column="2"  Grid.RowSpan="6"   Name="Kvadrat">
+                            <Rectangle.Fill>
+                                <RadialGradientBrush RadiusY="2">
+                                    <GradientStop Color="#FFFDFEFF" Offset="1"/>
+                                    <GradientStop Color="#FFCDD6DC"/>
+                                </RadialGradientBrush>
+                            </Rectangle.Fill>
+                        </Rectangle>
+
+
+                        <Grid Grid.Row="0" Grid.ColumnSpan="4"  Height="40" VerticalAlignment="Top">
+                            <Grid.Background>
+                                <RadialGradientBrush RadiusY="2">
+                                    <GradientStop Color="#FFFDFDFD" Offset="0.004"/>
+                                    <GradientStop Color="#FF868787" Offset="1"/>
+                                </RadialGradientBrush>
+                            </Grid.Background>
+                            <Label   Content="PRIKAZ DETALJA OBLASTI OPREME"  FontSize="14" Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                            <Grid.Effect>
+                                <DropShadowEffect Direction="270" Color="Black" RenderingBias="Quality" BlurRadius="7" ShadowDepth="5"/>
+                            </Grid.Effect>
+                        </Grid>
+                        <Grid Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" Width="400"  >
+
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="200"/>
+                                <ColumnDefinition Width="200"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Grid Grid.Column="0"  Width="150" HorizontalAlignment="Right" >
+
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="30"/>
+                                    <RowDefinition Height="5"/>
+                                    <RowDefinition Height="30"/>
+                                    <RowDefinition Height="5"/>
+                                    <RowDefinition Height="30"/>
+                                    <RowDefinition Height="5"/>
+                                    <RowDefinition Height="30"/>
+
+                                </Grid.RowDefinitions>
+
+
+
+                                <Grid.Resources>
+                                    <Style TargetType="Label">
+                                        <Setter Property="HorizontalAlignment" Value="Center"/>
+                                        <Setter Property="VerticalAlignment" Value="Center"/>
+                                        <Setter Property="HorizontalContentAlignment" Value="Right"/>
+                                        <Setter Property="Foreground" Value="White"/>
+                                        <Setter Property="Width" Value="130"/>
+                                    </Style>
+
+                                </Grid.Resources>
+
+                                <Label Grid.Row="0"  Content="Ime korisnika:" />
+                                <StackPanel Grid.Row="1" Orientation="Vertical" VerticalAlignment="Bottom" HorizontalAlignment="Stretch">
+                                    <Separator Style="{StaticResource {x:Static ToolBar.SeparatorStyleKey}}"/>
+                                </StackPanel>
+                                <Label Grid.Row="2"  Content="Prezime korisnika:" />
+                                <StackPanel Grid.Row="3" Orientation="Vertical" VerticalAlignment="Bottom" HorizontalAlignment="Stretch">
+                                    <Separator Style="{StaticResource {x:Static ToolBar.SeparatorStyleKey}}"/>
+                                </StackPanel>
+
+                                <Label Grid.Row="4"  Content="Broj telefona korisnika:" />
+                                <StackPanel Grid.Row="5" Orientation="Vertical" VerticalAlignment="Bottom" HorizontalAlignment="Stretch">
+                                    <Separator Style="{StaticResource {x:Static ToolBar.SeparatorStyleKey}}"/>
+                                </StackPanel>
+                                <Label Grid.Row="6"  Content="Mejl korisnika:" />
+
+                            </Grid>
+                            <Grid Grid.Column="1" HorizontalAlignment="Left">
+
+
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="30"/>
+                                    <RowDefinition Height="5"/>
+                                    <RowDefinition Height="30"/>
+                                    <RowDefinition Height="5"/>
+                                    <RowDefinition Height="30"/>
+                                    <RowDefinition Height="5"/>
+                                    <RowDefinition Height="30"/>
+                                    <RowDefinition Height="5"/>
+
+                                </Grid.RowDefinitions>
+
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="15"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+
+                                <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding CurrentKorisnici.ImeKorisnika}" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                                <TextBlock Grid.Row="2" Grid.Column="1" Text="{Binding CurrentKorisnici.PrezimeKorisnika}" HorizontalAlignment="Left" VerticalAlignment="Center" />
+                                <TextBlock Grid.Row="4" Grid.Column="1" Text="{Binding CurrentKorisnici.MejlKorisnika}" HorizontalAlignment="Left" VerticalAlignment="Center" />
+                                <TextBlock Grid.Row="6" Grid.Column="1" Text="{Binding CurrentKorisnici.BrojTelefonaKorisnika}" HorizontalAlignment="Left" VerticalAlignment="Center" />
+                            </Grid>
+
+
+
+                        </Grid>
+                        <Grid Grid.Row="4" Grid.ColumnSpan="4"  HorizontalAlignment="Stretch">
+                            <Grid.Background>
+                                <RadialGradientBrush RadiusY="2">
+                                    <GradientStop Color="#FFFDFDFD" Offset="0.196"/>
+                                    <GradientStop Color="#FF323232" Offset="1"/>
+                                    <GradientStop Color="#FF898989" Offset="0.775"/>
+                                    <GradientStop Color="#FE4F4F4F" Offset="0.942"/>
+                                    <GradientStop Color="#FFF7F7F7" Offset="0.593"/>
+                                </RadialGradientBrush>
+                            </Grid.Background>
+
+
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="20"/>
+                                <RowDefinition Height="30"/>
+                                <RowDefinition Height="20"/>
+                            </Grid.RowDefinitions>
+
+
+
+                            <Button Grid.Row="1" Width="200"  Content="Izaberite ovog korisnika za kupovinu" Background="Green"  Height="30" Foreground="White" Name="btnIzaberiKorisnika" Click="btnIzaberiKorisnika_Click"/>
+
+
+
+                            <Grid.Effect>
+                                <DropShadowEffect ShadowDepth="2" Direction="90" BlurRadius="5" RenderingBias="Quality"/>
+                            </Grid.Effect>
+                        </Grid>
+                        <Grid.Effect>
+                            <DropShadowEffect ShadowDepth="5" Direction="360" BlurRadius="15" RenderingBias="Quality"/>
+
+                        </Grid.Effect>
+
+                    </Grid>
+
+                    <Grid Name="grdUnosKorisnika"  Grid.Row="0" Grid.Column="2" Grid.RowSpan="2"  Visibility="Hidden">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="70"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="3"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="3"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Rectangle Grid.Row="0" Grid.Column="1" Grid.RowSpan="5"  Name="Kvadrat112">
+                            <Rectangle.Fill>
+                                <RadialGradientBrush RadiusY="2">
+                                    <GradientStop Color="#FF2F5778" Offset="1"/>
+                                    <GradientStop Color="#FF164668"/>
+                                </RadialGradientBrush>
+                            </Rectangle.Fill>
+
+                        </Rectangle>
+                        <Rectangle Grid.Row="0" Grid.Column="2"  Grid.RowSpan="5"   Name="Kvadrat2">
+                            <Rectangle.Fill>
+                                <RadialGradientBrush RadiusY="2">
+                                    <GradientStop Color="#FFFDFEFF" Offset="1"/>
+                                    <GradientStop Color="#FFCDD6DC"/>
+                                </RadialGradientBrush>
+                            </Rectangle.Fill>
+                        </Rectangle>
+
+
+                        <Grid Grid.Row="0"  Grid.ColumnSpan="4"  Height="40" VerticalAlignment="Top">
+                            <Grid.Background>
+                                <RadialGradientBrush RadiusY="2">
+                                    <GradientStop Color="#FFFDFDFD" Offset="0.004"/>
+                                    <GradientStop Color="#FF868787" Offset="1"/>
+                                </RadialGradientBrush>
+                            </Grid.Background>
+                            <Label   Content="UNOS NOVE OBLASTI OPREME"  FontSize="14" Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                            <Grid.Effect>
+                                <DropShadowEffect Direction="270" Color="Black" RenderingBias="Quality" BlurRadius="10" ShadowDepth="5"/>
+                            </Grid.Effect>
+                        </Grid>
+                        <Grid Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" Width="500"  >
+
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="250"/>
+                                <ColumnDefinition Width="250"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Grid Grid.Column="0"  Width="150" HorizontalAlignment="Right" >
+
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="30"/>
+                                    <RowDefinition Height="5"/>
+                                    <RowDefinition Height="30"/>
+                                    <RowDefinition Height="5"/>
+                                    <RowDefinition Height="30"/>
+                                    <RowDefinition Height="5"/>
+                                    <RowDefinition Height="30"/>
+
+                                </Grid.RowDefinitions>
+                                <Grid.Resources>
+                                    <Style TargetType="Label">
+                                        <Setter Property="HorizontalAlignment" Value="Center"/>
+                                        <Setter Property="VerticalAlignment" Value="Center"/>
+                                        <Setter Property="HorizontalContentAlignment" Value="Right"/>
+                                        <Setter Property="Foreground" Value="White"/>
+                                        <Setter Property="Width" Value="130"/>
+                                    </Style>
+
+                                </Grid.Resources>
+
+                                <Label Grid.Row="0"  Content="Ime korisnika:" />
+                                <StackPanel Grid.Row="1" Orientation="Vertical" VerticalAlignment="Bottom" HorizontalAlignment="Stretch">
+                                    <Separator Style="{StaticResource {x:Static ToolBar.SeparatorStyleKey}}"/>
+                                </StackPanel>
+                                <Label Grid.Row="2"  Content="Prezime korisnika:" />
+                                <StackPanel Grid.Row="3" Orientation="Vertical" VerticalAlignment="Bottom" HorizontalAlignment="Stretch">
+                                    <Separator Style="{StaticResource {x:Static ToolBar.SeparatorStyleKey}}"/>
+                                </StackPanel>
+
+                                <Label Grid.Row="4"  Content="Broj telefona korisnika:" />
+                                <StackPanel Grid.Row="5" Orientation="Vertical" VerticalAlignment="Bottom" HorizontalAlignment="Stretch">
+                                    <Separator Style="{StaticResource {x:Static ToolBar.SeparatorStyleKey}}"/>
+                                </StackPanel>
+                                <Label Grid.Row="6"  Content="Mejl korisnika:" />
+
+                            </Grid>
+                            <Grid Grid.Column="1" HorizontalAlignment="Left">
+
+
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="30"/>
+                                    <RowDefinition Height="5"/>
+                                    <RowDefinition Height="30"/>
+                                    <RowDefinition Height="5"/>
+                                    <RowDefinition Height="30"/>
+                                    <RowDefinition Height="5"/>
+                                    <RowDefinition Height="30"/>
+                                    <RowDefinition Height="5"/>
+
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="15"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+                                <TextBox Grid.Row="0" Grid.Column="1"  Text="{Binding CurrentKorisnici.ImeKorisnika}"  HorizontalAlignment="Left" VerticalAlignment="Center" Width="200"/>
+                                <TextBox Grid.Row="2" Grid.Column="1"  Text="{Binding CurrentKorisnici.PrezimeKorisnika}"  HorizontalAlignment="Left" VerticalAlignment="Center" Width="200"/>
+                                <TextBox Grid.Row="4" Grid.Column="1"  Text="{Binding CurrentKorisnici.MejlKorisnika}"   HorizontalAlignment="Left" VerticalAlignment="Center" Width="200"/>
+                                <TextBox Grid.Row="6" Grid.Column="1"  Text="{Binding CurrentKorisnici.BrojTelefonaKorisnika}"   HorizontalAlignment="Left" VerticalAlignment="Center" Width="200" />
+                            </Grid>
+
+
+
+                        </Grid>
+                        <Grid Grid.Row="4" Grid.ColumnSpan="4" >
+                            <Grid.Background>
+                                <RadialGradientBrush RadiusY="2">
+                                    <GradientStop Color="#FFFDFDFD" Offset="0.196"/>
+                                    <GradientStop Color="#FF323232" Offset="1"/>
+                                    <GradientStop Color="#FF898989" Offset="0.775"/>
+                                    <GradientStop Color="#FE4F4F4F" Offset="0.942"/>
+                                    <GradientStop Color="#FFF7F7F7" Offset="0.593"/>
+                                </RadialGradientBrush>
+                            </Grid.Background>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="20"/>
+                                <RowDefinition Height="30"/>
+                                <RowDefinition Height="20"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Button Grid.Row="1" Grid.Column="0"   Name="btnRegistracijaKorisnika" Click="btnRegistracijaKorisnika_Click" Content="Registruj korisnika" Background="Green" Foreground="White" HorizontalAlignment="Center" Padding="15,0" BorderBrush="White" BorderThickness="1">
+                                <Button.Effect>
+                                    <DropShadowEffect ShadowDepth="0" BlurRadius="25" RenderingBias="Quality"/>
+                                </Button.Effect>
+                            </Button>
+                            <Button Grid.Row="1" Grid.Column="1" Width="100" Name="btnOtkaziUnos" Click="btnOtkaziUnos_Click" Content="Otkaži" Background="Darkred" Foreground="White" HorizontalAlignment="Center" Padding="15,0" BorderBrush="White" BorderThickness="1">
+                                <Button.Effect>
+                                    <DropShadowEffect ShadowDepth="0" BlurRadius="25" RenderingBias="Quality"/>
+                                </Button.Effect>
+                            </Button>
+
+                            <Grid.Effect>
+                                <DropShadowEffect ShadowDepth="5" Direction="90" BlurRadius="10" RenderingBias="Quality"/>
+                            </Grid.Effect>
+                        </Grid>
+                        <Grid.Effect>
+                            <DropShadowEffect ShadowDepth="5" Direction="360" BlurRadius="25" RenderingBias="Quality"/>
+                        </Grid.Effect>
+                    </Grid>
+
+
+                </Grid>
+
+
+
+
+            </Border>-->
+                        </Grid>
+                   
+                </Grid>
+            </Border>
+        </Grid>
+    </DockPanel>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!--<Window.Resources>
+        <Style TargetType="ListBoxItem">
+
+
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="Red"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>-->
+
+    <!--<Grid>
+        
+        <avalon:DockingManager>
+            <avalon:LayoutRoot>
+                <avalon:LayoutPanel>
+                    <avalon:LayoutDocumentPaneGroup>
+                        <avalon:LayoutDocumentPane>
+                            <avalon:LayoutDocument Title="Pretraga korisnika" CanClose="False" CanFloat="False">
+                                <Grid >
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="*" />
+                                        <RowDefinition Height="2*" />
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="200"/>
+                                        <ColumnDefinition Width="500"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid Grid.Row="0" Grid.Column="0" Name="Pretraga" Background="Beige">
+                                        <Grid Width="175">
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="Auto"/>
+                                                <RowDefinition Height="Auto"/>
+                                                <RowDefinition Height="Auto"/>
+                                            </Grid.RowDefinitions>
+                                            <Label Content="Pretražite korisnika :" Grid.Row="0"/>
+                                            <TextBox Grid.Row="1"  KeyUp="TextBox_KeyUp"/>
+                                            <Button Grid.Row="2" Height="Auto" Content="Pretraži..." Width="100" HorizontalAlignment="Left" Margin="0,10,0,0"/>
+                                        </Grid>
+                                    </Grid>
+                                    <Grid Grid.Row="0" Grid.Column="1" Grid.RowSpan="2" Name="PretragaInfo" Background="White">
+                                        <ListBox Name="PrikazDetaljaKorisnika" Background="White" Width="500" ScrollViewer.HorizontalScrollBarVisibility="Hidden">
+                                            
+                                            <ListBox.ItemTemplate >
+                                                
+                                                <DataTemplate>
+                                                    <Grid Width="500" HorizontalAlignment="Center" Background="White">
+
+                                                        <Grid.RowDefinitions>
+                                                            <RowDefinition Height="50"/>
+                                                            <RowDefinition Height="Auto"/>
+                                                            <RowDefinition Height="Auto"/>
+                                                            <RowDefinition Height="Auto"/>
+                                                            <RowDefinition Height="Auto"/>
+                                                            <RowDefinition Height="50"/>
+                                                            <RowDefinition Height="Auto"/>
+                                                        </Grid.RowDefinitions>
+                                                        <Grid.ColumnDefinitions>
+                                                            <ColumnDefinition Width="2*" />
+                                                            <ColumnDefinition Width="20" />
+                                                            <ColumnDefinition Width="3*" />
+                                                        </Grid.ColumnDefinitions>
+                                                        <Label Content="PRIKAZ DETALJA O KORISNIKU" Grid.ColumnSpan="3" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                                        <Label  Content="Ime:" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Right"/>
+                                                        <Label  Content="Prezime:" Grid.Row="2" Grid.Column="0" HorizontalAlignment="Right"/>
+                                                        <Label  Content="e-mail:" Grid.Row="3" Grid.Column="0" HorizontalAlignment="Right"/>
+                                                        <Label  Content="Broj telefona:" Grid.Row="4" Grid.Column="0" HorizontalAlignment="Right"/>
+
+                                                        <TextBlock  Text="{Binding ImeKorisnika}" Grid.Row="1" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                                                        <TextBlock  Text="{Binding PrezimeKorisnika}" Grid.Row="2" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center" />
+                                                        <TextBlock  Text="{Binding MejlKorisnika}" Grid.Row="3" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center" />
+                                                        <TextBlock  Text="{Binding BrojTelefonaKorisnika}" Grid.Row="4" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center" />
+                                                        <Button Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="3" HorizontalAlignment="Center" VerticalAlignment="Center" Width="250" Content="Izaberite ovog korisnika za kupovinu" Background="Green"  Height="30" Foreground="White" Name="btnIzaberiKorisnika" Click="btnIzaberiKorisnika_Click">
+                                                            <Button.BorderBrush>
+                                                                <SolidColorBrush Color="white" />
+                                                            </Button.BorderBrush>
+                                                            <Button.Effect>
+                                                                <DropShadowEffect Color="Black" Direction="-20" BlurRadius="15" ShadowDepth="5"  />
+                                                            </Button.Effect>
+                                                        </Button>
+
+                                                    </Grid>
+                                                </DataTemplate>
+                                            </ListBox.ItemTemplate>
+                                            
+                                        </ListBox>
+                                        <ListBox Name="IzmenaDetaljaKorisnika" Visibility="Hidden">
+                                            <ListBox.ItemTemplate>
+                                                <DataTemplate>
+                                                    <Grid Width="400" HorizontalAlignment="Center">
+
+                                                        <Grid.RowDefinitions>
+                                                            <RowDefinition Height="50"/>
+                                                            <RowDefinition Height="Auto"/>
+                                                            <RowDefinition Height="Auto"/>
+                                                            <RowDefinition Height="Auto"/>
+                                                            <RowDefinition Height="Auto"/>
+                                                        </Grid.RowDefinitions>
+                                                        <Grid.ColumnDefinitions>
+                                                            <ColumnDefinition Width="2*" />
+                                                            <ColumnDefinition Width="20" />
+                                                            <ColumnDefinition Width="3*" />
+                                                        </Grid.ColumnDefinitions>
+                                                        <Label Content="PRIKAZ DETALJA O KORISNIKU" Grid.ColumnSpan="3" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                                        <Label  Content="Ime:" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Right"/>
+                                                        <Label  Content="Prezime:" Grid.Row="2" Grid.Column="0" HorizontalAlignment="Right"/>
+                                                        <Label  Content="e-mail:" Grid.Row="3" Grid.Column="0" HorizontalAlignment="Right"/>
+                                                        <Label  Content="Broj telefona:" Grid.Row="4" Grid.Column="0" HorizontalAlignment="Right"/>
+
+                                                        <TextBlock  Text="{Binding ImeKorisnika}" Grid.Row="1" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                                                        <TextBlock  Text="{Binding PrezimeKorisnika}" Grid.Row="2" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center" />
+                                                        <TextBlock  Text="{Binding MejlKorisnika}" Grid.Row="3" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center" />
+                                                        <TextBlock  Text="{Binding BrojTelefonaKorisnika}" Grid.Row="4" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center" />
+                                                    </Grid>
+                                                </DataTemplate>
+                                            </ListBox.ItemTemplate>
+
+                                        </ListBox>
+                                    </Grid>
+                                    <Grid Grid.Row="1" Grid.Column="0" >c
+                                        <ListBox  Name="PrikazRezultataKorisnika" Width="200" IsSynchronizedWithCurrentItem="True" ItemsSource="{Binding ListaKorisnika}" ScrollViewer.HorizontalScrollBarVisibility="Hidden" Padding="0,0,5,0" >
+                                        --><!--<ListBox  Name="PrikazRezultataKorisnika"  IsSynchronizedWithCurrentItem="True" >--><!--
+                                            <ListBox.ItemTemplate>
+                                                <DataTemplate>
+                                                    
+                                                        <Grid Name="GridPrikazRezultataKorisnika" MouseDown="GridPrikazRezultataKorisnika_MouseDown">
+                                                            <Grid.RowDefinitions>
+                                                                <RowDefinition Height="Auto" />
+                                                                <RowDefinition Height="Auto" />
+                                                            </Grid.RowDefinitions>
+                                                            <Grid.ColumnDefinitions>
+                                                            <ColumnDefinition Width="Auto" />
+                                                            <ColumnDefinition Width="Auto" />
+                                                    </Grid.ColumnDefinitions>
+                                                            <TextBlock Visibility="Hidden" Text="{Binding IdKorisnici}" Name="skrivenId"/>
+                                                            <TextBlock Grid.Row="0" Grid.Column="0" Text="{Binding ImeKorisnika}"  VerticalAlignment="Center" HorizontalAlignment="Right" Padding="0,0,15,0" />
+                                                            <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding PrezimeKorisnika}" HorizontalAlignment="Left"  VerticalAlignment="Center" Width="200"/>
+                                                            <TextBlock Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Text="{Binding MejlKorisnika}" FontStyle="Italic" FontSize="10" Background="LightGray"/>
+                                                
+
+                                                </Grid>
+                                                    
+                                                </DataTemplate>
+                                            </ListBox.ItemTemplate>
+                                        </ListBox>
+                                    </Grid>
+                                </Grid>
+                            </avalon:LayoutDocument>
+                        
+                            <avalon:LayoutDocument Title="Registracija korisnika" CanClose="False" CanFloat="False">
+                                <Grid>
+                                    <Grid Width="400" HorizontalAlignment="Center">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="50"/>
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition Height="50"/>
+                                            <RowDefinition Height="Auto"/>
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="2*" />
+                                            <ColumnDefinition Width="20" />
+                                            <ColumnDefinition Width="3*" />
+                                        </Grid.ColumnDefinitions>
+                                        <Label Content="POPUNJAVANJE DETALJA O KORISNIKU" Grid.ColumnSpan="3" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                        <Label  Content="Ime:" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Right"/>
+                                        <Label  Content="Prezime:" Grid.Row="2" Grid.Column="0" HorizontalAlignment="Right"/>
+                                        <Label  Content="e-mail:" Grid.Row="3" Grid.Column="0" HorizontalAlignment="Right"/>
+                                        <Label  Content="Broj telefona:" Grid.Row="4" Grid.Column="0" HorizontalAlignment="Right"/>
+                                        
+                                        <TextBox Text="{Binding TmpKorisnik.ImeKorisnika}" Grid.Row="1" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center" Width="150"/>
+                                        <TextBox Text="{Binding TmpKorisnik.PrezimeKorisnika}" Grid.Row="2" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center" Width="150"/>
+                                        <TextBox Text="{Binding TmpKorisnik.MejlKorisnika}" Grid.Row="3" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center" Width="150"/>
+                                        <TextBox Text="{Binding TmpKorisnik.BrojTelefonaKorisnika}" Grid.Row="4" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center" Width="150"/>
+                                        <Button Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="3" HorizontalAlignment="Center" VerticalAlignment="Center" Width="150" Content="Registruj Korisnika" Background="Brown" Foreground="White" Name="btnRegistracijaKorisnika" Click="btnRegistracijaKorisnika_Click">
+                                            <Button.BorderBrush>
+                                                <SolidColorBrush Color="white" />
+                                            </Button.BorderBrush>
+                                            <Button.Effect>
+                                                <DropShadowEffect Color="Black" Direction="-20" BlurRadius="15" ShadowDepth="5"  />
+                                            </Button.Effect>
+                                        </Button>
+                                    </Grid>
+                                </Grid>
+                            </avalon:LayoutDocument>
+                        </avalon:LayoutDocumentPane>
+                    </avalon:LayoutDocumentPaneGroup>
+                </avalon:LayoutPanel>
+            </avalon:LayoutRoot>
+        </avalon:DockingManager>
+        
+        
+        --><!--Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="300"/>
+        </Grid.ColumnDefinitions>
+        
+        <Grid Grid.Row="0" Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+
+            <Label Content="PODACI O NOVOM KORISNIKU"></Label>
+            <Label Content="Ime i prezime " Grid.Row="2" Grid.Column="0"></Label>
+            <Label Content="Max Payne" Grid.Row="2" Grid.Column="1"  Width="300"></Label>
+            <Label Content="e-mail " Grid.Row="3" Grid.Column="0"></Label>
+            <Label Content="maxKaroMonuETgmail.com" Grid.Row="3" Grid.Column="1"  Width="300"></Label>
+            <Label Content="Broj telefona " Grid.Row="4" Grid.Column="0"></Label>
+            <Label Content="065/11-33-444" Grid.Row="4" Grid.Column="1"  Width="300"></Label>
+            <Label Grid.Row="5" Grid.Column="0">Broj ostvarenih poena</Label>
+        </Grid>
+        <Grid Grid.Row="1" Grid.Column="0">
+            
+        </Grid>
+        <Grid Grid.Row="0" Grid.Column="1" Grid.RowSpan="2" Background="Beige">
+            <Grid Width="250" Margin="0,20,0,0" >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="35"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+            
+                <Label Grid.Row="0"  Content="Pretražite korisnike :" />
+                <TextBox Grid.Row="1" Width="250"  HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <Button Grid.Row="2" Content="Pretraži..." Width="150" Margin="0,10,0,0" HorizontalAlignment="Left"></Button>
+            </Grid>
+            </Grid> --><!--
+
+    </Grid>-->
+    
+    
+</Window>

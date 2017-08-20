@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="08fcf538-fe13-43d0-9dce-25498dbe7066" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:55897/SmartSoftwareService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="SmartSoftwareService3.xsd" MetadataType="Schema" ID="467cbfc9-5968-46a7-9927-7e0b2b394dcd" SourceId="1" SourceUrl="http://localhost:55897/SmartSoftwareService.svc?xsd=xsd3" />
+    <MetadataFile FileName="SmartSoftwareService1.xsd" MetadataType="Schema" ID="7f7a9ebe-15af-4c94-b2a4-ddfc7318273e" SourceId="1" SourceUrl="http://localhost:55897/SmartSoftwareService.svc?xsd=xsd0" />
+    <MetadataFile FileName="SmartSoftwareService4.xsd" MetadataType="Schema" ID="ac32f536-fd9b-4564-b8c6-15a1f0614c3a" SourceId="1" SourceUrl="http://localhost:55897/SmartSoftwareService.svc?xsd=xsd4" />
+    <MetadataFile FileName="SmartSoftwareService.xsd" MetadataType="Schema" ID="12793063-f910-4a3d-aa5a-18bb1f2a65b9" SourceId="1" SourceUrl="http://localhost:55897/SmartSoftwareService.svc?xsd=xsd2" />
+    <MetadataFile FileName="SmartSoftwareService2.xsd" MetadataType="Schema" ID="91abe5b0-272d-4fbe-a482-467688d0774f" SourceId="1" SourceUrl="http://localhost:55897/SmartSoftwareService.svc?xsd=xsd1" />
+    <MetadataFile FileName="SmartSoftwareService.disco" MetadataType="Disco" ID="7acfab21-a9e1-4b25-9809-1061ad6e52b5" SourceId="1" SourceUrl="http://localhost:55897/SmartSoftwareService.svc?disco" />
+    <MetadataFile FileName="SmartSoftwareService5.xsd" MetadataType="Schema" ID="2f0d927f-03ac-441e-8c62-96c755eb6cb0" SourceId="1" SourceUrl="http://localhost:55897/SmartSoftwareService.svc?xsd=xsd5" />
+    <MetadataFile FileName="SmartSoftwareService.wsdl" MetadataType="Wsdl" ID="522383ad-1793-47a6-9ae2-ce8480867e3c" SourceId="1" SourceUrl="http://localhost:55897/SmartSoftwareService.svc?wsdl" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

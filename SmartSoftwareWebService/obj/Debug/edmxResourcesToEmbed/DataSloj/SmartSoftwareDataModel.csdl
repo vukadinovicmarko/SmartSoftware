@@ -1,0 +1,619 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="SmartSoftwareBazaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="parametarOprema">
+    <Key>
+      <PropertyRef Name="id_parametri" />
+      <PropertyRef Name="id_oprema" />
+    </Key>
+    <Property Name="id_parametri" Type="Int32" Nullable="false" />
+    <Property Name="id_oprema" Type="Int32" Nullable="false" />
+    <Property Name="vrednost_parametra" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="parametri" Relationship="SmartSoftwareBazaModel.parametarOprema_parametri_FK" FromRole="parametarOprema" ToRole="parametri" />
+    <NavigationProperty Name="oprema" Relationship="SmartSoftwareBazaModel.parametarOprema_oprema_FK" FromRole="parametarOprema" ToRole="oprema" />
+    <Property Name="deletedField" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="uloge">
+    <Key>
+      <PropertyRef Name="id_uloge" />
+    </Key>
+    <Property Name="id_uloge" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="naziv_uloge" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityContainer Name="SmartSoftwareBazaEntities" annotation:LazyLoadingEnabled="false">
+    <EntitySet Name="parametarOpremas" EntityType="Self.parametarOprema" />
+    <EntitySet Name="uloges" EntityType="Self.uloge" />
+    <EntitySet Name="parametris" EntityType="SmartSoftwareBazaModel.parametri" />
+    <AssociationSet Name="parametarOprema_parametri_FK" Association="SmartSoftwareBazaModel.parametarOprema_parametri_FK">
+      <End Role="parametri" EntitySet="parametris" />
+      <End Role="parametarOprema" EntitySet="parametarOpremas" />
+    </AssociationSet>
+    <FunctionImport Name="VrednostiParametra" ReturnType="Collection(String)">
+      <Parameter Name="idParametra" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <EntitySet Name="Korpas" EntityType="SmartSoftwareBazaModel.Korpa" />
+    <FunctionImport Name="AzurirajKorpu">
+      <Parameter Name="idOprema" Mode="In" Type="Int32" />
+      <Parameter Name="kolicina" Mode="In" Type="Int32" />
+      <Parameter Name="idProdavca" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="DodajUKorpu">
+      <Parameter Name="idOprema" Mode="In" Type="Int32" />
+      <Parameter Name="kolicina" Mode="In" Type="Int32" />
+      <Parameter Name="idProdavca" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="ObrisiCeluKorpu">
+      <Parameter Name="idProdavca" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="ObrisiOpremuIzKorpe">
+      <Parameter Name="idOpreme" Mode="In" Type="Int32" />
+      <Parameter Name="idProdavca" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="OpremaUpdate">
+      <Parameter Name="proizvodjac" Mode="In" Type="String" />
+      <Parameter Name="naslov" Mode="In" Type="String" />
+      <Parameter Name="cena" Mode="In" Type="Double" />
+      <Parameter Name="opis" Mode="In" Type="String" />
+      <Parameter Name="model" Mode="In" Type="String" />
+      <Parameter Name="lager" Mode="In" Type="Boolean" />
+      <Parameter Name="kolicina_u_rezervi" Mode="In" Type="Int32" />
+      <Parameter Name="kolicina_na_lageru" Mode="In" Type="Int32" />
+      <Parameter Name="oprema_na_popustu" Mode="In" Type="Int32" />
+      <Parameter Name="slika" Mode="In" Type="String" />
+      <Parameter Name="idOpreme" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="AzurirajBrojPoena">
+      <Parameter Name="idKorisnika" Mode="In" Type="Int32" />
+      <Parameter Name="izabranaKolicinaPoena" Mode="In" Type="Int32" />
+      <Parameter Name="datum_azuriranja" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="AzurirajRezervacije">
+      <Parameter Name="idOprema" Mode="In" Type="Int32" />
+      <Parameter Name="kolicina" Mode="In" Type="Int32" />
+      <Parameter Name="idRezervacije" Mode="In" Type="Int32" />
+      <Parameter Name="datumIstekaRezervacije" Mode="In" Type="DateTime" />
+      <Parameter Name="datumAzuriranjaRezervacije" Mode="In" Type="DateTime" />
+      <Parameter Name="broj_telefona" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="ObrisiOpremuIzRezervacije">
+      <Parameter Name="idRezervacije" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="ObrisiSveRezervacije" />
+    <EntitySet Name="rezervacijes" EntityType="SmartSoftwareBazaModel.rezervacije" />
+    <EntitySet Name="RezervacijeOpremas" EntityType="SmartSoftwareBazaModel.RezervacijeOprema" />
+    <FunctionImport Name="DodajRezervacije">
+      <Parameter Name="ime" Mode="In" Type="String" />
+      <Parameter Name="datum_rezervacije" Mode="In" Type="DateTime" />
+      <Parameter Name="datum_isteka_rezervacije" Mode="In" Type="DateTime" />
+      <Parameter Name="broj_telefona" Mode="In" Type="String" />
+      <Parameter Name="idRezervacije" Mode="InOut" Type="Int32" />
+    </FunctionImport>
+    <EntitySet Name="tip_opreme" EntityType="SmartSoftwareBazaModel.tip_opreme" />
+    <AssociationSet Name="parametri_tip_opreme_FK" Association="SmartSoftwareBazaModel.parametri_tip_opreme_FK">
+      <End Role="tip_opreme" EntitySet="tip_opreme" />
+      <End Role="parametri" EntitySet="parametris" />
+    </AssociationSet>
+    <EntitySet Name="oblasti_opreme" EntityType="SmartSoftwareBazaModel.oblasti_opreme" />
+    <AssociationSet Name="tip_opreme_oblasti_opreme_FK" Association="SmartSoftwareBazaModel.tip_opreme_oblasti_opreme_FK">
+      <End Role="oblasti_opreme" EntitySet="oblasti_opreme" />
+      <End Role="tip_opreme" EntitySet="tip_opreme" />
+    </AssociationSet>
+    <FunctionImport Name="OblastiOpremeInsert">
+      <Parameter Name="nazivOblasti" Mode="In" Type="String" />
+      <Parameter Name="slika" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="OblastiOpremeUpdate">
+      <Parameter Name="idOblasti" Mode="In" Type="Int32" />
+      <Parameter Name="naziv" Mode="In" Type="String" />
+      <Parameter Name="slika" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="ObrisiOblastOpreme">
+      <Parameter Name="id_oblasti_opreme" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="TipoviOpremeInsert">
+      <Parameter Name="naziv_tipa" Mode="In" Type="String" />
+      <Parameter Name="id_oblasti_opreme" Mode="In" Type="Int32" />
+      <Parameter Name="slika_tipa" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="TipoviOpremeDelete">
+      <Parameter Name="id_tipa" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="TipoviOpremeUpdate">
+      <Parameter Name="id_tip_opreme" Mode="In" Type="Int32" />
+      <Parameter Name="naziv_tipa" Mode="In" Type="String" />
+      <Parameter Name="id_oblasti_opreme" Mode="In" Type="Int32" />
+      <Parameter Name="slika_tipa" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="KorisniciUlogeInsert">
+      <Parameter Name="id_korisnici" Mode="In" Type="Int32" />
+      <Parameter Name="id_uloge" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="ZaposleniKorisniciInsert">
+      <Parameter Name="ime" Mode="In" Type="String" />
+      <Parameter Name="prezime" Mode="In" Type="String" />
+      <Parameter Name="mejl" Mode="In" Type="String" />
+      <Parameter Name="broj_telefona" Mode="In" Type="String" />
+      <Parameter Name="username" Mode="In" Type="String" />
+      <Parameter Name="lozinka" Mode="In" Type="String" />
+      <Parameter Name="broj_ostvareni_poena" Mode="In" Type="Int32" />
+      <Parameter Name="pol_korisnika" Mode="In" Type="Boolean" />
+      <Parameter Name="putanja_do_slike" Mode="In" Type="String" />
+      <Parameter Name="idUloge" Mode="In" Type="Int32" />
+      <Parameter Name="datum_kreiranja" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="ZaposleniKorisniciUpdate">
+      <Parameter Name="idKorisnika" Mode="In" Type="Int32" />
+      <Parameter Name="ime" Mode="In" Type="String" />
+      <Parameter Name="prezime" Mode="In" Type="String" />
+      <Parameter Name="mejl" Mode="In" Type="String" />
+      <Parameter Name="broj_telefona" Mode="In" Type="String" />
+      <Parameter Name="username" Mode="In" Type="String" />
+      <Parameter Name="lozinka" Mode="In" Type="String" />
+      <Parameter Name="broj_ostvareni_poena" Mode="In" Type="Int32" />
+      <Parameter Name="pol_korisnika" Mode="In" Type="Boolean" />
+      <Parameter Name="slika_korisnika" Mode="In" Type="String" />
+      <Parameter Name="idUloge" Mode="In" Type="Int32" />
+      <Parameter Name="datum_azuriranja" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="UpdateVrednostParametra">
+      <Parameter Name="vrednost_parametra" Mode="In" Type="String" />
+      <Parameter Name="idParametra" Mode="In" Type="Int32" />
+      <Parameter Name="idOpreme" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="OpremaInsert">
+      <Parameter Name="idOpreme" Mode="InOut" Type="Int32" />
+      <Parameter Name="proizvodjac" Mode="In" Type="String" />
+      <Parameter Name="naslov" Mode="In" Type="String" />
+      <Parameter Name="cena" Mode="In" Type="Double" />
+      <Parameter Name="opis" Mode="In" Type="String" />
+      <Parameter Name="model" Mode="In" Type="String" />
+      <Parameter Name="lager" Mode="In" Type="Boolean" />
+      <Parameter Name="kolicina_u_rezervi" Mode="In" Type="Int32" />
+      <Parameter Name="kolicina_na_lageru" Mode="In" Type="Int32" />
+      <Parameter Name="oprema_na_popustu" Mode="In" Type="Int32" />
+      <Parameter Name="slika" Mode="In" Type="String" />
+      <Parameter Name="idTipOpreme" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="OpremaDelete">
+      <Parameter Name="idOpreme" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="RestoreIzbrisanaOblastOpreme">
+      <Parameter Name="idOblastiOpreme" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="RestoreIzbrisanaOprema">
+      <Parameter Name="idOpreme" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="RestoreIzbrisaneOpreme" />
+    <FunctionImport Name="RestoreIzbrisaniTipoviOpreme">
+      <Parameter Name="idOblastiOpreme" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="RestoreIzbrisanTipOpreme">
+      <Parameter Name="idTipOpreme" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="DodajUIstorijuKupovine">
+      <Parameter Name="id_istorija_kupovine" Mode="InOut" Type="Int32" />
+      <Parameter Name="datum_prodaje" Mode="In" Type="DateTime" />
+      <Parameter Name="id_prodavca" Mode="In" Type="Int32" />
+      <Parameter Name="id_kupca" Mode="In" Type="Int32" />
+      <Parameter Name="ukupna_cena_kupovine" Mode="In" Type="Double" />
+      <Parameter Name="broj_iskoriscenih_popust_poena" Mode="In" Type="Double" />
+    </FunctionImport>
+    <FunctionImport Name="DodajUIstorijuKupovineOprema">
+      <Parameter Name="id_oprema" Mode="In" Type="Int32" />
+      <Parameter Name="kolicina" Mode="In" Type="Int32" />
+      <Parameter Name="cena_opreme_kad_je_prodata" Mode="In" Type="Double" />
+      <Parameter Name="popust_na_cenu" Mode="In" Type="Double" />
+      <Parameter Name="ukupna_cena_artikla" Mode="In" Type="Int32" />
+      <Parameter Name="id_istorija_kupovine" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="ParametriInsert">
+      <Parameter Name="nazivParametra" Mode="In" Type="String" />
+      <Parameter Name="defaultVrednost" Mode="In" Type="String" />
+      <Parameter Name="idTipOpreme" Mode="In" Type="Int32" />
+      <Parameter Name="zaFilter" Mode="In" Type="Boolean" />
+      <Parameter Name="tipParametra" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="ParametriUpdate">
+      <Parameter Name="idParametra" Mode="In" Type="Int32" />
+      <Parameter Name="nazivParametra" Mode="In" Type="String" />
+      <Parameter Name="defaultVrednost" Mode="In" Type="String" />
+      <Parameter Name="idTipOpreme" Mode="In" Type="Int32" />
+      <Parameter Name="zaFilter" Mode="In" Type="Boolean" />
+      <Parameter Name="tipParametra" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="ParametriDelete">
+      <Parameter Name="idParametra" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="RestoreIzbrisaniParametri" />
+    <FunctionImport Name="RestoreIzbrisanParametar">
+      <Parameter Name="idParametar" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="KorisniciDelete">
+      <Parameter Name="idKorisnika" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="RestoreIzbrisanKorisnik">
+      <Parameter Name="idKorisnik" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <EntitySet Name="korisnicis" EntityType="SmartSoftwareBazaModel.korisnici" />
+    <FunctionImport Name="DodajKorisnika">
+      <Parameter Name="ime" Mode="In" Type="String" />
+      <Parameter Name="prezime" Mode="In" Type="String" />
+      <Parameter Name="mejl" Mode="In" Type="String" />
+      <Parameter Name="broj_telefona" Mode="In" Type="String" />
+      <Parameter Name="idUloge" Mode="In" Type="Int32" />
+      <Parameter Name="datum_kreiranja" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <EntitySet Name="istorija_kupovine" EntityType="SmartSoftwareBazaModel.istorija_kupovine" />
+    <EntitySet Name="istorija_kupovine_oprema" EntityType="SmartSoftwareBazaModel.istorija_kupovine_oprema" />
+    <FunctionImport Name="IstorijaKupovineKupciKojiNajviseKupuju" ReturnType="Collection(SmartSoftwareBazaModel.IstorijaKupovineKupciKojiNajviseKupuju_Result)">
+      <Parameter Name="ASC" Mode="In" Type="Boolean" />
+    </FunctionImport>
+    <FunctionImport Name="IstorijaKupovineNajcesciKupci" ReturnType="Collection(SmartSoftwareBazaModel.IstorijaKupovineNajcesciKupci_Result)">
+      <Parameter Name="ASC" Mode="In" Type="Boolean" />
+    </FunctionImport>
+    <FunctionImport Name="IstorijaKupovineNajprodavanijaOprema" ReturnType="Collection(SmartSoftwareBazaModel.IstorijaKupovineNajprodavanijaOprema_Result)">
+      <Parameter Name="ASC" Mode="In" Type="Boolean" />
+    </FunctionImport>
+    <FunctionImport Name="IstorijaKupovineUkupnoProdanoOpremeDanas">
+      <Parameter Name="datumDanas" Mode="In" Type="DateTime" />
+      <Parameter Name="datumSutra" Mode="In" Type="DateTime" />
+      <Parameter Name="brojProdateOpremeDanas" Mode="InOut" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="IstorijaKupovineUkupnoZaradjeno">
+      <Parameter Name="ukupnoZaradjeno" Mode="InOut" Type="Double" />
+    </FunctionImport>
+    <FunctionImport Name="IstorijaKupovineZaradjenoDanas">
+      <Parameter Name="datumDanas" Mode="In" Type="DateTime" />
+      <Parameter Name="datumSutra" Mode="In" Type="DateTime" />
+      <Parameter Name="ukupnoZaradjeno" Mode="InOut" Type="Double" />
+    </FunctionImport>
+    <FunctionImport Name="InsertRezervacijeOprema">
+      <Parameter Name="idOprema" Mode="In" Type="Int32" />
+      <Parameter Name="idRezervacije" Mode="In" Type="Int32" />
+      <Parameter Name="kolicina" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="IstorijaKupovinePotrosnjaKupaca" ReturnType="Collection(SmartSoftwareBazaModel.IstorijaKupovinePotrosnjaKupaca_Result)">
+      <Parameter Name="ASC" Mode="In" Type="Boolean" />
+    </FunctionImport>
+    <EntitySet Name="narudzbines" EntityType="SmartSoftwareBazaModel.narudzbine" />
+    <FunctionImport Name="NarudzbineDelete">
+      <Parameter Name="idNarudzbine" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="NarudzbineInsert">
+      <Parameter Name="idOpreme" Mode="In" Type="Int32" />
+      <Parameter Name="kolicina" Mode="In" Type="Int32" />
+      <Parameter Name="idProdavca" Mode="In" Type="Int32" />
+      <Parameter Name="datumNarudzbine" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <EntitySet Name="kolekcija_opreme" EntityType="SmartSoftwareBazaModel.kolekcija_opreme" />
+    <EntitySet Name="opremas" EntityType="SmartSoftwareBazaModel.oprema" />
+    <AssociationSet Name="istorija_kupovine_oprema_oprema_FK" Association="SmartSoftwareBazaModel.istorija_kupovine_oprema_oprema_FK">
+      <End Role="oprema" EntitySet="opremas" />
+      <End Role="istorija_kupovine_oprema" EntitySet="istorija_kupovine_oprema" />
+    </AssociationSet>
+    <AssociationSet Name="narudzbine_oprema_FK" Association="SmartSoftwareBazaModel.narudzbine_oprema_FK">
+      <End Role="oprema" EntitySet="opremas" />
+      <End Role="narudzbine" EntitySet="narudzbines" />
+    </AssociationSet>
+    <AssociationSet Name="parametarOprema_oprema_FK" Association="SmartSoftwareBazaModel.parametarOprema_oprema_FK">
+      <End Role="oprema" EntitySet="opremas" />
+      <End Role="parametarOprema" EntitySet="parametarOpremas" />
+    </AssociationSet>
+    <FunctionImport Name="KolekcijaOpremeInsert">
+      <Parameter Name="idOpreme" Mode="In" Type="Int32" />
+      <Parameter Name="idDeo" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="IstorijaKupovineKupciInitPrikaz" ReturnType="Collection(Int32)" />
+    <FunctionImport Name="OpremaSkiniSaLagera">
+      <Parameter Name="idOpreme" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="KonfigurcijaKolekcijeInsertUpdate">
+      <Parameter Name="idTipOpremeKolekcije" Mode="In" Type="Int32" />
+      <Parameter Name="idTipOpremeDeoKolekcije" Mode="In" Type="Int32" />
+      <Parameter Name="redosledPrikazivanja" Mode="In" Type="Int32" />
+      <Parameter Name="izabranZaKonfiguraciju" Mode="In" Type="Boolean" />
+    </FunctionImport>
+    <EntitySet Name="grupe_ogranicenja" EntityType="SmartSoftwareBazaModel.grupe_ogranicenja" />
+    <FunctionImport Name="GrupeOgranicenjaInsert">
+      <Parameter Name="idTipOpreme1" Mode="In" Type="Int32" />
+      <Parameter Name="idTipOpreme2" Mode="In" Type="Int32" />
+      <Parameter Name="idParametra1" Mode="In" Type="Int32" />
+      <Parameter Name="idParametra2" Mode="In" Type="Int32" />
+      <Parameter Name="idTipOpremeKolekcije" Mode="In" Type="Int32" />
+      <Parameter Name="tipProvere" Mode="In" Type="String" />
+    </FunctionImport>
+    <EntitySet Name="konfiguracija_kolekcije" EntityType="SmartSoftwareBazaModel.konfiguracija_kolekcije" />
+    <FunctionImport Name="VrednostiParametraGlavniProzor" ReturnType="Collection(String)">
+      <Parameter Name="idParametra" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="RestoreIzbrisanParametarOprema">
+      <Parameter Name="idOpreme" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="IzbrisiRezervaciju">
+      <Parameter Name="idRezervacije" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="DeletePojedinacnoRezervacijeOprema">
+      <Parameter Name="idOprema" Mode="In" Type="Int32" />
+      <Parameter Name="idRezervacije" Mode="In" Type="Int32" />
+      <Parameter Name="kolicina" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="DodajUKorpuIzRezervacije">
+      <Parameter Name="idOprema" Mode="In" Type="Int32" />
+      <Parameter Name="kolicina" Mode="In" Type="Int32" />
+      <Parameter Name="idProdavca" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="IzbrisiRezervacijuZaStavljanjeUkorpu">
+      <Parameter Name="idRezervacije" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="IzbrisiOpremuIzRezervacije">
+      <Parameter Name="idRezervacije" Mode="In" Type="Int32" />
+      <Parameter Name="idOprema" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="NarudzbinePrihvati">
+      <Parameter Name="idNarudzbine" Mode="In" Type="Int32" />
+      <Parameter Name="idOprema" Mode="In" Type="Int32" />
+      <Parameter Name="kolicina" Mode="In" Type="Int32" />
+    </FunctionImport>
+  </EntityContainer>
+  <EntityType Name="parametri">
+    <Key>
+      <PropertyRef Name="id_parametri" />
+    </Key>
+    <Property Name="id_parametri" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="naziv_parametra" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="default_vrednost" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="id_tip_opreme" Type="Int32" Nullable="false" />
+    <Property Name="za_filter" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="parametarOpremas" Relationship="SmartSoftwareBazaModel.parametarOprema_parametri_FK" FromRole="parametri" ToRole="parametarOprema" />
+    <NavigationProperty Name="tip_opreme" Relationship="SmartSoftwareBazaModel.parametri_tip_opreme_FK" FromRole="parametri" ToRole="tip_opreme" />
+    <Property Name="tipParametra" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="deletedField" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <Association Name="parametarOprema_parametri_FK">
+    <End Type="SmartSoftwareBazaModel.parametri" Role="parametri" Multiplicity="1" />
+    <End Type="SmartSoftwareBazaModel.parametarOprema" Role="parametarOprema" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="parametri">
+        <PropertyRef Name="id_parametri" />
+      </Principal>
+      <Dependent Role="parametarOprema">
+        <PropertyRef Name="id_parametri" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Korpa">
+    <Key>
+      <PropertyRef Name="IdKorpa" />
+    </Key>
+    <Property Name="IdKorpa" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="idOprema" Type="Int32" Nullable="false" />
+    <Property Name="kolicina" Type="Int32" Nullable="false" />
+    <Property Name="idProdavca" Type="Int32" />
+  </EntityType>
+  <EntityType Name="rezervacije">
+    <Key>
+      <PropertyRef Name="id_rezervacije" />
+    </Key>
+    <Property Name="id_rezervacije" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ime" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="datum_rezervacije" Type="DateTime" Precision="3" />
+    <Property Name="datum_isteka_rezervacije" Type="DateTime" Precision="3" />
+    <Property Name="datum_azuriranja_rezervacije" Type="DateTime" Precision="3" />
+    <Property Name="broj_telefona" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="RezervacijeOprema">
+    <Key>
+      <PropertyRef Name="id_oprema" />
+      <PropertyRef Name="id_rezervacije" />
+    </Key>
+    <Property Name="id_oprema" Type="Int32" Nullable="false" />
+    <Property Name="id_rezervacije" Type="Int32" Nullable="false" />
+    <Property Name="kolicina_rezervisane_opreme" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tip_opreme">
+    <Key>
+      <PropertyRef Name="id_tip_opreme" />
+    </Key>
+    <Property Name="id_tip_opreme" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="naziv_tipa" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="id_oblasti_opreme" Type="Int32" Nullable="false" />
+    <Property Name="slika_tipa" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="parametris" Relationship="SmartSoftwareBazaModel.parametri_tip_opreme_FK" FromRole="tip_opreme" ToRole="parametri" />
+    <NavigationProperty Name="oblasti_opreme" Relationship="SmartSoftwareBazaModel.tip_opreme_oblasti_opreme_FK" FromRole="tip_opreme" ToRole="oblasti_opreme" />
+    <Property Name="deletedField" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <Association Name="parametri_tip_opreme_FK">
+    <End Type="SmartSoftwareBazaModel.tip_opreme" Role="tip_opreme" Multiplicity="1" />
+    <End Type="SmartSoftwareBazaModel.parametri" Role="parametri" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tip_opreme">
+        <PropertyRef Name="id_tip_opreme" />
+      </Principal>
+      <Dependent Role="parametri">
+        <PropertyRef Name="id_tip_opreme" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="oblasti_opreme">
+    <Key>
+      <PropertyRef Name="id_oblasti_opreme" />
+    </Key>
+    <Property Name="id_oblasti_opreme" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="naziv_oblasti_opreme" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="picture" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="tip_opreme" Relationship="SmartSoftwareBazaModel.tip_opreme_oblasti_opreme_FK" FromRole="oblasti_opreme" ToRole="tip_opreme" />
+    <Property Name="deletedField" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <Association Name="tip_opreme_oblasti_opreme_FK">
+    <End Type="SmartSoftwareBazaModel.oblasti_opreme" Role="oblasti_opreme" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="SmartSoftwareBazaModel.tip_opreme" Role="tip_opreme" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="oblasti_opreme">
+        <PropertyRef Name="id_oblasti_opreme" />
+      </Principal>
+      <Dependent Role="tip_opreme">
+        <PropertyRef Name="id_oblasti_opreme" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="korisnici">
+    <Key>
+      <PropertyRef Name="id_korisnici" />
+    </Key>
+    <Property Name="id_korisnici" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ime" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="prezime" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="mejl" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="broj_telefona" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="username" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="lozinka" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="broj_ostvareni_poena" Type="Int32" Nullable="false" />
+    <Property Name="id_uloge" Type="Int32" Nullable="false" />
+    <Property Name="deletedField" Type="Boolean" Nullable="false" />
+    <Property Name="slika_korisnika" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="pol_korisnika" Type="Boolean" />
+    <Property Name="datum_kreiranja" Type="DateTime" Precision="3" />
+    <Property Name="datum_azuriranja" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="istorija_kupovine">
+    <Key>
+      <PropertyRef Name="id_istorija_kupovine" />
+    </Key>
+    <Property Name="id_istorija_kupovine" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="datum_prodaje" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="id_prodavca" Type="Int32" Nullable="false" />
+    <Property Name="id_kupca" Type="Int32" />
+    <Property Name="ukupna_cena_kupovine" Type="Double" Nullable="false" />
+    <Property Name="broj_iskoriscenih_popust_poena" Type="Double" />
+  </EntityType>
+  <EntityType Name="istorija_kupovine_oprema">
+    <Key>
+      <PropertyRef Name="id_oprema" />
+      <PropertyRef Name="id_istorija_kupovine" />
+    </Key>
+    <Property Name="id_oprema" Type="Int32" Nullable="false" />
+    <Property Name="kolicina" Type="Int32" />
+    <Property Name="cena_opreme_kad_je_prodata" Type="Double" />
+    <Property Name="popust_na_cenu" Type="Double" />
+    <Property Name="ukupna_cena_artikla" Type="Int32" />
+    <Property Name="id_istorija_kupovine" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="oprema" Relationship="SmartSoftwareBazaModel.istorija_kupovine_oprema_oprema_FK" FromRole="istorija_kupovine_oprema" ToRole="oprema" />
+  </EntityType>
+  <ComplexType Name="IstorijaKupovineKupciKojiNajviseKupuju_Result">
+    <Property Type="Int32" Name="id_kupca" Nullable="true" />
+    <Property Type="Int32" Name="kupljenoOpreme" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="IstorijaKupovineNajcesciKupci_Result">
+    <Property Type="Int32" Name="id_kupca" Nullable="true" />
+    <Property Type="Int32" Name="brojKupovina" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="IstorijaKupovineNajprodavanijaOprema_Result">
+    <Property Type="Int32" Name="id_oprema" Nullable="false" />
+    <Property Type="Int32" Name="prodataKolicinaOpreme" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="IstorijaKupovinePotrosnjaKupaca_Result">
+    <Property Type="Int32" Name="id_kupca" Nullable="true" />
+    <Property Type="Double" Name="ukupnoPotrosio" Nullable="true" />
+  </ComplexType>
+  <EntityType Name="narudzbine">
+    <Key>
+      <PropertyRef Name="id_narudzbine" />
+    </Key>
+    <Property Name="id_narudzbine" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="kolicina" Type="Int32" Nullable="false" />
+    <Property Name="id_oprema" Type="Int32" Nullable="false" />
+    <Property Name="id_prodavca" Type="Int32" Nullable="false" />
+    <Property Name="datum_narudzbine" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="oprema" Relationship="SmartSoftwareBazaModel.narudzbine_oprema_FK" FromRole="narudzbine" ToRole="oprema" />
+  </EntityType>
+  <EntityType Name="kolekcija_opreme">
+    <Key>
+      <PropertyRef Name="id_opreme" />
+      <PropertyRef Name="id_deo" />
+    </Key>
+    <Property Name="id_opreme" Type="Int32" Nullable="false" />
+    <Property Name="id_deo" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="oprema">
+    <Key>
+      <PropertyRef Name="id_oprema" />
+    </Key>
+    <Property Name="id_oprema" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="proizvodjac" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="naslov" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="cena" Type="Double" Nullable="false" />
+    <Property Name="opis" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="model" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="id_tip_opreme" Type="Int32" Nullable="false" />
+    <Property Name="lager" Type="Boolean" />
+    <Property Name="kolicina_u_rezervi" Type="Int32" />
+    <Property Name="kolicina_na_lageru" Type="Int32" />
+    <Property Name="oprema_na_popustu" Type="Int32" />
+    <Property Name="slika" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="deletedField" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="istorija_kupovine_oprema" Relationship="SmartSoftwareBazaModel.istorija_kupovine_oprema_oprema_FK" FromRole="oprema" ToRole="istorija_kupovine_oprema" />
+    <NavigationProperty Name="narudzbines" Relationship="SmartSoftwareBazaModel.narudzbine_oprema_FK" FromRole="oprema" ToRole="narudzbine" />
+    <NavigationProperty Name="parametarOpremas" Relationship="SmartSoftwareBazaModel.parametarOprema_oprema_FK" FromRole="oprema" ToRole="parametarOprema" />
+  </EntityType>
+  <Association Name="istorija_kupovine_oprema_oprema_FK">
+    <End Type="SmartSoftwareBazaModel.oprema" Role="oprema" Multiplicity="1" />
+    <End Type="SmartSoftwareBazaModel.istorija_kupovine_oprema" Role="istorija_kupovine_oprema" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="oprema">
+        <PropertyRef Name="id_oprema" />
+      </Principal>
+      <Dependent Role="istorija_kupovine_oprema">
+        <PropertyRef Name="id_oprema" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="narudzbine_oprema_FK">
+    <End Type="SmartSoftwareBazaModel.oprema" Role="oprema" Multiplicity="1" />
+    <End Type="SmartSoftwareBazaModel.narudzbine" Role="narudzbine" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="oprema">
+        <PropertyRef Name="id_oprema" />
+      </Principal>
+      <Dependent Role="narudzbine">
+        <PropertyRef Name="id_oprema" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="parametarOprema_oprema_FK">
+    <End Type="SmartSoftwareBazaModel.oprema" Role="oprema" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="SmartSoftwareBazaModel.parametarOprema" Role="parametarOprema" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="oprema">
+        <PropertyRef Name="id_oprema" />
+      </Principal>
+      <Dependent Role="parametarOprema">
+        <PropertyRef Name="id_oprema" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="grupe_ogranicenja">
+    <Key>
+      <PropertyRef Name="Id_grupe_ogranicenja" />
+    </Key>
+    <Property Name="Id_grupe_ogranicenja" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_tip_opreme1" Type="Int32" Nullable="false" />
+    <Property Name="id_parametra1" Type="Int32" Nullable="false" />
+    <Property Name="id_tip_opreme2" Type="Int32" />
+    <Property Name="id_parametra2" Type="Int32" />
+    <Property Name="tipProvere" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="id_tip_opreme_kolekcije" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="konfiguracija_kolekcije">
+    <Key>
+      <PropertyRef Name="Id_tip_opreme_kolekcije" />
+      <PropertyRef Name="id_tip_opreme_deo_kolekcije" />
+    </Key>
+    <Property Name="Id_tip_opreme_kolekcije" Type="Int32" Nullable="false" />
+    <Property Name="id_tip_opreme_deo_kolekcije" Type="Int32" Nullable="false" />
+    <Property Name="redosled_prikazivanja" Type="Int32" Nullable="false" />
+    <Property Name="moguca_kolicina_unosa" Type="Int32" Nullable="false" />
+  </EntityType>
+</Schema>
